@@ -1,0 +1,54 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Zahtevi za registraciju</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+              <th>
+                Id
+              </th>
+              <th>
+                Ime
+              </th>
+              <th>
+                Prezime
+              </th>
+              <th>
+                E-mail
+              </th>
+              <th>
+                JBO
+              </th>
+              <th>
+                Akcija
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let zahtev of zahtevi">
+                <tr>
+                <td>{{zahtev.id}}</td>
+                <td>{{zahtev.imePacijenta}}</td>
+                <td>{{zahtev.prezimePacijenta}}</td>
+                <td>{{zahtev.e_mail}}</td>
+                <td>{{zahtev.jbo}}</td>
+                <td>
+                    <button class="btn-success" (click)="odobri(zahtev.id)">Odobri</button>
+                    <button class="btn-danger" (click)="obrisi(zahtev.id)">Obriši</button>
+                </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
