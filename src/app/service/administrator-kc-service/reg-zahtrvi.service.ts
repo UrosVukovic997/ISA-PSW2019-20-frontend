@@ -26,10 +26,9 @@ export class RegZahtrviService {
       );
   }
 
-  odobriPacijenta(id): Observable<any> {
-    return this.http.post(this.configService.odobri_pacijenta_url + id, null)
+  odobriPacijenta(id): Observable<Response> {
+   return this.http.post<Response>(this.configService.odobri_pacijenta_url + id, null)
       .pipe(
-        retry(1),
     catchError(this.errorHandl)
       );
   }
