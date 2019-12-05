@@ -21,6 +21,15 @@ export class ConfigService {
     return this._api_url + '/registracija/obrisi';
   }
 
+  get napravi_pacijenta_url(): string {
+    return this._api_url + '/pacijenti/registruj';
+  }
+
+  get loguj_pacijenta_url(): string {
+    return this._api_url + '/pacijenti/logovanje';
+  }
+
+
   get get_all_dijagnoze_url(): string {
     return this._api_url + '/dijagnoza/getAll';
   }
@@ -44,4 +53,5 @@ export class ConfigService {
   get dodaj_lek_url(): string {
     return this._api_url + '/lek/dodaj';
   }
+
 }

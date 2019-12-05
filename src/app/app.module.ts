@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
 import {RegZahtrviService} from './service/administrator-kc-service/reg-zahtrvi.service';
+import { RegComponent } from './registracija/reg/reg.component';
+import { LogovanjeComponent } from './registracija/logovanje/logovanje.component';
 
 
 @NgModule({
@@ -24,12 +26,15 @@ import {RegZahtrviService} from './service/administrator-kc-service/reg-zahtrvi.
     AppRoutingModule,
     ComponentsModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule
 
   ],
   declarations: [
     AppComponent,
-    AdminKcLayoutComponent
+    AdminKcLayoutComponent,
+    RegComponent,
+    LogovanjeComponent
 
   ],
   providers: [RegZahtrviService],
