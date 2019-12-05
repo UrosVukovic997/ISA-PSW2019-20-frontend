@@ -20,4 +20,13 @@ export class ConfigService {
   get obrisi_pacijenta_url(): string {
     return this._api_url + '/registracija/obrisi';
   }
+
+  get napravi_pacijenta_url(): string {
+    return this._api_url + '/pacijenti/registruj';
+  }
+
+  get loguj_pacijenta_url(): string {
+    return this._api_url + '/pacijenti/logovanje';
+  }
+
 }
