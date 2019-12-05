@@ -25,14 +25,17 @@ import {AdminKcLayoutComponent} from './admin-kc-layout.component';
     ChartsModule,
     ToastrModule.forRoot(),
     NgbModule,
-    ComponentsModule
- ],
+    ComponentsModule,
+    ReactiveFormsModule
+  ],
   declarations: [
     RegKlinikuComponent,
     RegAdminComponent,
     ListaRegZahtevaComponent,
     SifLekovaComponent,
     SigDijagnozaComponent
+  ],
+  bootstrap: [ SigDijagnozaComponent
   ]
 })
 

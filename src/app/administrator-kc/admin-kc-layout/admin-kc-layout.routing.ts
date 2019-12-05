@@ -11,6 +11,6 @@ export const AdminKcLayoutRoutes: Routes = [
   { path: 'registrujadministratora',   component: RegAdminComponent },
   { path: 'zahtevizaregistraciju',     component: ListaRegZahtevaComponent },
   { path: 'sifarniklekova',     component: SifLekovaComponent },
-  { path: 'sifrnikllinika',          component: SigDijagnozaComponent },
+  { path: 'sifarnikdijagnoza',          component: SigDijagnozaComponent },
 
 ];
