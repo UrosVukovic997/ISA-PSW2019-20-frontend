@@ -20,4 +20,28 @@ export class ConfigService {
   get obrisi_pacijenta_url(): string {
     return this._api_url + '/registracija/obrisi';
   }
+
+  get get_all_dijagnoze_url(): string {
+    return this._api_url + '/dijagnoza/getAll';
+  }
+
+  get obrisi_dijagnozu_url(): string {
+    return this._api_url + '/dijagnoza/obrisi';
+  }
+
+  get dodaj_dijagnozu_url(): string {
+    return this._api_url + '/dijagnoza/dodaj';
+  }
+
+  get get_all_lekove_url(): string {
+    return this._api_url + '/lek/getAll';
+  }
+
+  get obrisi_lek_url(): string {
+    return this._api_url + '/lek/obrisi';
+  }
+
+  get dodaj_lek_url(): string {
+    return this._api_url + '/lek/dodaj';
+  }
 }

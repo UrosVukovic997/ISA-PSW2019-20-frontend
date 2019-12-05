@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegZahtrviService } from '../../service/administrator-kc-service/reg-zahtrvi.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-reg-zahteva',
@@ -8,7 +9,7 @@ import { RegZahtrviService } from '../../service/administrator-kc-service/reg-za
 })
 export class ListaRegZahtevaComponent implements OnInit {
 
-  constructor( private regZahteviService: RegZahtrviService) { }
+  constructor( private regZahteviService: RegZahtrviService, private router: Router) { }
   zahtevi: any = [];
   ngOnInit() {
   this.ucitajZahteve();
@@ -35,11 +36,17 @@ export class ListaRegZahtevaComponent implements OnInit {
   }
 
   odobri(id) {
-    this.regZahteviService.odobriPacijenta(id).subscribe();
-
-
+    this.regZahteviService.odobriPacijenta(id).subscribe(
+    );
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/admin-kc/zahtevizaregistraciju']);
+    });
   }
+
   obrisi(id) {
     this.regZahteviService.obrisiPacijenta(id).subscribe();
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/admin-kc/zahtevizaregistraciju']);
+    });
   }
 }
