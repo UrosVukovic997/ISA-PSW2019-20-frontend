@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table">
+            <table class="table table-striped">
               <thead class=" text-primary">
               <th>
                 Šifra
@@ -22,14 +22,19 @@
               </th>
               </thead>
               <tbody>
-              <ng-container *ngFor="let dijagnoza of dijagnoze">
+              <ng-container *ngFor="let dijagnoza of dijagnoze; let i = index">
                 <tr>
                   <td>{{dijagnoza.id}}</td>
                   <td>{{dijagnoza.nazivDijagnoze}}</td>
                   <td>{{dijagnoza.opisDijagnoze}}</td>
                   <td>
-                    <button class="btn btn-lg btn-neutral" (click)="izmeni(dijagnoza.id)">Izmeni</button>
-                    <button class="btn btn-lg btn-danger" (click)="obrisi(dijagnoza.id)">Obriši</button>
+                    <div ngbDropdown class="d-inline-block">
+                      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Akcija</button>
+                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem (click)="izmeni(mymodal, i)">Izmeni</button>
+                        <button ngbDropdownItem (click)="obrisi(dijagnoza.id)">Obriši</button>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               </ng-container>
@@ -54,14 +59,14 @@
     <form [formGroup]="dijalogForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label  >Naziv</label>
-        <input type="text" formControlName="naziv" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.naziv.errors }" />
+        <input type="text" value={{nazivD}} formControlName="naziv" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.naziv.errors }" />
         <div *ngIf="submitted && f.naziv.errors" class="invalid-feedback">
           <div *ngIf="f.naziv.errors.required">Naziv ne moze biti prazan</div>
         </div>
       </div>
       <div class="form-group">
         <label >Opis</label>
-        <input type="text" formControlName="opis" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.opis.errors }" />
+        <input type="text" value={{opisD}} formControlName="opis" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.opis.errors }" />
         <div *ngIf="submitted && f.opis.errors" class="invalid-feedback">
           <div *ngIf="f.opis.errors.required">Opis ne moze biti prazan</div>
         </div>

@@ -34,6 +34,8 @@ import {AdminKcLayoutComponent} from './admin-kc-layout.component';
     ListaRegZahtevaComponent,
     SifLekovaComponent,
     SigDijagnozaComponent
+  ],
+  bootstrap: [ SigDijagnozaComponent
   ]
 })
 

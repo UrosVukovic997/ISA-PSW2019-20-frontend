@@ -6,6 +6,7 @@ import {RegZahtev} from '../../shared/utilities/reg-zahtev';
 import {catchError, retry} from 'rxjs/operators';
 import {Dijagnoza} from '../../shared/utilities/dijagnoza';
 import {Encoding} from 'tslint/lib/utils';
+import {Lek} from '../../shared/utilities/lek';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,31 @@ export class SifrarnikService {
       );
   }
 
+  getAllDLekove(): Observable<Lek> {
+    return this.http.get<Lek>(this.configService.get_all_lekove_url, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandl)
+      );
+  }
+
+  obrisiDLek(id): Observable<any> {
+    return this.http.delete(this.configService.obrisi_lek_url + id)
+      .pipe(
+        catchError(this.errorHandl)
+      );
+  }
+
+  dodajLek(naziv, opis): Observable<any> {
+    const l = new Lek();
+    l.id = 0;
+    l.nazivLeka = naziv;
+    l.opisLeka = opis;
+
+    return this.http.post<any>(this.configService.dodaj_lek_url, l)
+      .pipe(
+        catchError(this.errorHandl)
+      );
+  }
 
 
 

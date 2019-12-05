@@ -2,9 +2,11 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {SifrarnikService} from '../../service/administrator-kc-service/sifrarnik.service';
 
-import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons, NgbModalOptions, NgbDropdownToggle, NgbDropdownMenu,
+  NgbDropdown, NgbDropdownItem} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {first} from 'rxjs/operators';
+import {Dijagnoza} from '../../shared/utilities/dijagnoza';
 
 @Component({
   selector: 'app-sig-dijagnoza',
@@ -14,12 +16,18 @@ import {first} from 'rxjs/operators';
 export class SigDijagnozaComponent implements OnInit {
 
   modalOptions: NgbModalOptions;
+  ngbDropdownToggle: NgbDropdownToggle;
+  ngbDropdownMenu: NgbDropdownMenu;
+  ngbDropdown: NgbDropdown;
+  ngbDropdownItem: NgbDropdownItem;
   closeResult: string;
   dijalogForm: FormGroup;
   @Input() myModalTitle;
   @Input() myModalContent;
   loading = false;
   submitted = false;
+  nazivD = '';
+  opisD = '';
 
   constructor(private sifrarnikService: SifrarnikService , private router: Router, private modalService: NgbModal,
               private formBuilder: FormBuilder) {
@@ -48,13 +56,27 @@ export class SigDijagnozaComponent implements OnInit {
 
   obrisi(id) {
     this.sifrarnikService.obrisiDijagnozu(id).subscribe();
-    console.log('obrisi');
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/admin-kc/sifarnikdijagnoza']);
+    });
   }
-  izmeni(id) {}
+  izmeni(content, i) {
+    const d =  (this.dijagnoze[i]) as Dijagnoza;
+    this.myModalTitle = 'Izmeni dijagnozu -' + d.nazivDijagnoze;
+    this.nazivD = d.nazivDijagnoze;
+    this.opisD = d.opisDijagnoze;
+    this.modalService.open(content, this.modalOptions).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
   dodaj() {}
 
   open(content) {
     this.myModalTitle = 'Nova dijagnoza';
+    this.nazivD = '';
+    this.opisD = '';
     this.modalService.open(content, this.modalOptions).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -82,7 +104,7 @@ export class SigDijagnozaComponent implements OnInit {
 
     this.loading = true;
 
-    this.sifrarnikService.dodajDijagnozu(this.f.naziv.value, this.f.naziv.value).pipe(first()).subscribe(
+    this.sifrarnikService.dodajDijagnozu(this.f.naziv.value, this.f.opis.value).pipe(first()).subscribe(
         data => {
           this.modalService.dismissAll();
           this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {

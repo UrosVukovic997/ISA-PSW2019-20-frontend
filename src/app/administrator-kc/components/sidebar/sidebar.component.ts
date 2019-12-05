@@ -7,11 +7,11 @@ declare interface RouteInfo {
   class: string;
 }
 export const ROUTES: RouteInfo[] = [
-  { path: '/admin-kc/registrujkliniku', title: 'Registruj kliniku',  icon: 'design_app', class: '' },
-  { path: '/admin-kc/registrujadministratora', title: 'Registruj administratora',  icon: 'design_app', class: '' },
-  { path: '/admin-kc/zahtevizaregistraciju', title: 'Zahtevi za registraciju',  icon: 'design_app', class: '' },
-  { path: '/admin-kc/sifarniklekova', title: 'Lekova',  icon: 'design_app', class: '' },
-  { path: '/admin-kc/sifrnikllinika', title: 'Klinika',  icon: 'design_app', class: '' }
+  { path: '/admin-kc/registrujkliniku', title: 'Registruj kliniku',  icon: 'health_ambulance', class: '' },
+  { path: '/admin-kc/registrujadministratora', title: 'Registruj administratora',  icon: 'ui-1_simple-add', class: '' },
+  { path: '/admin-kc/zahtevizaregistraciju', title: 'Zahtevi za registraciju',  icon: 'files_single-copy-04', class: '' },
+  { path: '/admin-kc/sifarniklekova', title: 'Šifarnik lekova',  icon: 'ui-2_favourite-28', class: '' },
+  { path: '/admin-kc/sifarnikdijagnoza', title: 'Šifarnik dijagnoza',  icon: 'media-2_sound-wave', class: '' }
 ];
 
 @Component({
