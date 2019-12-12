@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import {RegZahtrviService} from './service/administrator-kc-service/reg-zahtrvi.service';
 import { RegComponent } from './registracija/reg/reg.component';
 import { LogovanjeComponent } from './registracija/logovanje/logovanje.component';
+import { PotvrdaComponent } from './administrator-kc/potvrda/potvrda.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { LogovanjeComponent } from './registracija/logovanje/logovanje.component
     AppComponent,
     AdminKcLayoutComponent,
     RegComponent,
-    LogovanjeComponent
+    LogovanjeComponent,
+    PotvrdaComponent
 
   ],
   providers: [RegZahtrviService],

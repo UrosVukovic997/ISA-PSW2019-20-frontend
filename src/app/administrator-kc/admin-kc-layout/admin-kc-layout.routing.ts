@@ -5,6 +5,7 @@ import { RegAdminComponent } from '../reg-admin/reg-admin.component';
 import { ListaRegZahtevaComponent } from '../lista-reg-zahteva/lista-reg-zahteva.component';
 import { SifLekovaComponent } from '../sif-lekova/sif-lekova.component';
 import { SigDijagnozaComponent } from '../sig-dijagnoza/sig-dijagnoza.component';
+import { PotvrdaComponent } from '../potvrda/potvrda.component';
 
 export const AdminKcLayoutRoutes: Routes = [
   { path: 'registrujkliniku',      component: RegKlinikuComponent },

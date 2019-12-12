@@ -17,6 +17,10 @@ export class ConfigService {
     return this._api_url + '/registracija/odobri';
   }
 
+  get aktiviraj_nalog_url(): string {
+    return this._api_url + '/registracija/potvrdi/';
+  }
+
   get obrisi_pacijenta_url(): string {
     return this._api_url + '/registracija/obrisi';
   }
@@ -53,5 +57,7 @@ export class ConfigService {
   get dodaj_lek_url(): string {
     return this._api_url + '/lek/dodaj';
   }
+
+
 
 }

@@ -6,10 +6,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminKcLayoutComponent } from './administrator-kc/admin-kc-layout/admin-kc-layout.component';
 import { RegComponent} from '../app/registracija/reg/reg.component';
 import {LogovanjeComponent} from './registracija/logovanje/logovanje.component';
+import {PotvrdaComponent} from './administrator-kc/potvrda/potvrda.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'admin-kc',
+    redirectTo: 'logovanje',
     pathMatch: 'full',
   }, {
     path: 'admin-kc',
@@ -27,8 +28,8 @@ const routes: Routes = [
     path: 'logovanje',
     component: LogovanjeComponent,
     children: [
-    ]}
-
+    ]},
+  { path: 'aktivirajNalog/:id', component: PotvrdaComponent }
 ];
 
 @NgModule({

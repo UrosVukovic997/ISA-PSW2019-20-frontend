@@ -1,1 +1,86 @@
-<p>reg-kliniku works!</p>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Registrovane klinike</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class=" text-primary">
+              <th>
+                Šifra
+              </th>
+              <th>
+                Naziv
+              </th>
+              <th>
+                Grad
+              </th>
+              <th>
+                Ocena
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let klinika of klinike; let i = index">
+                <tr>
+                  <td>{{klinika.id}}</td>
+                  <td>{{klinika.nazivKlinike}}</td>
+                  <td>{{klinika.grad}}</td>
+                  <td>{{klinika.ocena}}</td>
+                  <td>
+                    <div ngbDropdown class="d-inline-block">
+                      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Akcija</button>
+                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem>Izmeni</button>
+                        <button ngbDropdownItem>Obriši</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+          <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Registruj kliniku</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{myModalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="klinikaForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label  >Naziv klinike</label>
+        <input type="text" value={{nazivK}} formControlName="nazivKlinike" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.naziv.errors }" />
+        <div *ngIf="submitted && f.naziv.errors" class="invalid-feedback">
+          <div *ngIf="f.naziv.errors.required">Naziv ne moze biti prazan</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label >Grad</label>
+        <input type="text" value={{grad}} formControlName="grad" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.opis.errors }" />
+        <div *ngIf="submitted && f.opis.errors" class="invalid-feedback">
+          <div *ngIf="f.opis.errors.required">Opis ne moze biti prazan</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Dodaj
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

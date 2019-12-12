@@ -1,0 +1,21 @@
+
+<div id="notfound" *ngIf="show">
+  <div class="notfound">
+    <div class="notfound-404">
+      <h1>Oops!</h1>
+    </div>
+    <h2>Aktivacija nije uspela!</h2>
+    <p>Proverite ispravnost linka i pokušajte ponovo.</p>
+    <a href="http://localhost:4200/">Početna strana</a>
+  </div>
+</div>
+
+<div id="found" *ngIf="!show">
+  <div class="notfound">
+    <div class="found">
+      <h1>Čestitamo</h1>
+    </div>
+    <h2>Uspešno ste aktivirali nalog!</h2>
+    <a href="http://localhost:4200/">Početna strana</a>
+  </div>
+</div>
