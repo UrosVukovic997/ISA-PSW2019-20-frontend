@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../../service/registracijaService/authentication.service';
+import {LogovanjeServiceService} from '../../service/logovanjeService/logovanje-service.service';
 
 @Component({
   selector: 'app-logovanje',
@@ -22,12 +23,13 @@ export class LogovanjeComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private loginService: LogovanjeServiceService
   ) {
-    // redirect to home if already logged in
+    /*// redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
-    }
+    }*/
   }
 
   ngOnInit() {
@@ -35,7 +37,6 @@ export class LogovanjeComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-
  /*   // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 
@@ -62,16 +63,16 @@ export class LogovanjeComponent implements OnInit {
     }
 
     this.loading = true;
-  /*  this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.loginService.login(this.loginForm.value)
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          this.router.navigate(['/registracija']);
         },
         error => {
           this.error = error;
           this.loading = false;
         });
- */ }
+  }
 
 }

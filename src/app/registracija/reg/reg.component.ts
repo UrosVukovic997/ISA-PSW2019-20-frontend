@@ -29,12 +29,13 @@ export class RegComponent implements OnInit {
       imePacijenta: ['', Validators.required],
       prezimePacijenta: ['', Validators.required] ,
       email: ['', Validators.required],
-      lozinka: ['', Validators.required],
+      password: ['', Validators.required],
       adresa: ['', Validators.required],
       grad: ['', Validators.required],
       drzava: ['', Validators.required],
       brojTelefona: ['', Validators.required],
-      jbo: ['', Validators.required]
+      jbo: ['', Validators.required],
+      username: ['', Validators.required]
     });
   }
 
@@ -53,7 +54,7 @@ export class RegComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/login'], { queryParams: { registered: true }});
+          this.router.navigate(['/logovanje'], { queryParams: { registered: true }});
         },
         error => {
           this.error = error;
