@@ -17,6 +17,10 @@ export class ConfigService {
     return this._api_url + '/registracija/odobri';
   }
 
+  get aktiviraj_nalog_url(): string {
+    return this._api_url + '/registracija/potvrdi/';
+  }
+
   get obrisi_pacijenta_url(): string {
     return this._api_url + '/registracija/obrisi';
   }
@@ -26,7 +30,7 @@ export class ConfigService {
   }
 
   get loguj_pacijenta_url(): string {
-    return this._api_url + '/pacijenti/logovanje';
+    return this._api_url + '/logovanje/login';
   }
 
   get get_all_dijagnoze_url(): string {
@@ -59,5 +63,35 @@ export class ConfigService {
   get reg_odsodmor_url(): string {
     return this._api_url + '/pacijenti/zahtev';
   }
+
+  get get_all_klinike_url(): string {
+    return this._api_url + '/klinika/getAll';
+  }
+
+  get get_all_klinike_names_url(): string {
+    return this._api_url + '/klinika/getAllNames';
+  }
+
+  get dodaj_kliniku_url(): string {
+    return this._api_url + '/klinika/dodaj';
+  }
+
+  get obrisi_kliniku_url(): string {
+    return this._api_url + '/klinika/obrisi';
+  }
+
+  get get_all_admin_url(): string {
+    return this._api_url + '/admin/getAll';
+  }
+
+  get dodaj_admin_url(): string {
+    return this._api_url + '/admin/dodaj';
+  }
+  get obrisi_admin_url(): string {
+    return this._api_url + '/admin/obrisi';
+  }
+
+
+
 
 }

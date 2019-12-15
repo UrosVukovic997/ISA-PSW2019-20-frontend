@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import {RegZahtrviService} from './service/administrator-kc-service/reg-zahtrvi.service';
 import { RegComponent } from './registracija/reg/reg.component';
 import { LogovanjeComponent } from './registracija/logovanje/logovanje.component';
+import { PotvrdaComponent } from './administrator-kc/potvrda/potvrda.component';
 
 import { LekarKcLayoutComponent } from './lekar/lekar-kc-layout/lekar-kc-layout.component';
 import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
@@ -41,7 +42,9 @@ import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.compon
     RegComponent,
     LogovanjeComponent,
     LekarKcLayoutComponent,
-    SidebarLekarComponent
+    SidebarLekarComponent,
+    PotvrdaComponent
+
   ],
   providers: [RegZahtrviService],
   bootstrap: [AppComponent]

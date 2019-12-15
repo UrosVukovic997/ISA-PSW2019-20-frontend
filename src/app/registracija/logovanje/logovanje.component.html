@@ -5,10 +5,10 @@
     <div class="title">Logovanje</div>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label>E-mail</label>
+    <label>Username</label>
     <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
     <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-      <div *ngIf="f.username.errors.required">E-mail je obavezan</div>
+      <div *ngIf="f.username.errors.required">Username je obavezan</div>
     </div>
   </div>
   <div class="form-group">
@@ -18,13 +18,28 @@
       <div *ngIf="f.password.errors.required">Lozinka je obavezna</div>
     </div>
   </div>
-  <div class="form-group">
-    <input type="radio" name="rol" value="pacijent"> Pacijent<br>
-    <input type="radio" name="rol" value="lekar"> Lekar<br>
-    <input type="radio" name="rol" value="medicinskaSestra"> Medicinska sestra<br>
-    <input type="radio" name="rol" value="administratorKlinike"> Administrator klinike<br>
-    <input type="radio" name="rol" value="administratorKlinickog"> Administrator klinickog
-  </div>
+
+    <div>
+      <input id="pacijent" type="radio" value="pacijent" name="gender" formControlName="gender">
+      <label for="pacijent">pacijent</label>
+    </div>
+    <div>
+      <input id="lekar" type="radio" value="lekar" name="gender" formControlName="gender">
+      <label for="lekar">lekar</label>
+    </div>
+    <div>
+      <input id="medicinskaSestra" type="radio" value="medicinskaSestra" name="gender" formControlName="gender">
+      <label for="medicinskaSestra">medicinska sestra</label>
+    </div>
+    <div>
+      <input id="administratorKlinike" type="radio" value="administratorKlinike" name="gender" formControlName="gender">
+      <label for="administratorKlinike">administrator klinike</label>
+    </div>
+    <div>
+      <input id="administratorKlinickog" type="radio" value="administratorKlinickog" name="gender" formControlName="gender">
+      <label for="administratorKlinickog">administrator kc</label>
+    </div>
+
   <div class="form-group">
     <button [disabled]="loading" class="btn btn-primary">
       <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>

@@ -3,7 +3,7 @@ export class RegZahtev {
   imePacijenta: string;
   prezimePacijenta: string;
   // tslint:disable-next-line:variable-name
-  e_mail: string;
+  email: string;
   jbo: number;
 
 }
