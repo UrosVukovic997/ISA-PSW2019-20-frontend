@@ -16,6 +16,9 @@ import {RegZahtrviService} from './service/administrator-kc-service/reg-zahtrvi.
 import { RegComponent } from './registracija/reg/reg.component';
 import { LogovanjeComponent } from './registracija/logovanje/logovanje.component';
 
+import { LekarKcLayoutComponent } from './lekar/lekar-kc-layout/lekar-kc-layout.component';
+import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
+
 
 @NgModule({
   imports: [
@@ -25,6 +28,8 @@ import { LogovanjeComponent } from './registracija/logovanje/logovanje.component
     RouterModule,
     AppRoutingModule,
     ComponentsModule,
+
+
     NgbModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule
@@ -34,8 +39,9 @@ import { LogovanjeComponent } from './registracija/logovanje/logovanje.component
     AppComponent,
     AdminKcLayoutComponent,
     RegComponent,
-    LogovanjeComponent
-
+    LogovanjeComponent,
+    LekarKcLayoutComponent,
+    SidebarLekarComponent
   ],
   providers: [RegZahtrviService],
   bootstrap: [AppComponent]

@@ -6,7 +6,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminKcLayoutComponent } from './administrator-kc/admin-kc-layout/admin-kc-layout.component';
 import { RegComponent} from '../app/registracija/reg/reg.component';
 import {LogovanjeComponent} from './registracija/logovanje/logovanje.component';
+import { LekarKcLayoutComponent } from './lekar/lekar-kc-layout/lekar-kc-layout.component';
+
+
 const routes: Routes = [
+
   {
     path: '',
     redirectTo: 'admin-kc',
@@ -23,12 +27,17 @@ const routes: Routes = [
     path: 'registracija',
     component: RegComponent,
     children: [
-]}, {
+    ]},
+    {
     path: 'logovanje',
     component: LogovanjeComponent,
     children: [
+    ]},
+    {
+    path: 'lekar-kc',
+    component: LekarKcLayoutComponent,
+    children: [
     ]}
-
 ];
 
 @NgModule({
