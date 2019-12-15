@@ -58,6 +58,34 @@ export class ConfigService {
     return this._api_url + '/lek/dodaj';
   }
 
+  get get_all_klinike_url(): string {
+    return this._api_url + '/klinika/getAll';
+  }
+
+  get get_all_klinike_names_url(): string {
+    return this._api_url + '/klinika/getAllNames';
+  }
+
+  get dodaj_kliniku_url(): string {
+    return this._api_url + '/klinika/dodaj';
+  }
+
+  get obrisi_kliniku_url(): string {
+    return this._api_url + '/klinika/obrisi';
+  }
+
+  get get_all_admin_url(): string {
+    return this._api_url + '/admin/getAll';
+  }
+
+  get dodaj_admin_url(): string {
+    return this._api_url + '/admin/dodaj';
+  }
+  get obrisi_admin_url(): string {
+    return this._api_url + '/admin/obrisi';
+  }
+
+
 
 
 }
