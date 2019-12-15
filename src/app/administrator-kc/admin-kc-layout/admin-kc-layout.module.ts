@@ -11,6 +11,7 @@ import { SigDijagnozaComponent } from '../sig-dijagnoza/sig-dijagnoza.component'
 import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from 'ngx-toastr';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DropdownListModule } from 'ngx-dropdown-list';
 
 import { ComponentsModule } from '../components/components.module';
 import {AdminKcLayoutComponent} from './admin-kc-layout.component';
@@ -26,7 +27,8 @@ import {AdminKcLayoutComponent} from './admin-kc-layout.component';
     ToastrModule.forRoot(),
     NgbModule,
     ComponentsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DropdownListModule
   ],
   declarations: [
     RegKlinikuComponent,
