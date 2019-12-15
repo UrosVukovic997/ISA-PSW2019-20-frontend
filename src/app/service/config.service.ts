@@ -33,7 +33,6 @@ export class ConfigService {
     return this._api_url + '/logovanje/login';
   }
 
-
   get get_all_dijagnoze_url(): string {
     return this._api_url + '/dijagnoza/getAll';
   }
@@ -56,6 +55,13 @@ export class ConfigService {
 
   get dodaj_lek_url(): string {
     return this._api_url + '/lek/dodaj';
+  }
+  get get_all_pacijenti_url(): string {
+    return this._api_url + '/pacijenti/getAll';
+  }
+
+  get reg_odsodmor_url(): string {
+    return this._api_url + '/pacijenti/zahtev';
   }
 
   get get_all_klinike_url(): string {

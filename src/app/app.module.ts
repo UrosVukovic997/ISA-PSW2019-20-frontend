@@ -17,6 +17,9 @@ import { RegComponent } from './registracija/reg/reg.component';
 import { LogovanjeComponent } from './registracija/logovanje/logovanje.component';
 import { PotvrdaComponent } from './administrator-kc/potvrda/potvrda.component';
 
+import { LekarKcLayoutComponent } from './lekar/lekar-kc-layout/lekar-kc-layout.component';
+import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
+
 
 @NgModule({
   imports: [
@@ -26,6 +29,8 @@ import { PotvrdaComponent } from './administrator-kc/potvrda/potvrda.component';
     RouterModule,
     AppRoutingModule,
     ComponentsModule,
+
+
     NgbModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule
@@ -36,6 +41,8 @@ import { PotvrdaComponent } from './administrator-kc/potvrda/potvrda.component';
     AdminKcLayoutComponent,
     RegComponent,
     LogovanjeComponent,
+    LekarKcLayoutComponent,
+    SidebarLekarComponent,
     PotvrdaComponent
 
   ],
