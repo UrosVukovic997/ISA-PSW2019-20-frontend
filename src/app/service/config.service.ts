@@ -30,7 +30,7 @@ export class ConfigService {
   }
 
   get loguj_pacijenta_url(): string {
-    return this._api_url + '/pacijenti/logovanje';
+    return this._api_url + '/logovanje/login';
   }
 
 
