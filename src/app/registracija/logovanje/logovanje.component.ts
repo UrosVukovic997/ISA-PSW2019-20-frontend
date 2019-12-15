@@ -11,7 +11,6 @@ import {LogovanjeServiceService} from '../../service/logovanjeService/logovanje-
   styleUrls: ['./logovanje.component.css']
 })
 export class LogovanjeComponent implements OnInit {
-
   loginForm: FormGroup;
   loading = false;
   submitted = false;
@@ -35,7 +34,8 @@ export class LogovanjeComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      gender: ['']
     });
  /*   // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -46,8 +46,17 @@ export class LogovanjeComponent implements OnInit {
     }
   */}
 
+  get myForm() {
+    return this.loginForm.get('gender');
+  }
+
+  get MyUser() {
+    return this.loginForm.get('username');
+  }
+
 
   // convenience getter for easy access to form fields
+
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
@@ -67,12 +76,17 @@ export class LogovanjeComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          if (this.myForm.value === 'pacijent') {
           this.router.navigate(['/registracija']);
+          } else {
+            this.router.navigate(['/']);
+          }
         },
         error => {
           this.error = error;
           this.loading = false;
         });
   }
+
 
 }
