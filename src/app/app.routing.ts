@@ -7,10 +7,12 @@ import { AdminKcLayoutComponent } from './administrator-kc/admin-kc-layout/admin
 import { RegComponent} from '../app/registracija/reg/reg.component';
 import {LogovanjeComponent} from './registracija/logovanje/logovanje.component';
 import {PotvrdaComponent} from './administrator-kc/potvrda/potvrda.component';
+import {ForbiddenComponent} from './administrator-kc/forbidden/forbidden.component';
+import {SestraLayoutComponent} from './sestra-home/sestra-layout/sestra-layout.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'logovanje',
+    redirectTo: 'admin-kc',
     pathMatch: 'full',
   }, {
     path: 'admin-kc',
@@ -29,7 +31,12 @@ const routes: Routes = [
     component: LogovanjeComponent,
     children: [
     ]},
-  { path: 'aktivirajNalog/:id', component: PotvrdaComponent }
+  { path: 'aktivirajNalog/:id', component: PotvrdaComponent },
+  { path: 'forbidden', component: ForbiddenComponent },
+  {
+    path: 'sestra',
+    component: SestraLayoutComponent,
+    }
 ];
 
 @NgModule({

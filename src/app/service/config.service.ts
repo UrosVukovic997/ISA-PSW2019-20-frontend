@@ -85,6 +85,9 @@ export class ConfigService {
     return this._api_url + '/admin/obrisi';
   }
 
+  get admin_kc_url(): string{
+    return this._api_url + '/admin';
+  }
 
 
 

@@ -1,17 +1,16 @@
-import { Component, OnInit , ViewChild, AfterViewInit} from '@angular/core';
-import {filter} from 'rxjs/operators';
-import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
-
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import {Subscription} from 'rxjs';
+import {Location, PopStateEvent} from '@angular/common';
+import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import PerfectScrollbar from 'perfect-scrollbar';
-import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-admin-kc-layout',
-  templateUrl: './admin-kc-layout.component.html',
-  styleUrls: ['./admin-kc-layout.component.css']
+  selector: 'app-sestra-layout',
+  templateUrl: './sestra-layout.component.html',
+  styleUrls: ['./sestra-layout.component.css']
 })
-export class AdminKcLayoutComponent implements OnInit {
+export class SestraLayoutComponent implements OnInit {
+
   // tslint:disable-next-line:variable-name
   private _router: Subscription;
   private lastPoppedUrl: string;
@@ -20,10 +19,11 @@ export class AdminKcLayoutComponent implements OnInit {
   constructor(public location: Location, private router: Router) { }
 
   ngOnInit() {
+    /*
     if (localStorage.getItem('currentUserRole') !== 'admin-kc') {
       this.router.navigate(['/forbidden']);
     }
-
+*/
     const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
     if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {

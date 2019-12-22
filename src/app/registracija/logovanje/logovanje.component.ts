@@ -76,10 +76,17 @@ export class LogovanjeComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          console.log(data);
           if (this.myForm.value === 'pacijent') {
-          this.router.navigate(['/registracija']);
+            localStorage.setItem('currentUserRole', 'pacijent');
+            this.router.navigate(['/registracija']);
           } else {
-            this.router.navigate(['/']);
+            if (this.myForm.value === 'administratorKlinickog') {
+              this.router.navigate(['/admin-kc']);
+              localStorage.setItem('currentUserRole', 'admin-kc');
+            } else {
+              this.router.navigate(['/']);
+            }
           }
         },
         error => {
