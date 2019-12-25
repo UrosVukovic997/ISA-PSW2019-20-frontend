@@ -27,6 +27,7 @@ export class LogovanjeServiceService {
     return this.http.post(this.configService.loguj_pacijenta_url, user)
       .pipe(map(User => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUserUsername', User[2]);
         localStorage.setItem('currentUser', JSON.stringify(User));
         this.currentUserSubject.next(User);
         console.log('Login success');

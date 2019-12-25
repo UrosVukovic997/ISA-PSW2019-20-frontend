@@ -22,6 +22,7 @@ import { ProfileComponent } from './administrator-kc/profile/profile.component';
 import { ForbiddenComponent } from './administrator-kc/forbidden/forbidden.component';
 import { SestraLayoutComponent } from './sestra-home/sestra-layout/sestra-layout.component';
 import {ComponentsModuleSestra} from './sestra-home/components/components.module';
+import { PacijentListComponent } from './sestra-home/pacijent-list/pacijent-list.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import {ComponentsModuleSestra} from './sestra-home/components/components.module
     LogovanjeComponent,
     PotvrdaComponent,
     ForbiddenComponent,
-    SestraLayoutComponent
+    SestraLayoutComponent,
+    PacijentListComponent
 
   ],
   providers: [RegZahtrviService],
