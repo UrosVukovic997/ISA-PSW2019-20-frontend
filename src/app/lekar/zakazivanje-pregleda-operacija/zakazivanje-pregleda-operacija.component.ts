@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {first} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-lista-pacijenata',
+  selector: 'app-zakazivanje-pregleda-operacija',
   templateUrl: './zakazivanje-pregleda-operacija.component.html',
   styleUrls: ['./zakazivanje-pregleda-operacija.component.css']
 })
@@ -28,7 +28,8 @@ export class ZakazivanjePregledaOperacijaComponent implements OnInit {
   nazivP = '';
   opisP = '';
   mode = 0;
-  constructor(private zakazivanjePregledaOperacijaService: ZakazivanjePregledaOperacijaComponent, private router: Router, private modalService: NgbModal,
+  constructor(private zakazivanjePregledaOperacijaService: ZakazivanjePregledaOperacijaComponent,
+              private router: Router, private modalService: NgbModal,
               private formBuilder: FormBuilder) {
     this.modalOptions = {
       backdrop: 'static',

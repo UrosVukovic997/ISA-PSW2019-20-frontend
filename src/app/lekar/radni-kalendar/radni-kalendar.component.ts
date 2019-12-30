@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {first} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-lista-pacijenata',
+  selector: 'app-radni-kalendar',
   templateUrl: './radni-kalendar.component.html',
   styleUrls: ['./radni-kalendar.component.css']
 })

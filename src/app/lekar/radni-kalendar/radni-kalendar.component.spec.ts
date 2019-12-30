@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListaPacijenataComponent } from './radni-kalendar.component';
+import { RadniKalendarComponent } from './radni-kalendar.component';
 
 describe('ListaPacijenataComponent', () => {
-  let component: ListaPacijenataComponent;
-  let fixture: ComponentFixture<ListaPacijenataComponent>;
+  let component: RadniKalendarComponent;
+  let fixture: ComponentFixture<RadniKalendarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListaPacijenataComponent ]
+      declarations: [ RadniKalendarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListaPacijenataComponent);
+    fixture = TestBed.createComponent(RadniKalendarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

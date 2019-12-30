@@ -17,7 +17,7 @@ import {first} from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-sif-lekova',
+  selector: 'app-odsustvo-odmori',
   templateUrl: './odsustvo-odmor.component.html',
   styleUrls: ['./odsustvo-odmor.component.css']
 })
@@ -44,6 +44,7 @@ export class OdsustvoOdmorComponent implements OnInit {
     };
   }
 
+  lekovi: any = [];
   ngOnInit(): void {
   }
 }

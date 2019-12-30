@@ -18,8 +18,11 @@ import { LogovanjeComponent } from './registracija/logovanje/logovanje.component
 import { PotvrdaComponent } from './administrator-kc/potvrda/potvrda.component';
 
 import { LekarKcLayoutComponent } from './lekar/lekar-kc-layout/lekar-kc-layout.component';
-import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
+import { ComponentsLekarModule } from './lekar/components/components.module';
 
+// import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
+// import { LicniProfilLekaraComponent} from './lekar/licni-profil/licni-profil.component';
+// import { ListaPacijenataComponent } from './lekar/lista-pacijenata/lista-pacijenata.component';
 
 @NgModule({
   imports: [
@@ -29,7 +32,7 @@ import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.compon
     RouterModule,
     AppRoutingModule,
     ComponentsModule,
-
+    ComponentsLekarModule,
 
     NgbModule,
     ToastrModule.forRoot(),
@@ -42,9 +45,10 @@ import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.compon
     RegComponent,
     LogovanjeComponent,
     LekarKcLayoutComponent,
-    SidebarLekarComponent,
+    // SidebarLekarComponent,
     PotvrdaComponent
-
+    // LicniProfilLekaraComponent,
+    // ListaPacijenataComponent
   ],
   providers: [RegZahtrviService],
   bootstrap: [AppComponent]

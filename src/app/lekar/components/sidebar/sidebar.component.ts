@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatIconModule} from '@angular/material/icon';
 
 declare interface RouteInfo {
   path: string;
@@ -7,11 +8,11 @@ declare interface RouteInfo {
   class: string;
 }
 export const ROUTES: RouteInfo[] = [
-  { path: '/lekar-kc/listapacijenata', title: 'Lista pacijenata',  icon: 'ui-1_simple-add', class: '' },
-  { path: '/lekar-kc/odsustvoodmori', title: 'Odsustva i odmori',  icon: 'media-2_sound-wave', class: '' },
-  { path: '/lekar-kc/licniprofil', title: 'Licni profil',  icon: 'ui-1_simple-add', class: '' },
-  { path: '/lekar-kc/radnikalendar', title: 'Radni kalendar',  icon: 'media-2_sound-wave', class: '' },
-  { path: '/lekar-kc/zakazivanjePregledaOperacija', title: 'Zakazivanje odsustva/odmora',  icon: 'ui-1_simple-add', class: '' }
+  { path: '/lekar-kc/listapacijenata', title: 'Lista pacijenata',  icon: ' design_bullet-list-67', class: '' },
+  { path: '/lekar-kc/odsustvoodmori', title: 'Odsustva i odmori',  icon: 'media-1_album', class: '' },
+  { path: '/lekar-kc/licniprofil', title: 'Licni profil',  icon: 'users_single-02', class: '' },
+  { path: '/lekar-kc/radnikalendar', title: 'Radni kalendar',  icon: 'ui-1_calendar-60', class: '' },
+  // { path: '/lekar-kc/zakazivanjePregledaOperacija', title: 'Zakazivanje odsustva/odmora',  icon: 'ui-1_simple-add', class: '' }
 ];
 
 @Component({

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListaPacijenataComponent } from './zakazivanje-pregleda-operacija.component';
+import { ZakazivanjePregledaOperacijaComponent } from './zakazivanje-pregleda-operacija.component';
 
-describe('ListaPacijenataComponent', () => {
-  let component: ListaPacijenataComponent;
-  let fixture: ComponentFixture<ListaPacijenataComponent>;
+describe('ZakazivanjePregledaOperacijaComponent', () => {
+  let component: ZakazivanjePregledaOperacijaComponent;
+  let fixture: ComponentFixture<ZakazivanjePregledaOperacijaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListaPacijenataComponent ]
+      declarations: [ ZakazivanjePregledaOperacijaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListaPacijenataComponent);
+    fixture = TestBed.createComponent(ZakazivanjePregledaOperacijaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

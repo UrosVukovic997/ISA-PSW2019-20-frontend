@@ -31,8 +31,8 @@
                     <div ngbDropdown class="d-inline-block">
                       <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Akcija</button>
                       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <button ngbDropdownItem (click)="izmeni(mymodal, i)">Izmeni</button>
-                        <button ngbDropdownItem (click)="obrisi(lek.id)">Obriši</button>
+                        <!--<button ngbDropdownItem (click)="izmeni(mymodal, i)">Izmeni</button>
+                        <button ngbDropdownItem (click)="obrisi(lek.id)">Obriši</button>-->
                       </div>
                     </div>
                   </td>
@@ -41,7 +41,7 @@
               </tbody>
             </table>
           </div>
-          <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Dodaj</button>
+          <!--<button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Dodaj</button>-->
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="lekForm" (ngSubmit)="onSubmit()">
+    <!--<form [formGroup]="lekForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label  >Naziv</label>
         <input type="text" value={{nazivD}} formControlName="naziv" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.naziv.errors }" />
@@ -77,6 +77,6 @@
           Dodaj
         </button>
       </div>
-    </form>
+    </form>-->
   </div>
 </ng-template>

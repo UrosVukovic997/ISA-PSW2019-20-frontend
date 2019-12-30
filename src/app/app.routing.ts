@@ -14,7 +14,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'logovanje',
+    redirectTo: 'lekar-kc',
     pathMatch: 'full',
   }, {
     path: 'admin-kc',
@@ -34,13 +34,14 @@ const routes: Routes = [
     component: LogovanjeComponent,
     children: [
     ]},
-
     {
     path: 'lekar-kc',
     component: LekarKcLayoutComponent,
-    children: [
-    ]}
-
+      children: [
+        {
+          path: '',
+          loadChildren: './lekar/lekar-kc-layout/lekar-kc-layout.module#LekarKcLayoutModule'
+        }]},
   { path: 'aktivirajNalog/:id', component: PotvrdaComponent }
 
 ];

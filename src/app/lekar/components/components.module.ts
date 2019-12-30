@@ -14,8 +14,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     RouterModule,
-    Ng2BootstrapModule,
+    // Ng2BootstrapModule,
     NgbModule
   ]
 })
-export class ComponentsModule { }
+export class ComponentsLekarModule { }
