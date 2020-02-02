@@ -8,7 +8,7 @@ import {Pacijent} from '../../shared/utilities/pacijent';
 @Injectable({
   providedIn: 'root'
 })
-export class ZakazivanjePregledaOperacijaService {
+export class ZapocniPregledService {
 
   constructor( private http: HttpClient, private configService: ConfigService) { }
 

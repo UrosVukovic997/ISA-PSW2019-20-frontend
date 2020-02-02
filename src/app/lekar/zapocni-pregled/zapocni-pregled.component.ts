@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 /*import { RegZahtrviService } from '../../service/administrator-kc-service/reg-zahtrvi.service';*/
 import { Router } from '@angular/router';
-import {ZakazivanjePregledaOperacijaService} from '../../service/lekar-kc-service/zakazivanje-pregleda-operacija.service';
+import {ZapocniPregledService} from '../../service/lekar-kc-service/zapocni-pregled.service';
 import { Pacijent } from '../../shared/utilities/pacijent';
 import {NgbModal, ModalDismissReasons, NgbModalOptions, NgbDropdownToggle, NgbDropdownMenu,
   NgbDropdown, NgbDropdownItem} from '@ng-bootstrap/ng-bootstrap';
@@ -9,11 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {first} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-zakazivanje-pregleda-operacija',
-  templateUrl: './zakazivanje-pregleda-operacija.component.html',
-  styleUrls: ['./zakazivanje-pregleda-operacija.component.css']
+  selector: 'app-zapocni-pregled',
+  templateUrl: './zapocni-pregled.component.html',
+  styleUrls: ['./zapocni-pregled.component.css']
 })
-export class ZakazivanjePregledaOperacijaComponent implements OnInit {
+export class ZapocniPregledComponent implements OnInit {
   modalOptions: NgbModalOptions;
   ngbDropdownToggle: NgbDropdownToggle;
   ngbDropdownMenu: NgbDropdownMenu;
@@ -28,8 +28,7 @@ export class ZakazivanjePregledaOperacijaComponent implements OnInit {
   nazivP = '';
   opisP = '';
   mode = 0;
-  constructor(private zakazivanjePregledaOperacijaService: ZakazivanjePregledaOperacijaComponent,
-              private router: Router, private modalService: NgbModal,
+  constructor(private zapocniPregledService: ZapocniPregledService, private router: Router, private modalService: NgbModal,
               private formBuilder: FormBuilder) {
     this.modalOptions = {
       backdrop: 'static',

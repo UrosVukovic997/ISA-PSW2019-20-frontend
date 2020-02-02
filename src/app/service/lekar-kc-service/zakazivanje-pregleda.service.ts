@@ -4,12 +4,11 @@ import {map, catchError, retry} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
 import { ConfigService } from '../config.service';
 import {Pacijent} from '../../shared/utilities/pacijent';
-import {Lekar} from '../../shared/utilities/lekar';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LicniProfilLekaraService {
+export class ZakazivanjePregledaService {
 
   constructor( private http: HttpClient, private configService: ConfigService) { }
 
@@ -18,28 +17,28 @@ export class LicniProfilLekaraService {
       'Content-Type': 'application/json'
     })
   };
-  getLekar(id): Observable<Lekar> {
-    return this.http.get<Lekar>(this.configService.get_lekar_url + '/' + id, this.httpOptions)
-    // return this.http.get<Lekar>(this.configService.get_lekar_url);
-        .pipe(
-            catchError(this.errorHandl)
-          );
-  }
-  save(lekar) {
-    return this.http.post(`${this.configService.izmeni_prof_lekara_url}`, lekar);
-  }
-  //    return this.http.post(`${this.configService.izmeni_prof_lekara_url}`, lekar);
   /*
-    id: number;
-  ime: string;
-  prezime: string;
-  email: string;
-  specijalnost: string;
-  korIme: string;
-  lozinka: string;
-  klinika: Klinika;
-  adresa: string;
-  opis: string;
+  getAllRegRequest(): Observable<RegZahtev> {
+    return this.http.get<RegZahtev>(this.configService.reg_zahtevi_url)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandl)
+      );
+  }
+
+  odobriPacijenta(id): Observable<Response> {
+   return this.http.post<Response>(this.configService.odobri_pacijenta_url + id, null)
+      .pipe(
+    catchError(this.errorHandl)
+      );
+  }
+
+  obrisiPacijenta(id): Observable<any> {
+    return this.http.delete(this.configService.obrisi_pacijenta_url + id, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandl)
+      );
+  }
   */
   errorHandl(error) {
     let errorMessage = '';

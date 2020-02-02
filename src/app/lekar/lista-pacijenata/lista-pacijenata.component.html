@@ -26,24 +26,35 @@
               <th>
                 JBO
               </th>
-              <th>
-                Akcija
+              <th class="text-right">
+
               </th>
               </thead>
               <tbody>
-              <!--<ng-container *ngFor="let pacijent of pacijenti">
+              <ng-container *ngFor="let pacijent of pacijenti">
                 <tr>
                 <td>{{pacijent.id}}</td>
                 <td>{{pacijent.imePacijenta}}</td>
                 <td>{{pacijent.prezimePacijenta}}</td>
-                <td>{{pacijent.e_mail}}</td>
+                <td>{{pacijent.email}}</td>
                 <td>{{pacijent.jbo}}</td>
                 <td>
-                    <button class="btn-success" >Karton...</button>
-                    <button class="btn-danger" >Obriši</button>
+                  <div class="col-md-10">
+                    <button class="btn btn-primary btn-block" >Karton...</button>
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-10">
+                    <button class="btn btn-primary btn-block"  >Izmeni...</button>
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-10">
+                    <button class="btn btn-primary btn-block"  >Obriši...</button>
+                  </div>
                 </td>
                 </tr>
-              </ng-container>-->
+              </ng-container>
               </tbody>
             </table>
           </div>

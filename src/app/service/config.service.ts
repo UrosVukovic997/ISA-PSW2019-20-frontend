@@ -57,7 +57,7 @@ export class ConfigService {
     return this._api_url + '/lek/dodaj';
   }
   get get_all_pacijenti_url(): string {
-    return this._api_url + '/pacijenti/getAll';
+    return this._api_url + '/lekar/pacijenti/getAll';
   }
 
   get reg_odsodmor_url(): string {
@@ -90,8 +90,10 @@ export class ConfigService {
   get obrisi_admin_url(): string {
     return this._api_url + '/admin/obrisi';
   }
-
-
-
-
+  get get_lekar_url(): string {
+    return this._api_url + '/lekar/licni_profil/getLekar';
+  }
+  get izmeni_prof_lekara_url(): string {
+    return this._api_url + '/lekar/izmeniProfil';
+  }
 }

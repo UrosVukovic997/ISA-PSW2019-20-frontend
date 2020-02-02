@@ -5,9 +5,8 @@ import {Observable, throwError} from 'rxjs';
 import {Pacijent} from '../../shared/utilities/pacijent';
 import {catchError, retry} from 'rxjs/operators';
 import {Odsodmor} from '../../shared/utilities/odsodmor';
-import {Dijagnoza} from '../../shared/utilities/dijagnoza';
 import {Encoding} from 'tslint/lib/utils';
-import {Lek} from '../../shared/utilities/lek';
+import {Lekar} from '../../shared/utilities/lekar';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +21,13 @@ export class OdsustvoOdmorService {
     })
   };
 
+  getLekar(id): Observable<Lekar> {
+    return this.http.get<Lekar>(this.configService.get_lekar_url + '/' + id, this.httpOptions)
+      // return this.http.get<Lekar>(this.configService.get_lekar_url);
+      .pipe(
+        catchError(this.errorHandl)
+      );
+  }
   getAllPacijenti(): Observable<Pacijent> {
     return this.http.get<Pacijent>(this.configService.get_all_pacijenti_url, this.httpOptions)
       .pipe(

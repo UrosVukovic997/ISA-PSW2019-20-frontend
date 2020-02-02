@@ -12,7 +12,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {OdsustvoOdmorService} from '../../service/lekar-kc-service/odsustvoOdmor.service';
 import {Router} from '@angular/router';
 import {Dijagnoza} from '../../shared/utilities/dijagnoza';
-import {Lek} from '../../shared/utilities/lek';
+import {Lekar} from '../../shared/utilities/lekar';
 import {first} from 'rxjs/operators';
 
 
@@ -27,15 +27,11 @@ export class OdsustvoOdmorComponent implements OnInit {
   ngbDropdownMenu: NgbDropdownMenu;
   ngbDropdown: NgbDropdown;
   ngbDropdownItem: NgbDropdownItem;
-  closeResult: string;
-  lekForm: FormGroup;
   @Input() myModalTitle;
   @Input() myModalContent;
   loading = false;
   submitted = false;
-  nazivL = '';
-  opisL = '';
-  mode = 0;
+  idL = 1;
   constructor(private odsustvoOdmorService: OdsustvoOdmorService , private router: Router, private modalService: NgbModal,
               private formBuilder: FormBuilder) {
     this.modalOptions = {
@@ -44,7 +40,21 @@ export class OdsustvoOdmorComponent implements OnInit {
     };
   }
 
-  lekovi: any = [];
+  lekari: any = [];
   ngOnInit(): void {
+    this.ucitajProfilLekara();
+  }
+
+  ucitajProfilLekara() {
+    // tslint:disable-next-line:prefer-const
+    this.odsustvoOdmorService.getLekar(this.idL)
+      .subscribe((data: {}) => {
+          this.lekari = data;
+          console.log(this.lekari);
+        }
+      );
+  }
+  posaljiAdminu() {
+
   }
 }
