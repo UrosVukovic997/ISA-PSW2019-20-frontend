@@ -32,6 +32,8 @@ export class OdsustvoOdmorComponent implements OnInit {
   @Input() myModalContent;
   loading = false;
   submitted = false;
+  lekar: Lekar;
+  odsodmor: Odsodmor;
   idL = 1;
   constructor(private odsustvoOdmorService: OdsustvoOdmorService , private router: Router, private modalService: NgbModal,
               private formBuilder: FormBuilder) {
@@ -39,10 +41,12 @@ export class OdsustvoOdmorComponent implements OnInit {
       backdrop: 'static',
       backdropClass: 'customBackdrop'
     };
+    this.lekar = new Lekar();
+    this.odsodmor = new Odsodmor();
+    this.odsodmor.godisnji = false;
+    this.odsodmor.odsustvo = false;
   }
 
-  lekari: any = [];
-  odsodmor: any = [];
   ngOnInit(): void {
     this.ucitajProfilLekara();
   }
@@ -50,9 +54,9 @@ export class OdsustvoOdmorComponent implements OnInit {
   ucitajProfilLekara() {
     // tslint:disable-next-line:prefer-const
     this.odsustvoOdmorService.getLekar(this.idL)
-      .subscribe((data: {}) => {
-          this.lekari = data;
-          console.log(this.lekari);
+      .subscribe((data) => {
+          this.lekar = data;
+          console.log(this.lekar);
         }
       );
   }
