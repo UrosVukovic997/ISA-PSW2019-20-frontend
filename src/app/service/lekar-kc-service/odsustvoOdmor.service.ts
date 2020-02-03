@@ -32,6 +32,15 @@ export class OdsustvoOdmorService {
     console.log(odsodmor);
     return this.http.post(`${this.configService.posalji_Zahtev_GodOdsu_url + '/' + id}`, odsodmor);
   }
+  /*
+  public posaljiGodisnji(odsodmor: Odsodmor, id) {
+    return this.http.post(`${this.configService.posalji_Zahtev_GodOdsu_url + '/' + id}`, odsodmor);
+  }
+
+  public posaljiOdsustvo(odsodmor: Odsodmor, id) {
+    return this.http.post(`${this.configService.posalji_Zahtev_GodOdsu_url + '/' + id}`, odsodmor);
+  }
+  */
   errorHandl(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

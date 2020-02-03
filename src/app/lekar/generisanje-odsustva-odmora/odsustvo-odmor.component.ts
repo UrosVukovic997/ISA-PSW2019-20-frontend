@@ -30,11 +30,15 @@ export class OdsustvoOdmorComponent implements OnInit {
   ngbDropdownItem: NgbDropdownItem;
   @Input() myModalTitle;
   @Input() myModalContent;
-  loading = false;
-  submitted = false;
+  // loading = false;
+  // submitted = false;
   lekar: Lekar;
   odsodmor: Odsodmor;
+  Godisnji: boolean;
+  Odsustvo: boolean;
+  btnOds: any;
   idL = 1;
+  type: string;
   constructor(private odsustvoOdmorService: OdsustvoOdmorService , private router: Router, private modalService: NgbModal,
               private formBuilder: FormBuilder) {
     this.modalOptions = {
@@ -43,8 +47,6 @@ export class OdsustvoOdmorComponent implements OnInit {
     };
     this.lekar = new Lekar();
     this.odsodmor = new Odsodmor();
-    this.odsodmor.godisnji = false;
-    this.odsodmor.odsustvo = false;
   }
 
   ngOnInit(): void {
@@ -63,19 +65,47 @@ export class OdsustvoOdmorComponent implements OnInit {
   posaljiAdminu() {
 
   }
-  /*
-  id: number;
-  korIme: string;
-  ime: string;
-  prezime: string;
-  pocetak: Date;
-  kraj: Date;
-  email: string;
-  vrstaOds: boolean;
-  */
+
   posaljiZahtev() {
+    this.btnOds = document.getElementById('odsustvo');
+    if (this.btnOds.checked) {
+      console.log('Odsustvo');
+      this.odsodmor.odsustvo = true;
+      this.odsodmor.godisnji = false;
+      this.odsustvoOdmorService.posalji(this.odsodmor, this.idL).subscribe(result => this.ngOnInit());
+    } else {
+      console.log('Godisnji');
+      this.odsodmor.odsustvo = false;
+      this.odsodmor.godisnji = true;
+      this.odsustvoOdmorService.posalji(this.odsodmor, this.idL).subscribe(result => this.ngOnInit());
+    }
+    /*
+    if (this.type === 'godisnji') {
+      console.log(this.odsodmor);
+      this.odsustvoOdmorService.posaljiGodisnji(this.odsodmor, this.idL).subscribe(result => this.ngOnInit());
+    } else if (this.type === 'odsustvo') {
+      console.log(this.odsodmor);
+      this.odsustvoOdmorService.posaljiOdsustvo(this.odsodmor, this.idL).subscribe(result => this.ngOnInit());
+    }
     console.log(this.odsodmor);
-    this.odsustvoOdmorService.posalji(this.odsodmor, this.idL).subscribe(result => this.ngOnInit());
+    */
+    // this.odsustvoOdmorService.posalji(this.odsodmor, this.idL).subscribe(result => this.ngOnInit());
   }
+  /*
+  imaGodisnji() {
+    this.router.navigate(['/godisnji']);
+  }
+
+  imaOdsustvo() {
+    this.router.navigate(['/odsustvo']);
+  }
+  */
+
+  onItemChange(value: any) {
+    this.type = value.target.value;
+    console.log(value);
+    console.log(value.target.checked);
+  }
+
 }
 
