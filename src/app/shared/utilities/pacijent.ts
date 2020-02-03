@@ -7,5 +7,8 @@ export class Pacijent {
   grad: string;
   brojTelefona: string;
   jbo: string;
+  drzava: string;
   username: string;
+  lozinka: string;
+
 }

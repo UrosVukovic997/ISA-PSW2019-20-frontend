@@ -1,0 +1,94 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Lista pacijenata</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+              <th>
+                Id
+              </th>
+              <th>
+                Ime
+              </th>
+              <th>
+                Prezime
+              </th>
+              <th>
+                E-mail
+              </th>
+              <th>
+                JBO
+              </th>
+              <th class="text-right">
+
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let pacijent of pacijenti">
+                <tr>
+                <td>{{pacijent.id}}</td>
+                <td>{{pacijent.imePacijenta}}</td>
+                <td>{{pacijent.prezimePacijenta}}</td>
+                <td>{{pacijent.email}}</td>
+                <td>{{pacijent.jbo}}</td>
+                <td>
+                  <div class="col-md-10">
+                    <button class="btn btn-primary btn-block" >Karton...</button>
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-10">
+                    <button class="btn btn-primary btn-block"  >Izmeni...</button>
+                  </div>
+                </td>
+                <td>
+                  <div class="col-md-10">
+                    <button class="btn btn-primary btn-block"  >Obriši...</button>
+                  </div>
+                </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer" >
+  <!---<div class=" container-fluid ">  -->
+  <div class="card-footer">
+    <nav>
+      <ul>
+        <li>
+          <a href="https://www.creative-tim.com">
+            Creative Tim
+          </a>
+        </li>
+        <li>
+          <a href="http://presentation.creative-tim.com">
+            About Us
+          </a>
+        </li>
+        <li>
+          <a href="http://blog.creative-tim.com">
+            Blog
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="copyright" id="copyright">
+      &copy; <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+    </div>
+  </div>
+</footer>

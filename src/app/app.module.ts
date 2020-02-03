@@ -24,6 +24,12 @@ import { SestraLayoutComponent } from './sestra-home/sestra-layout/sestra-layout
 import {ComponentsModuleSestra} from './sestra-home/components/components.module';
 import { PacijentListComponent } from './sestra-home/pacijent-list/pacijent-list.component';
 
+import { LekarKcLayoutComponent } from './lekar/lekar-kc-layout/lekar-kc-layout.component';
+import { ComponentsLekarModule } from './lekar/components/components.module';
+
+// import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
+// import { LicniProfilLekaraComponent} from './lekar/licni-profil/licni-profil.component';
+// import { ListaPacijenataComponent } from './lekar/lista-pacijenata/lista-pacijenata.component';
 
 @NgModule({
   imports: [
@@ -33,6 +39,8 @@ import { PacijentListComponent } from './sestra-home/pacijent-list/pacijent-list
     RouterModule,
     AppRoutingModule,
     ComponentsModule,
+    ComponentsLekarModule,
+
     NgbModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
@@ -48,7 +56,12 @@ import { PacijentListComponent } from './sestra-home/pacijent-list/pacijent-list
     PotvrdaComponent,
     ForbiddenComponent,
     SestraLayoutComponent,
-    PacijentListComponent
+    PacijentListComponent,
+    LekarKcLayoutComponent,
+    // SidebarLekarComponent,
+    //PotvrdaComponent
+    // LicniProfilLekaraComponent,
+    // ListaPacijenataComponent
 
   ],
   providers: [RegZahtrviService],

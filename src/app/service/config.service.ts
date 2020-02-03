@@ -33,7 +33,6 @@ export class ConfigService {
     return this._api_url + '/logovanje/login';
   }
 
-
   get get_all_dijagnoze_url(): string {
     return this._api_url + '/dijagnoza/getAll';
   }
@@ -56,6 +55,13 @@ export class ConfigService {
 
   get dodaj_lek_url(): string {
     return this._api_url + '/lek/dodaj';
+  }
+  get get_all_pacijenti_url(): string {
+    return this._api_url + '/lekar/pacijenti/getAll';
+  }
+
+  get reg_odsodmor_url(): string {
+    return this._api_url + '/pacijenti/zahtev';
   }
 
   get get_all_klinike_url(): string {
@@ -89,6 +95,13 @@ export class ConfigService {
     return this._api_url + '/admin';
   }
 
-
-
+  get get_lekar_url(): string {
+    return this._api_url + '/lekar/licni_profil/getLekar';
+  }
+  get izmeni_prof_lekara_url(): string {
+    return this._api_url + '/lekar/izmeniProfil';
+  }
+  get posalji_Zahtev_GodOdsu_url(): string {
+    return this._api_url + '/lekar/zahtevOdsGod';
+  }
 }
