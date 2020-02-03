@@ -5,7 +5,9 @@ import { RegAdminComponent } from '../reg-admin/reg-admin.component';
 import { ListaRegZahtevaComponent } from '../lista-reg-zahteva/lista-reg-zahteva.component';
 import { SifLekovaComponent } from '../sif-lekova/sif-lekova.component';
 import { SigDijagnozaComponent } from '../sig-dijagnoza/sig-dijagnoza.component';
-import { PotvrdaComponent } from '../potvrda/potvrda.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { WelcomePageComponent } from '../welcome-page/welcome-page.component';
+import {ForbiddenComponent} from '../forbidden/forbidden.component';
 
 export const AdminKcLayoutRoutes: Routes = [
   { path: 'registrujkliniku',      component: RegKlinikuComponent },
@@ -13,5 +15,8 @@ export const AdminKcLayoutRoutes: Routes = [
   { path: 'zahtevizaregistraciju',     component: ListaRegZahtevaComponent },
   { path: 'sifarniklekova',     component: SifLekovaComponent },
   { path: 'sifarnikdijagnoza',          component: SigDijagnozaComponent },
+  { path: '',          component: WelcomePageComponent },
+  { path: 'profil',          component: ProfileComponent },
+
 
 ];

@@ -90,6 +90,11 @@ export class ConfigService {
   get obrisi_admin_url(): string {
     return this._api_url + '/admin/obrisi';
   }
+
+  get admin_kc_url(): string{
+    return this._api_url + '/admin';
+  }
+
   get get_lekar_url(): string {
     return this._api_url + '/lekar/licni_profil/getLekar';
   }

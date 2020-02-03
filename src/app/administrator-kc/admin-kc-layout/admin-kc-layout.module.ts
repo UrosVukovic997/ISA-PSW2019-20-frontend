@@ -15,6 +15,9 @@ import { DropdownListModule } from 'ngx-dropdown-list';
 
 import { ComponentsModule } from '../components/components.module';
 import {AdminKcLayoutComponent} from './admin-kc-layout.component';
+import {WelcomePageComponent} from '../welcome-page/welcome-page.component';
+import {ProfileComponent} from '../profile/profile.component';
+import {ForbiddenComponent} from '../forbidden/forbidden.component';
 
 
 
@@ -35,7 +38,10 @@ import {AdminKcLayoutComponent} from './admin-kc-layout.component';
     RegAdminComponent,
     ListaRegZahtevaComponent,
     SifLekovaComponent,
-    SigDijagnozaComponent
+    SigDijagnozaComponent,
+    WelcomePageComponent,
+    ProfileComponent,
+
   ],
   bootstrap: [ SigDijagnozaComponent
   ]
