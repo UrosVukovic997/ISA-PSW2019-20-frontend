@@ -28,19 +28,9 @@ export class OdsustvoOdmorService {
         catchError(this.errorHandl)
       );
   }
-  getAllPacijenti(): Observable<Pacijent> {
-    return this.http.get<Pacijent>(this.configService.get_all_pacijenti_url, this.httpOptions)
-      .pipe(
-        catchError(this.errorHandl)
-      );
-  }
-
-  getAllOdsustvoOdmori(): Observable<Odsodmor> {
-    return this.http.get<Odsodmor>(this.configService.reg_odsodmor_url)
-      .pipe(
-        retry(1),
-        catchError(this.errorHandl)
-      );
+  posalji(odsodmor, id) {
+    console.log(odsodmor);
+    return this.http.post(`${this.configService.posalji_Zahtev_GodOdsu_url + '/' + id}`, odsodmor);
   }
   errorHandl(error) {
     let errorMessage = '';

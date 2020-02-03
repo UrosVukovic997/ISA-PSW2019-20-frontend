@@ -10,7 +10,7 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
   { path: '/lekar-kc/listapacijenata', title: 'Lista pacijenata',  icon: ' design_bullet-list-67', class: '' },
   { path: '/lekar-kc/zapocniPregled', title: 'Zapocni pregled',  icon: 'ui-1_simple-add', class: '' },
-  { path: '/lekar-kc/zakazivanjePregleda', title: 'Zakazivanje pregleda',  icon: 'ui-1_send', class: '' },
+  { path: '/lekar-kc/zakazivanjePregleda', title: 'Zakazi pregled / operaciju',  icon: 'ui-1_send', class: '' },
   { path: '/lekar-kc/radnikalendar', title: 'Radni kalendar',  icon: 'ui-1_calendar-60', class: '' },
   { path: '/lekar-kc/licniprofil', title: 'Licni profil',  icon: 'users_single-02', class: '' },
   { path: '/lekar-kc/odsustvoodmori', title: 'Odsustva i odmori',  icon: 'media-1_album', class: '' }

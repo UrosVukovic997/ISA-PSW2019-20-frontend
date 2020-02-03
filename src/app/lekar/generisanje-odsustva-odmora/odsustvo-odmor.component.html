@@ -11,7 +11,7 @@
       <div class="card">
         <div class="card-header">
           <h5 class="title">Zahtev za godisnji odmor ili odsustvo</h5>
-          <p class="text-warning">(Zahtev se moze uvaziti samo ako je poslat po hitan postupku ili je zahtev poslat nedelju dana unapred!)</p>
+          <p class="text-warning">(Zahtev za godisnji odmor se mora poslati nedelju dana unapred!)</p>
         </div>
         <div class="card-body">
           <form>
@@ -48,47 +48,104 @@
             <div class="row">
               <div class="col-md-6 pr-1">
                 <div class="form-group">
-                  <label>Adresa stanovanja:</label>
-                  <input type="text" class="form-control" disabled="" placeholder="{{lekari.adresa}}" value="">
-                </div>
+                  <label>Pocetak odmora/odsustva</label>
+                  <input type="date" [(ngModel)]="odsodmor.pocetak"
+                         class="form-control"
+                         id="myDate1"
+                         name="myDate1"
+                         value="yyyy-mm-dd"
+                         required #name="ngModel">
+                   </div>
               </div>
               <div class="col-md-6 pr-1">
                 <div class="form-group">
-                  <label>Specijalnost:</label>
-                  <input type="text" class="form-control" disabled="" placeholder="{{lekari.specijalnost}}" value="">
+                  <label>Kraj odmora/odsustva</label>
+                  <input type="date" [(ngModel)]="odsodmor.kraj"
+                         class="form-control"
+                         id="myDate2"
+                         name="myDate2"
+                         value="yyyy-mm-dd"
+                         required #name="ngModel">
                 </div>
               </div>
             </div>
 
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="form-group">
                   <label>Email adresa </label>
                   <p class="text-warning"> (Izvestaj o zahtevu za godisnji odmor ili odsustvo dobicete putem email-a!)</p>
                   <input type="email" class="form-control" disabled="" placeholder="{{lekari.email}}" value="">
                 </div>
               </div>
-            </div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Obrazlozenje</label>
-                  <p class="text-warning">(Svaki radnik ima prava na 21 dan godisnjeg odmora!)</p>
-                  <textarea rows="4" cols="80" class="form-control" placeholder="....." value="Mike"></textarea>
+
+              <form>
+                <div class="col-md-16 pr-1">
+                  <label>Zakazi</label>
+                  <div class="form-group">
+                      <!--
+                      <input type="text" [(ngModel)]="lekari.email"
+                             class="form-control"
+                             id="email"
+                             name="email"
+                             placeholder="{{lekari.email}}"
+                             required #name="ngModel">
+                      -->
+                    <input type="radio" [(ngModel)]="odsodmor.godisnji"
+                           id="godisnji"
+                           name="godisnji"
+                           value="godOdmor"
+                           required #name="ngModel"> Godisnji<br>
+                    <input type="radio" [(ngModel)]="odsodmor.odsustvo"
+                           id="odsustvo"
+                           name="odsustvo"
+                           value="odsustvo"
+                           required #name="ngModel"> Odsustvo<br>
+                  </div>
                 </div>
+              </form>
+
+              <!--<form>
+                <div class="col-md-8 pr-1">
+                    <div class="form-group">
+                        <label>Vrsta odsustva</label>
+
+                            <input type="radio" name="odsustvo" value="godOdmor"> Operacija<br>
+                            <input type="radio" name="odsustvo" value="odsustvo"> Pregled<br>
+
+                      <input type="radio" [(ngModel)]="odsodmor.godisnji"
+                             name = "odsustvo"
+                             required #name="ngModel"> Godisnji<br>
+                      <input type="radio" [(ngModel)]="odsodmor.odsustvo"
+                             name = "odsustvo"
+                             required #name="ngModel"> Odsustvo<br>
+
+                  </div>
+
+              </div>
+            </form> -->
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Obrazlozenje</label>
+                <p class="text-warning">(Svaki radnik ima prava na 21 dan godisnjeg odmora!)</p>
+                <textarea rows="4" cols="80" class="form-control" placeholder="....." value="Mike"></textarea>
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
 
-    <!--
-    <div class="col-md-8">
-      <div class="card">
-    -->
+  <!--
+  <div class="col-md-8">
+    <div class="card">
+  -->
 
     <!--<div class="main-panel">-->
     <div class="col-md-12">
@@ -107,7 +164,7 @@
               <div class="col-lg-8 ml-auto mr-auto">
                 <div class="row">
                   <div class="col-md-6">
-                    <button (click) = "posaljiAdminu()" class="btn btn-primary btn-block" >Posalji zahtev</button>
+                    <button (click) = "posaljiZahtev()" class="btn btn-primary btn-block" >Posalji zahtev</button>
                   </div>
                   <div class="col-md-6">
                     <button class="btn btn-primary btn-block" >Restartuj</button>

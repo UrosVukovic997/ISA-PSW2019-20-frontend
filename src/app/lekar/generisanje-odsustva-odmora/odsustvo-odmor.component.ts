@@ -14,6 +14,7 @@ import {Router} from '@angular/router';
 import {Dijagnoza} from '../../shared/utilities/dijagnoza';
 import {Lekar} from '../../shared/utilities/lekar';
 import {first} from 'rxjs/operators';
+import {Odsodmor} from '../../shared/utilities/odsodmor';
 
 
 @Component({
@@ -41,6 +42,7 @@ export class OdsustvoOdmorComponent implements OnInit {
   }
 
   lekari: any = [];
+  odsodmor: any = [];
   ngOnInit(): void {
     this.ucitajProfilLekara();
   }
@@ -57,4 +59,19 @@ export class OdsustvoOdmorComponent implements OnInit {
   posaljiAdminu() {
 
   }
+  /*
+  id: number;
+  korIme: string;
+  ime: string;
+  prezime: string;
+  pocetak: Date;
+  kraj: Date;
+  email: string;
+  vrstaOds: boolean;
+  */
+  posaljiZahtev() {
+    console.log(this.odsodmor);
+    this.odsustvoOdmorService.posalji(this.odsodmor, this.idL).subscribe(result => this.ngOnInit());
+  }
 }
+

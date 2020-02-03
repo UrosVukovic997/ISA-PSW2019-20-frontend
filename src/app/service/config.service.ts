@@ -96,4 +96,7 @@ export class ConfigService {
   get izmeni_prof_lekara_url(): string {
     return this._api_url + '/lekar/izmeniProfil';
   }
+  get posalji_Zahtev_GodOdsu_url(): string {
+    return this._api_url + '/lekar/zahtevOdsGod';
+  }
 }

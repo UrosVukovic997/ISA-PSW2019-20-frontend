@@ -26,7 +26,7 @@ export class LicniProfilLekaraComponent implements OnInit {
   error: string;
   constructor(private licniProfilLekaraService: LicniProfilLekaraService, private router: Router, private modalService: NgbModal,
               private formBuilder: FormBuilder) {
-    this.lekar = new Lekar();
+    // this.lekar = new Lekar();
     // this.lekar.onPrescription = false;
     this.modalOptions = {
       backdrop: 'static',
@@ -35,11 +35,11 @@ export class LicniProfilLekaraComponent implements OnInit {
   }
 
   lekari: any = [];
-  lekar: Lekar;
+  // lekar: Lekar;
 
   azuriraj() {
-    console.log(this.lekar)
-    console.log(this.lekari)
+    // console.log(this.lekar)
+    // console.log(this.lekari)
     this.licniProfilLekaraService.save(this.lekari).subscribe(result => this.ngOnInit());
   }
   ngOnInit() {
