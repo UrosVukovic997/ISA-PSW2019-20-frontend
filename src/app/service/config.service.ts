@@ -30,7 +30,23 @@ export class ConfigService {
   }
 
   get loguj_pacijenta_url(): string {
-    return this._api_url + '/logovanje/login';
+    return this._api_url + '/logovanje';
+  }
+
+  get loguj_lekara_url(): string {
+    return this._api_url + '/logovanje/lekar';
+  }
+
+  get loguj_mst_url(): string {
+    return this._api_url + '/logovanje/mst';
+  }
+
+  get loguj_admin_url(): string {
+    return this._api_url + '/logovanje/admin';
+  }
+
+  get loguj_adminkc_url(): string {
+    return this._api_url + '/logovanje/adminkc';
   }
 
   get get_all_dijagnoze_url(): string {

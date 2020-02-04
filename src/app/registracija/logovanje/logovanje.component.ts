@@ -25,10 +25,10 @@ export class LogovanjeComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private loginService: LogovanjeServiceService
   ) {
-    /*// redirect to home if already logged in
+    // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }*/
+      this.router.navigate(['/registracija']);
+    }
   }
 
   ngOnInit() {
