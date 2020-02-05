@@ -35,7 +35,8 @@ export class RegComponent implements OnInit {
       drzava: ['', Validators.required],
       brojTelefona: ['', Validators.required],
       jbo: ['', Validators.required],
-      username: ['', Validators.required]
+      username: ['', Validators.required],
+      rodjen: ['', Validators.required]
     });
   }
 

@@ -26,6 +26,8 @@ import { PacijentListComponent } from './sestra-home/pacijent-list/pacijent-list
 
 import { LekarKcLayoutComponent } from './lekar/lekar-kc-layout/lekar-kc-layout.component';
 import { ComponentsLekarModule } from './lekar/components/components.module';
+import { PacijentLayoutComponent } from './pacijent/pacijent-layout/pacijent-layout.component';
+import {PacijentLayoutModule} from './pacijent/pacijent-layout/pacijent-layout.module';
 
 // import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
 // import { LicniProfilLekaraComponent} from './lekar/licni-profil/licni-profil.component';
@@ -45,7 +47,8 @@ import { ComponentsLekarModule } from './lekar/components/components.module';
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     AngularFontAwesomeModule,
-    ComponentsModuleSestra
+    ComponentsModuleSestra,
+    PacijentLayoutModule
 
   ],
   declarations: [
@@ -57,9 +60,9 @@ import { ComponentsLekarModule } from './lekar/components/components.module';
     ForbiddenComponent,
     SestraLayoutComponent,
     PacijentListComponent,
-    LekarKcLayoutComponent,
+    LekarKcLayoutComponent
+
     // SidebarLekarComponent,
-    //PotvrdaComponent
     // LicniProfilLekaraComponent,
     // ListaPacijenataComponent
 

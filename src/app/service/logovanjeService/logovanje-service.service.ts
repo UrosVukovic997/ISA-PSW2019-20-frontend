@@ -23,20 +23,58 @@ export class LogovanjeServiceService {
   }
 
 
-  login(user) {
-    return this.http.post(this.configService.loguj_pacijenta_url, user)
-      .pipe(map(User => {
+  login(user, roll) {
+    if (roll === 'pacijent'  ) {
+      return this.http.post(this.configService.loguj_pacijenta_url, user).pipe(map(User => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('currentUserUsername', User[2]);
-        localStorage.setItem('currentUser', JSON.stringify(User));
-        this.currentUserSubject.next(User);
+        localStorage.setItem('currentUserUsername', User[1]);
+        localStorage.setItem('currentUserEmail', User[0]);
+        // this.currentUserSubject.next(User);
         console.log('Login success');
         return User;
       }));
+    }
+    if (roll === 'administratorKlinickog'  ) {
+      return this.http.post(this.configService.loguj_adminkc_url, user).pipe(map(User => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUserUsername', User[1]);
+        localStorage.setItem('currentUserEmail', User[0]);        // this.currentUserSubject.next(User);
+        console.log('Login success');
+        return User;
+      }));
+    }
+    if (roll === 'lekar'  ) {
+      return this.http.post(this.configService.loguj_lekara_url, user).pipe(map(User => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUserUsername', User[1]);
+        localStorage.setItem('currentUserEmail', User[0]);        // this.currentUserSubject.next(User);
+        console.log('Login success');
+        return User;
+      }));
+    }
+    if (roll === 'medicinskaSestra'  ) {
+      return this.http.post(this.configService.loguj_mst_url, user).pipe(map(User => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUserUsername', User[1]);
+        localStorage.setItem('currentUserEmail', User[0]);        // this.currentUserSubject.next(User);
+        console.log('Login success');
+        return User;
+      }));
+    }
+    if (roll === 'administratorKlinike'  ) {
+      return this.http.post(this.configService.loguj_admin_url, user).pipe(map(User => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUserUsername', User[1]);
+        localStorage.setItem('currentUserEmail', User[0]);        // this.currentUserSubject.next(User);
+        console.log('Login success');
+        return User;
+      }));
+    }
   }
   logout() {
     // remove user from local storage and set current user to null
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('currentUserUsername');
+    localStorage.removeItem('currentUserEmail');
     localStorage.removeItem('currentUserRole');
     this.currentUserSubject.next(null);
     this.router.navigate(['http://localhost:4200/logovanje']);
