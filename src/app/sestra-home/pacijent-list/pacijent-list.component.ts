@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {FormBuilder} from '@angular/forms';
+import {SestraServiceService} from '../../service/sestraService/sestra-service.service';
 
 @Component({
   selector: 'app-pacijent-list',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PacijentListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private modalService: NgbModal,
+              private formBuilder: FormBuilder, private sestraService: SestraServiceService) { }
+  pacijenti: any = [];
+  klinika: any;
 
   ngOnInit() {
+    this.getKlinika();
+    this.ucitajPacijente();
   }
 
+  getKlinika() {
+    this.sestraService.getNazivKlinike(localStorage.getItem('currentUserUsername').toString()).subscribe((data: {}) => {
+      this.klinika = data;
+      }
+    );
+  }
+  ucitajPacijente() {
+    this.sestraService.getAllPatients(localStorage.getItem('currentUserUsername').toString()).subscribe((data: {}) => {
+        this.pacijenti = data;
+      }
+    );
+  }
 }

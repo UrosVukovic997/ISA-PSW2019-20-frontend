@@ -26,6 +26,7 @@ import { PacijentListComponent } from './sestra-home/pacijent-list/pacijent-list
 
 import { LekarKcLayoutComponent } from './lekar/lekar-kc-layout/lekar-kc-layout.component';
 import { ComponentsLekarModule } from './lekar/components/components.module';
+import { ProfilSestraComponent } from './sestra-home/profil-sestra/profil-sestra.component';
 
 // import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
 // import { LicniProfilLekaraComponent} from './lekar/licni-profil/licni-profil.component';
@@ -56,10 +57,10 @@ import { ComponentsLekarModule } from './lekar/components/components.module';
     PotvrdaComponent,
     ForbiddenComponent,
     SestraLayoutComponent,
-    PacijentListComponent,
     LekarKcLayoutComponent,
+
     // SidebarLekarComponent,
-    //PotvrdaComponent
+    // PotvrdaComponent
     // LicniProfilLekaraComponent,
     // ListaPacijenataComponent
 

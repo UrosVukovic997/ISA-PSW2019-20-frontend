@@ -91,8 +91,22 @@ export class ConfigService {
     return this._api_url + '/admin/obrisi';
   }
 
-  get admin_kc_url(): string{
+  get admin_kc_url(): string {
     return this._api_url + '/admin';
+  }
+
+  get sestra_naziv_klinike_url(): string {
+    return this._api_url + '/sestra/getNazivKlinike';
+  }
+
+  get get_all_patients_sestra_url(): string {
+    return this._api_url + '/sestra/getAll';
+  }
+  get get_profil_data_sestra_url(): string {
+    return this._api_url + '/sestra/getprofil';
+  }
+  get edit_profil_data_sestra_url(): string {
+    return this._api_url + '/sestra/editprofil';
   }
 
   get get_lekar_url(): string {
