@@ -22,7 +22,7 @@ export class AuthenticationService {
   }
 
   login(user) {
-    console.log(user.username + user.password);
+    console.log(user.email + user.password);
     return this.http.post(`${this.configService.loguj_pacijenta_url}`, user)
       .pipe(map(User => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
