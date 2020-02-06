@@ -4,4 +4,5 @@ export class Odsodmor {
   kraj: Date;
   godisnji: boolean;
   odsustvo: boolean;
+  obrazlozenje: string;
 }

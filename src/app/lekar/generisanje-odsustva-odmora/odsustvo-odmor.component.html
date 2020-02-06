@@ -49,13 +49,13 @@
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label>Pocetak odmora/odsustva</label>
-                  <input type="date" [(ngModel)]="odsodmor.pocetak"
+                    <input type="date" [(ngModel)]="odsodmor.pocetak"
                          class="form-control"
                          id="myDate1"
                          name="myDate1"
                          value="yyyy-mm-dd"
                          required #name="ngModel">
-                   </div>
+                </div>
               </div>
               <div class="col-md-6 pr-1">
                 <div class="form-group">
@@ -146,7 +146,15 @@
               <div class="form-group">
                 <label>Obrazlozenje</label>
                 <p class="text-warning">(Svaki radnik ima prava na 21 dan godisnjeg odmora!)</p>
-                <textarea rows="4" cols="80" class="form-control" placeholder="....." value="Mike"></textarea>
+                <textarea rows="4" cols="80" class="form-control"
+                             type = "text" [(ngModel)]="odsodmor.obrazlozenje"
+                             placeholder="....."
+                             id="obrazlozenje"
+                             rows="4" cols="80"
+                             name = "obrazlozenje"
+                             value = "obrazlozenje"
+                             required #name="ngModel">
+                </textarea>
               </div>
             </div>
           </div>

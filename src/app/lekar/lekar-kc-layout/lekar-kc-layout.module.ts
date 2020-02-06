@@ -16,20 +16,22 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { ComponentsLekarModule } from '../components/components.module';
 import {LekarKcLayoutComponent} from './lekar-kc-layout.component';
+import {DropdownListModule} from "ngx-dropdown-list";
 
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(LekarKcLayoutRoutes),
-    FormsModule,
-    ChartsModule,
-    ToastrModule.forRoot(),
-    NgbModule,
-    ComponentsLekarModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(LekarKcLayoutRoutes),
+        FormsModule,
+        ChartsModule,
+        ToastrModule.forRoot(),
+        NgbModule,
+        ComponentsLekarModule,
+        ReactiveFormsModule,
+        DropdownListModule
+    ],
   declarations: [
     ListaPacijenataComponent,
     OdsustvoOdmorComponent,

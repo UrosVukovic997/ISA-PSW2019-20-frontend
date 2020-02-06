@@ -62,9 +62,6 @@ export class OdsustvoOdmorComponent implements OnInit {
         }
       );
   }
-  posaljiAdminu() {
-
-  }
 
   posaljiZahtev() {
     this.btnOds = document.getElementById('odsustvo');
@@ -79,28 +76,7 @@ export class OdsustvoOdmorComponent implements OnInit {
       this.odsodmor.godisnji = true;
       this.odsustvoOdmorService.posalji(this.odsodmor, this.idL).subscribe(result => this.ngOnInit());
     }
-    /*
-    if (this.type === 'godisnji') {
-      console.log(this.odsodmor);
-      this.odsustvoOdmorService.posaljiGodisnji(this.odsodmor, this.idL).subscribe(result => this.ngOnInit());
-    } else if (this.type === 'odsustvo') {
-      console.log(this.odsodmor);
-      this.odsustvoOdmorService.posaljiOdsustvo(this.odsodmor, this.idL).subscribe(result => this.ngOnInit());
-    }
-    console.log(this.odsodmor);
-    */
-    // this.odsustvoOdmorService.posalji(this.odsodmor, this.idL).subscribe(result => this.ngOnInit());
   }
-  /*
-  imaGodisnji() {
-    this.router.navigate(['/godisnji']);
-  }
-
-  imaOdsustvo() {
-    this.router.navigate(['/odsustvo']);
-  }
-  */
-
   onItemChange(value: any) {
     this.type = value.target.value;
     console.log(value);
