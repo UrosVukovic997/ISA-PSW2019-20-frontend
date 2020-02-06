@@ -1,1 +1,49 @@
-<p>pacijent-list works!</p>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Pacijenti klinike</h4>
+        </div>
+        <div class="col-md-5 pr-1">
+          <div class="form-group">
+            <label>Klinika</label>
+            <input type="text" class="form-control" disabled=""  value={{klinika}}>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class=" text-primary">
+              <th>
+                Ime
+              </th>
+              <th>
+                Prezime
+              </th>
+              <th>
+                JBO
+              </th>
+              <th>
+                Email
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let pacijent of pacijenti; let i = index">
+                <tr>
+                  <td>{{pacijent.imePacijenta}}</td>
+                  <td>{{pacijent.prezimePacijenta}}</td>
+                  <td>{{pacijent.jbo}}</td>
+                  <td>{{pacijent.email}}</td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

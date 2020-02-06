@@ -1,0 +1,98 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="title">Zahtev za godisnji odmor/odsustvo</h4>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-3 pr-1">
+                <div class="form-group">
+                  <label>Klinicka </label>
+                  <input type="text" class="form-control" disabled="" placeholder="" value="{{podaci.klinika}}">
+                </div>
+              </div>
+              <div class="col-md-2 pl-1">
+                <div class="form-group">
+                  <label>Korisnicko ime</label>
+                  <input type="username" class="form-control" disabled="" placeholder="" value="{{podaci.username}}">
+                </div>
+              </div>
+              <div class="col-md-2 pr-1">
+                <div class="form-group">
+                  <label>Ime</label>
+                  <input type="text" class="form-control" disabled="" placeholder="" value="{{podaci.ime}}">
+                </div>
+              </div>
+              <div class="col-md-2 pl-1">
+                <div class="form-group">
+                  <label>Prezime</label>
+                  <input type="text" class="form-control" disabled="" placeholder="" value="{{podaci.prezime}}">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 pr-1">
+                <div class="form-group">
+                  <label>Pocetak odmora/odsustva</label>
+                  <input type="date" [(ngModel)]="odsodmor.pocetak"
+                         class="form-control"
+                         id="myDate1"
+                         name="myDate1"
+                         value="yyyy-mm-dd"
+                         required #name="ngModel">
+                </div>
+              </div>
+              <div class="col-md-3 pr-1">
+                <div class="form-group">
+                  <label>Kraj odmora/odsustva</label>
+                  <input type="date" [(ngModel)]="odsodmor.kraj"
+                         class="form-control"
+                         id="myDate2"
+                         name="myDate2"
+                         value="yyyy-mm-dd"
+                         required #name="ngModel">
+                </div>
+              </div>
+              <form>
+                <div class="col-md-12 pr-1">
+                  <label>Zakazi</label>
+                  <div class="form-group">
+                    <input type="radio" [(ngModel)]="odsodmor.godisnji"
+                           id="godisnji"
+                           name="godisnji"
+                           value="godOdmor"
+                           required #name="ngModel"> Godisnji<br>
+                    <input type="radio" [(ngModel)]="odsodmor.odsustvo"
+                           id="odsustvo"
+                           name="odsustvo"
+                           value="odsustvo"
+                           required #name="ngModel"> Odsustvo<br>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email">Obavestenje o statusu vaseg zahteva dobicete na adresu </label>
+                  <input type="email" id="email" class="form-control" disabled="" placeholder="" value="{{podaci.email}}">
+                </div>
+              </div>
+              <button [disabled]="loading" class="btn btn-danger">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Podnesi zahtev
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

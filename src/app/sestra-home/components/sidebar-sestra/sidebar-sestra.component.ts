@@ -11,6 +11,8 @@ export const ROUTES: RouteInfo[] = [
   { path: '/sestra/kalendar', title: 'Radni kalendar',  icon: 'ui-1_calendar-60', class: '' },
   { path: '/sestra/odmor', title: 'Zahtev za odmor',  icon: 'transportation_bus-front-12', class: '' },
   { path: '/sestra/recepti', title: 'Recepti',  icon: 'education_paper', class: '' },
+  { path: '/sestra/kartoni', title: 'Kartoni',  icon: 'shopping_credit-card', class: '' },
+
 ];
 @Component({
   selector: 'app-sidebar-sestra',

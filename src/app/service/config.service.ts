@@ -115,6 +115,26 @@ export class ConfigService {
     return this._api_url + '/admin';
   }
 
+  get sestra_naziv_klinike_url(): string {
+    return this._api_url + '/sestra/getNazivKlinike';
+  }
+
+  get get_all_patients_sestra_url(): string {
+    return this._api_url + '/sestra/getAll';
+  }
+  get get_profil_data_sestra_url(): string {
+    return this._api_url + '/sestra/getprofil';
+  }
+  get edit_profil_data_sestra_url(): string {
+    return this._api_url + '/sestra/editprofil';
+  }
+  get edit_change_password_sestra_url(): string {
+    return this._api_url + '/sestra/changepassword';
+  }
+
+  get get_karton_sestra_url(): string {
+    return this._api_url + '/sestra/getKarton';
+
   get pacijent_url(): string {
     return this._api_url + '/pacijent';
   }

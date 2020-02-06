@@ -43,6 +43,11 @@ const routes: Routes = [
   {
     path: 'sestra',
     component: SestraLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: './sestra-home/sestra-layout/sestra-layout.module#SestraLayoutModule'
+      }]
     },
     {
     path: 'lekar-kc',
