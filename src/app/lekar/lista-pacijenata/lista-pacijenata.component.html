@@ -39,18 +39,17 @@
                 <td>{{pacijent.email}}</td>
                 <td>{{pacijent.jbo}}</td>
                 <td>
-                  <div class="col-md-10">
-                    <button class="btn btn-primary btn-block" >Karton...</button>
+                  <div ngbDropdown class="col-md-10">
+                    <button class="btn btn-primary btn-block" id="dropdownBasic1" ngbDropdownToggle>Pacijent</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <button ngbDropdownItem (click)="profilPacijenta(profil,pacijent.id)">Profil</button>
+                      <button ngbDropdownItem (click)="dijagnozePacijenta(zdrKarton,pacijent.id)">Zdravstveni karton</button>
+                    </div>
                   </div>
                 </td>
                 <td>
                   <div class="col-md-10">
-                    <button class="btn btn-primary btn-block"  >Izmeni...</button>
-                  </div>
-                </td>
-                <td>
-                  <div class="col-md-10">
-                    <button class="btn btn-primary btn-block"  >Obriši...</button>
+                    <button class="btn btn-primary btn-block" ngbDropdownItem (click)="obrisi(pacijent.id)" >Obriši...</button>
                   </div>
                 </td>
                 </tr>
@@ -92,3 +91,224 @@
     </div>
   </div>
 </footer>
+
+<ng-template #profil let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" class="text-right" id="modal-basic-title1">Profil pacijenta</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+
+      <div class="row">
+              <div class="col-md-3">
+                <div class="card-body">
+                  <div class="author">
+                    <a>
+                      <img class="border-right" class="avatar border-gray" src="../../../../assets/img/user.png" alt="...">
+                    </a>
+                  </div>
+                </div>
+              </div>
+      </div>
+      <div class="row">
+
+        <div class="col-pr-4 pr-4">
+          <div class="form-group">
+            <label>Ime:</label>
+            <input type="text" [(ngModel)]="pacijentProf.imePacijenta"
+                   disabled = "true"
+                   class="form-control"
+                   id="ime"
+                   name="ime"
+                   placeholder="{{pacijentProf.imePacijenta}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+        <div class="col-pr-4 pr-1">
+          <div class="form-group">
+            <label>Prezime:</label>
+            <input type="text" [(ngModel)]="pacijentProf.prezimePacijenta"
+                   disabled = "true"
+                   class="form-control"
+                   id="prezime"
+                   name="prezime"
+                   placeholder="{{pacijentProf.prezimePacijenta}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-pr-4 pr-md-4">
+          <div class="form-group">
+            <label>JBO:</label>
+            <input type="text" [(ngModel)]="pacijentProf.jbo"
+                   disabled = "true"
+                   class="form-control"
+                   id="jbo"
+                   name="jbo"
+                   placeholder="{{pacijentProf.jbo}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+        <div class="col-pr-4 pr-4">
+          <div class="form-group">
+            <label>Email:</label>
+            <input type="text" [(ngModel)]="pacijentProf.email"
+                   disabled = "true"
+                   class="form-control"
+                   id="email"
+                   name="email"
+                   placeholder="{{pacijentProf.email}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+      </div>
+      <div class = "row" >
+        <div class="col-pr-4 pr-md-4">
+          <div class="form-group">
+            <label>Adresa stanovanja:</label>
+            <input type="text" [(ngModel)]="pacijentProf.adresa"
+                   disabled = "true"
+                   class="form-control"
+                   id="adresa"
+                   name="adresa"
+                   placeholder="{{pacijentProf.adresa}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+        <div class="col-pr-4 pr-1">
+          <div class="form-group">
+            <label>Grad:</label>
+            <input type="text" [(ngModel)]="pacijentProf.grad"
+                   disabled = "true"
+                   class="form-control"
+                   id="grad"
+                   name="grad"
+                   placeholder="{{pacijentProf.grad}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-pr-4 pr-md-4">
+          <div class="form-group">
+            <label>Drzava:</label>
+            <input type="text" [(ngModel)]="pacijentProf.drzava"
+                   disabled = "true"
+                   class="form-control"
+                   id="drzava"
+                   name="drzava"
+                   placeholder="{{pacijentProf.drzava}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+        <div class="col-pr-4 pr-1">
+          <div class="form-group">
+            <label>Telefon:</label>
+            <input type="text" [(ngModel)]="pacijentProf.brojTelefona"
+                   disabled = "true"
+                   class="form-control"
+                   id="telefon"
+                   name="telefon"
+                   placeholder="{{pacijentProf.brojTelefona}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Zatvori</button>
+  </div>
+</ng-template>
+
+
+
+<ng-template #zdrKarton let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Zdravstveni karton</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+
+      <div class="row">
+
+        <div class="col-pr-4 pr-4">
+          <div class="form-group">
+            <label>ID:</label>
+            <input type="text" [(ngModel)]="pacijentDijag.id"
+                   disabled = "true"
+                   class="form-control"
+                   id="id"
+                   name="id"
+                   placeholder="{{pacijentDijag.id}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+        <div class="col-pr-4 pr-1">
+          <div class="form-group">
+            <label>Naziv dijagnoza:</label>
+            <input type="text" [(ngModel)]="pacijentDijag.nazivDijagnoze"
+                   disabled = "true"
+                   class="form-control"
+                   id="naziv"
+                   name="naziv"
+                   placeholder="{{pacijentDijag.nazivDijagnoze}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+        <div class="col-pr-4 pr-1">
+          <div class="form-group">
+            <label>Opis dijagnoza:</label>
+            <input type="text" [(ngModel)]="pacijentDijag.opisDijagnoze"
+                   disabled = "true"
+                   class="form-control"
+                   id="opis"
+                   name="opis"
+                   placeholder="{{pacijentDijag.opisDijagnoze}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 pr-1">
+        <div class="form-group" >
+          <ngx-dropdown-list [items]="optionItems"
+                             [multiSelection]="false"
+                             [placeHolder]="'Lista dijagnozi'"
+                             [(selectedValue)]="selected"
+                             [suffixText]="''"
+                             [filterBox]="false"
+                             [formatNumber]="true"
+                             [disabled]="false"
+                             id="dijagnozePacijenataCbx">
+          </ngx-dropdown-list>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Izadji</button>
+  </div>
+</ng-template>
+

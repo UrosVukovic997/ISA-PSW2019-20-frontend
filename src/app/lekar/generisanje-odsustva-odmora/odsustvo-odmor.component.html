@@ -19,13 +19,13 @@
               <div class="col-md-5 pr-1">
                 <div class="form-group">
                   <label>Klinicki centar </label>
-                  <input type="text" class="form-control" disabled="" placeholder="{{lekari.klinika}}" value="">
+                  <input type="text" class="form-control" disabled="" placeholder="{{lekar.klinika}}" value="">
                 </div>
               </div>
               <div class="col-md-4 pl-1">
                 <div class="form-group">
                   <label>Korisnicko ime</label><!--<label for="exampleInputEmail1">Email address</label>-->
-                  <input type="username" class="form-control" disabled="" placeholder="{{lekari.korIme}}" value="">
+                  <input type="username" class="form-control" disabled="" placeholder="{{lekar.korIme}}" value="">
                 </div>
               </div>
             </div>
@@ -34,13 +34,13 @@
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label>Ime</label>
-                  <input type="text" class="form-control" disabled="" placeholder="{{lekari.ime}}" value="">
+                  <input type="text" class="form-control" disabled="" placeholder="{{lekar.ime}}" value="">
                 </div>
               </div>
               <div class="col-md-6 pl-1">
                 <div class="form-group">
                   <label>Prezime</label>
-                  <input type="text" class="form-control" disabled="" placeholder="{{lekari.prezime}}" value="">
+                  <input type="text" class="form-control" disabled="" placeholder="{{lekar.prezime}}" value="">
                 </div>
               </div>
             </div>
@@ -49,13 +49,13 @@
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label>Pocetak odmora/odsustva</label>
-                  <input type="date" [(ngModel)]="odsodmor.pocetak"
+                    <input type="date" [(ngModel)]="odsodmor.pocetak"
                          class="form-control"
                          id="myDate1"
                          name="myDate1"
                          value="yyyy-mm-dd"
                          required #name="ngModel">
-                   </div>
+                </div>
               </div>
               <div class="col-md-6 pr-1">
                 <div class="form-group">
@@ -76,7 +76,7 @@
                 <div class="form-group">
                   <label>Email adresa </label>
                   <p class="text-warning"> (Izvestaj o zahtevu za godisnji odmor ili odsustvo dobicete putem email-a!)</p>
-                  <input type="email" class="form-control" disabled="" placeholder="{{lekari.email}}" value="">
+                  <input type="email" class="form-control" disabled="" placeholder="{{lekar.email}}" value="">
                 </div>
               </div>
 
@@ -84,7 +84,7 @@
               <form>
                 <div class="col-md-16 pr-1">
                   <label>Zakazi</label>
-                  <div class="form-group">
+                   <div class="form-group">
                       <!--
                       <input type="text" [(ngModel)]="lekari.email"
                              class="form-control"
@@ -92,18 +92,31 @@
                              name="email"
                              placeholder="{{lekari.email}}"
                              required #name="ngModel">
+
+                             <input class="form-check-input" type="radio" value="dog"
+                              [(ngModel)]="dog.value" name="gob" value="i" [checked]="true"
+                              (change)="onItemChange($event)"/>
+                              id="vacationRadio" [(ngModel)]="vacationRadio" (change)="onItemChange($event)" style="transform: scale(1.3)" type="radio" value="vacation" name="requestFor"
                       -->
-                    <input type="radio" [(ngModel)]="odsodmor.godisnji"
-                           id="godisnji"
-                           name="godisnji"
-                           value="godOdmor"
-                           required #name="ngModel"> Godisnji<br>
-                    <input type="radio" [(ngModel)]="odsodmor.odsustvo"
-                           id="odsustvo"
-                           name="odsustvo"
+                     <div>
+                      <input id="godisnji" [(ngModel)]="Godisnji"
+                             (change)="onItemChange($event)"
+                             style="transform: scale(1.3)"
+                             type="radio"
+                             value="godisnji"
+                             name="requestFor">
+                      <label for="godisnji" class="ml-2">Godisnji </label>
+                     </div>
+                     <div>
+                      <input id="odsustvo" [(ngModel)]="Odsustvo"
+                           (change)="onItemChange($event)"
+                           style="transform: scale(1.3)"
+                           type="radio"
                            value="odsustvo"
-                           required #name="ngModel"> Odsustvo<br>
-                  </div>
+                           name="requestFor">
+                      <label for="odsustvo" class="ml-2">Odsustvo </label>
+                     </div>
+                   </div>
                 </div>
               </form>
 
@@ -133,7 +146,15 @@
               <div class="form-group">
                 <label>Obrazlozenje</label>
                 <p class="text-warning">(Svaki radnik ima prava na 21 dan godisnjeg odmora!)</p>
-                <textarea rows="4" cols="80" class="form-control" placeholder="....." value="Mike"></textarea>
+                <textarea rows="4" cols="80" class="form-control"
+                             type = "text" [(ngModel)]="odsodmor.obrazlozenje"
+                             placeholder="....."
+                             id="obrazlozenje"
+                             rows="4" cols="80"
+                             name = "obrazlozenje"
+                             value = "obrazlozenje"
+                             required #name="ngModel">
+                </textarea>
               </div>
             </div>
           </div>

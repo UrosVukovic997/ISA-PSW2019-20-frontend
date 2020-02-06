@@ -103,7 +103,6 @@ export class ConfigService {
   get get_all_admin_url(): string {
     return this._api_url + '/admin/getAll';
   }
-
   get dodaj_admin_url(): string {
     return this._api_url + '/admin/dodaj';
   }
@@ -152,6 +151,21 @@ export class ConfigService {
   get posalji_Zahtev_GodOdsu_url(): string {
     return this._api_url + '/lekar/zahtevOdsGod';
   }
+
+  get get_tip_pregleda_url(): string {
+    return this._api_url + '/lekar/getTipPregleda';
+  }
+  get zakazi_pregled_url(): string {
+    return this._api_url + '/lekar/zakaziPregled';
+  }
+  get obrisi_pacijentaById_url(): string {
+    return this._api_url + '/lekar/obrisi';
+  }
+  get get_pacijentById_url(): string {
+    return this._api_url + '/lekar/getPacijent';
+  }
+  get get_dijagPacijentaById_url(): string {
+    return this._api_url + '/lekar/getDijagPacijent';
 
   get daj_pacijenta_url(): string {
     return this._api_url + '/pacijenti/{id}';

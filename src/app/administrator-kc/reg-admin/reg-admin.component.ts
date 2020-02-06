@@ -65,6 +65,12 @@ export class RegAdminComponent implements OnInit {
       }
     );
   }
+  /*
+  id: number;
+  naziv: string;
+  obrisan: boolean;
+  cena: number;
+  */
   fill() {
     for ( const item of this.items) {
       this.optionItems.push({id: item, value: item, text: item});

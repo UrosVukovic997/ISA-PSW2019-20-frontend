@@ -39,9 +39,28 @@ export class ListaPacijenataService {
     catchError(this.errorHandl)
       );
   }
-
+  */
   obrisiPacijenta(id): Observable<any> {
-    return this.http.delete(this.configService.obrisi_pacijenta_url + id, this.httpOptions)
+    return this.http.delete(this.configService.obrisi_pacijentaById_url + id, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandl)
+      );
+  }
+  profilPacijenta(id): Observable<any> {
+    return this.http.get<Pacijent>(this.configService.get_pacijentById_url + id, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandl)
+      );
+  }
+  dijagPacijenta(id): Observable<any> {
+    return this.http.get<Pacijent>(this.configService.get_dijagPacijentaById_url + id, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandl)
+      );
+  }
+  /*
+  profilPacijenta(id): Observable<any> {
+    return this.http.get(this.configService.profil_pacijentaById_url + id, this.httpOptions)
       .pipe(
         catchError(this.errorHandl)
       );

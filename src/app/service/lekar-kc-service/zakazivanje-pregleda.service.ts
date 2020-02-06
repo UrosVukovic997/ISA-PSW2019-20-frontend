@@ -4,6 +4,8 @@ import {map, catchError, retry} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
 import { ConfigService } from '../config.service';
 import {Pacijent} from '../../shared/utilities/pacijent';
+import {TipPregleda} from '../../shared/utilities/tipPregleda';
+import {Administrator} from "../../shared/utilities/administrator";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,17 @@ export class ZakazivanjePregledaService {
       'Content-Type': 'application/json'
     })
   };
+
+  posaljiPregled(pregled, termin, idL) {
+    return this.http.post(`${this.configService.zakazi_pregled_url + '/' + idL}`, pregled);
+  }
+
+  getTipoviPregleda(): Observable<TipPregleda> {
+    return this.http.get<TipPregleda>(this.configService.get_tip_pregleda_url, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandl)
+      );
+  }
   /*
   getAllRegRequest(): Observable<RegZahtev> {
     return this.http.get<RegZahtev>(this.configService.reg_zahtevi_url)
