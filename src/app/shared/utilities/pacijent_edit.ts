@@ -1,15 +1,13 @@
-export class Pacijent {
-  id: number;
+export class PacijentEdit {
   imePacijenta: string;
   prezimePacijenta: string;
   email: string;
   adresa: string;
   grad: string;
   brojTelefona: string;
-  jbo: string;
+  rodjen: string;
   drzava: string;
   username: string;
-  lozinka: string;
-  rodjen: string;
+  jbo: number;
 
 }

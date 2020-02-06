@@ -30,6 +30,8 @@ import { ProfilSestraComponent } from './sestra-home/profil-sestra/profil-sestra
 import { KartonSestraComponent } from './sestra-home/karton-sestra/karton-sestra.component';
 import { OdmorOdsustvoSestraComponent } from './sestra-home/odmor-odsustvo-sestra/odmor-odsustvo-sestra.component';
 
+import {PacijentLayoutModule} from './pacijent/pacijent-layout/pacijent-layout.module';
+
 // import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
 // import { LicniProfilLekaraComponent} from './lekar/licni-profil/licni-profil.component';
 // import { ListaPacijenataComponent } from './lekar/lista-pacijenata/lista-pacijenata.component';
@@ -48,7 +50,8 @@ import { OdmorOdsustvoSestraComponent } from './sestra-home/odmor-odsustvo-sestr
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     AngularFontAwesomeModule,
-    ComponentsModuleSestra
+    ComponentsModuleSestra,
+    PacijentLayoutModule
 
   ],
   declarations: [

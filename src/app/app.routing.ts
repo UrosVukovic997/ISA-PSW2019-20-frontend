@@ -11,12 +11,14 @@ import { LekarKcLayoutComponent } from './lekar/lekar-kc-layout/lekar-kc-layout.
 import {PotvrdaComponent} from './administrator-kc/potvrda/potvrda.component';
 import {ForbiddenComponent} from './administrator-kc/forbidden/forbidden.component';
 import {SestraLayoutComponent} from './sestra-home/sestra-layout/sestra-layout.component';
+import {PacijentLayoutModule} from './pacijent/pacijent-layout/pacijent-layout.module';
+import {PacijentLayoutComponent} from './pacijent/pacijent-layout/pacijent-layout.component';
 
 const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'sestra',
+    redirectTo: 'logovanje',
     pathMatch: 'full',
   }, {
     path: 'admin-kc',
@@ -55,7 +57,14 @@ const routes: Routes = [
           path: '',
           loadChildren: './lekar/lekar-kc-layout/lekar-kc-layout.module#LekarKcLayoutModule'
         }]},
-  { path: 'aktivirajNalog/:id', component: PotvrdaComponent }
+  { path: 'aktivirajNalog/:id', component: PotvrdaComponent },
+  {path: 'profilPacijenta',
+  component: PacijentLayoutComponent,
+  children: [
+    {
+      path: '',
+      loadChildren:  './pacijent/pacijent-layout/pacijent-layout.module#PacijentLayoutModule'
+    }]}
 ];
 
 @NgModule({

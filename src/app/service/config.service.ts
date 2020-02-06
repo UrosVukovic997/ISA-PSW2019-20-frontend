@@ -29,8 +29,28 @@ export class ConfigService {
     return this._api_url + '/pacijenti/registruj';
   }
 
+  get izmeni_pacijenta_url(): string {
+    return this._api_url + '/pacijenti/zamena';
+  }
+
   get loguj_pacijenta_url(): string {
-    return this._api_url + '/logovanje/login';
+    return this._api_url + '/logovanje';
+  }
+
+  get loguj_lekara_url(): string {
+    return this._api_url + '/logovanje/lekar';
+  }
+
+  get loguj_mst_url(): string {
+    return this._api_url + '/logovanje/mst';
+  }
+
+  get loguj_admin_url(): string {
+    return this._api_url + '/logovanje/admin';
+  }
+
+  get loguj_adminkc_url(): string {
+    return this._api_url + '/logovanje/adminkc';
   }
 
   get get_all_dijagnoze_url(): string {
@@ -114,6 +134,13 @@ export class ConfigService {
 
   get get_karton_sestra_url(): string {
     return this._api_url + '/sestra/getKarton';
+
+  get pacijent_url(): string {
+    return this._api_url + '/pacijent';
+  }
+
+  get pacijent_nadji_url(): string {
+    return this._api_url + '/pacijenti/nadji';
   }
 
   get get_lekar_url(): string {
@@ -124,5 +151,9 @@ export class ConfigService {
   }
   get posalji_Zahtev_GodOdsu_url(): string {
     return this._api_url + '/lekar/zahtevOdsGod';
+  }
+
+  get daj_pacijenta_url(): string {
+    return this._api_url + '/pacijenti/{id}';
   }
 }
