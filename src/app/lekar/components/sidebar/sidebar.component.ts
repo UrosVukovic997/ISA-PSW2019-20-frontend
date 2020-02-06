@@ -13,7 +13,8 @@ export const ROUTES: RouteInfo[] = [
   { path: '/lekar-kc/zakazivanjePregleda', title: 'Zakazi pregled / operaciju',  icon: 'ui-1_send', class: '' },
   { path: '/lekar-kc/radnikalendar', title: 'Radni kalendar',  icon: 'ui-1_calendar-60', class: '' },
   { path: '/lekar-kc/licniprofil', title: 'Licni profil',  icon: 'users_single-02', class: '' },
-  { path: '/lekar-kc/odsustvoodmori', title: 'Odsustva i odmori',  icon: 'media-1_album', class: '' }
+  { path: '/lekar-kc/odsustvoodmori', title: 'Odsustva i odmori',  icon: 'media-1_album', class: '' },
+  { path: '/lekar-kc/kartoni', title: 'Kartoni',  icon: 'shopping_credit-card', class: '' },
 ];
 
 @Component({

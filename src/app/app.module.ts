@@ -31,6 +31,8 @@ import { KartonSestraComponent } from './sestra-home/karton-sestra/karton-sestra
 import { OdmorOdsustvoSestraComponent } from './sestra-home/odmor-odsustvo-sestra/odmor-odsustvo-sestra.component';
 
 import {PacijentLayoutModule} from './pacijent/pacijent-layout/pacijent-layout.module';
+import { KartonLekarComponent } from './lekar/karton-lekar/karton-lekar.component';
+import { OveraReceptaComponent } from './sestra-home/overa-recepta/overa-recepta.component';
 
 // import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
 // import { LicniProfilLekaraComponent} from './lekar/licni-profil/licni-profil.component';
@@ -63,6 +65,7 @@ import {PacijentLayoutModule} from './pacijent/pacijent-layout/pacijent-layout.m
     ForbiddenComponent,
     SestraLayoutComponent,
     LekarKcLayoutComponent,
+
 
 
     // SidebarLekarComponent,

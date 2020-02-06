@@ -133,7 +133,15 @@ export class ConfigService {
 
   get get_karton_sestra_url(): string {
     return this._api_url + '/sestra/getKarton';
+  }
 
+  get get_recepte_sestra_url(): string {
+    return this._api_url + '/sestra/recepti';
+  }
+
+  get overi_recept_sestra_url(): string {
+    return this._api_url + '/sestra/overi';
+  }
   get pacijent_url(): string {
     return this._api_url + '/pacijent';
   }
@@ -166,7 +174,7 @@ export class ConfigService {
   }
   get get_dijagPacijentaById_url(): string {
     return this._api_url + '/lekar/getDijagPacijent';
-
+  }
   get daj_pacijenta_url(): string {
     return this._api_url + '/pacijenti/{id}';
   }

@@ -16,7 +16,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { ComponentsLekarModule } from '../components/components.module';
 import {LekarKcLayoutComponent} from './lekar-kc-layout.component';
-import {DropdownListModule} from "ngx-dropdown-list";
+import {DropdownListModule} from 'ngx-dropdown-list';
+import {KartonLekarComponent} from '../karton-lekar/karton-lekar.component';
 
 
 
@@ -38,7 +39,8 @@ import {DropdownListModule} from "ngx-dropdown-list";
     LicniProfilLekaraComponent,
     RadniKalendarComponent,
     ZakazivanjePregledaComponent,
-    ZapocniPregledComponent
+    ZapocniPregledComponent,
+    KartonLekarComponent,
   ]
 })
 

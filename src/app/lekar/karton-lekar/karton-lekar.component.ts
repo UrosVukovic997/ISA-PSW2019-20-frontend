@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {first} from 'rxjs/operators';
 import {SestraServiceService} from '../../service/sestraService/sestra-service.service';
-import {ActivatedRoute} from '@angular/router';
+import {first} from 'rxjs/operators';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'app-karton-sestra',
-  templateUrl: './karton-sestra.component.html',
-  styleUrls: ['./karton-sestra.component.css']
+  selector: 'app-karton-lekar',
+  templateUrl: './karton-lekar.component.html',
+  styleUrls: ['./karton-lekar.component.css']
 })
-export class KartonSestraComponent implements OnInit {
+export class KartonLekarComponent implements OnInit {
+
 
   searchForm: FormGroup;
   submittedSearch = false;
   searchControl;
   karton: any = [];
 
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private sestraService: SestraServiceService) { }
+  constructor(private router: Router, private route: ActivatedRoute,
+              private formBuilder: FormBuilder, private sestraService: SestraServiceService) { }
 
   ngOnInit() {
     this.searchControl = new FormControl(['', [Validators.required, Validators.pattern('^[0-9]*$')]]);
@@ -29,7 +31,6 @@ export class KartonSestraComponent implements OnInit {
   }
 
   get f() { return this.searchForm.controls; }
-
 
 
   search() {
