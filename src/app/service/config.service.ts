@@ -108,6 +108,13 @@ export class ConfigService {
   get edit_profil_data_sestra_url(): string {
     return this._api_url + '/sestra/editprofil';
   }
+  get edit_change_password_sestra_url(): string {
+    return this._api_url + '/sestra/changepassword';
+  }
+
+  get get_karton_sestra_url(): string {
+    return this._api_url + '/sestra/getKarton';
+  }
 
   get get_lekar_url(): string {
     return this._api_url + '/lekar/licni_profil/getLekar';

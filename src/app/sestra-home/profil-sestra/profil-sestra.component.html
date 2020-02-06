@@ -1,3 +1,5 @@
+<div class="panel-header panel-header-sm">
+</div>
 <div class="main-content">
   <div class="row">
     <div class="col-md-8">
@@ -17,13 +19,13 @@
               <div class="col-md-3 px-1">
                 <div class="form-group">
                   <label>Username</label>
-                  <input type="text" id="username" formControlName="username" disabled="" class="form-control" placeholder="Username" value={{podaci.username}}>
+                  <input type="text" id="username" formControlName="username" class="form-control" placeholder="Username" value={{podaci.username}}>
                 </div>
               </div>
               <div class="col-md-4 pl-1">
                 <div class="form-group">
                   <label for="email">Email adresa</label>
-                  <input name="email" id="email" formControlName="email" type="email" class="form-control" placeholder="Email" value={{podaci.email}}>
+                  <input name="email" id="email" disabled="" formControlName="email" type="email" class="form-control" placeholder="Email" value={{podaci.email}}>
                 </div>
               </div>
             </div>
@@ -48,9 +50,12 @@
                   <input type="text" id="adresa" formControlName="adresa" class="form-control" placeholder="Home Address" value={{podaci.adresa}}>
                 </div>
               </div>
+              <div class="col-md-12">
+                <button class="btn btn-danger" (click)="passwordModal(mymodal)">Promeni lozinku</button>
+              </div>
             </div>
             <div class="form-group">
-              <button [disabled]="loading" class="btn btn-danger">
+              <button [disabled]="loading" class="btn btn-success">
                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                 Sačuvaj
               </button>
@@ -61,3 +66,37 @@
     </div>
   </div>
 </div>
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Promeni lozinku</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="passwordForm" (ngSubmit)="promeniPassword()">
+      <div class="form-group">
+        <label  >Stara lozinka</label>
+        <input type="text" value='' formControlName="stara" class="form-control" [ngClass]="{ 'is-invalid': submitted2 && f.stara.errors }" />
+        <div *ngIf="submitted2 && f.stara.errors" class="invalid-feedback">
+          <div *ngIf="f.stara.errors.required">Polje ne moze biti prazano</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label >Nova Lozinka</label>
+        <input type="text" value='' formControlName="nova" class="form-control" [ngClass]="{ 'is-invalid': submitted2 && f.nova.errors }" />
+        <div *ngIf="submitted2 && f.nova.errors" class="invalid-feedback">
+          <div *ngIf="f.nova.errors.required">Polje ne moze biti prazano</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading2" class="btn btn-primary">
+          <span *ngIf="loading2" class="spinner-border spinner-border-sm mr-1"></span>
+          Promeni
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+

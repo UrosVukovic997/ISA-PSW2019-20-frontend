@@ -1,0 +1,106 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Karton pacijenta</h4>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="input-group no-border" style=" width: 20%">
+              <input type="text" id="searchInput" value="" class="form-control" placeholder="JBO" [ngClass]="{ 'is-invalid': submittedSearch && searchControl.errors }"/>
+              <div class="input-group-append">
+                <div *ngIf="submittedSearch && searchControl.errors" class="invalid-feedback">
+                  <div *ngIf="searchControl.errors.required">Polje ne moze biti prazano i mora biti broj</div>
+                </div>
+                <div class="input-group-text">
+                  <i class="now-ui-icons ui-1_zoom-bold" (click)="search()"></i>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div id="tablaDijagnoze">
+            <div class="row">
+              <div class="col-md-2 pr-1">
+                <div class="form-group">
+                  <label>Broj kartona</label>
+                  <input type="text" class="form-control"  disabled="" placeholder="brok" value="{{karton.broj}}">
+                </div>
+              </div>
+              <div class="col-md-2 px-1">
+                <div class="form-group">
+                  <label>JBO</label>
+                  <input type="text" id="jbo" disabled="" class="form-control" placeholder="jbo" value="{{karton.jbo}}">
+                </div>
+              </div>
+              <div class="col-md-2 pl-1">
+                <div class="form-group">
+                  <label for="ime">Ime</label>
+                  <input name="ime" id="ime" disabled=""  type="email" class="form-control" placeholder="Email" value="{{karton.ime}}">
+                </div>
+              </div>
+            <div class="col-md-2 pl-1">
+              <div class="form-group">
+                <label for="prezime">Prezime</label>
+                <input name="prezime" id="prezime" disabled=""  type="email" class="form-control" placeholder="Email" value="{{karton.prezime}}">
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive"  >
+            <h6 class="card-title">Dijagnoze</h6>
+            <table class="table table-striped">
+              <thead class=" text-primary">
+              <th>
+                ID
+              </th>
+              <th>
+                Naziv
+              </th>
+              <th>
+                Opis
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let dijagnoza of karton.dijagnoze; let i = index">
+                <tr>
+                  <td>{{dijagnoza.id}}</td>
+                  <td>{{dijagnoza.nazivDijagnoze}}</td>
+                  <td>{{dijagnoza.opisDijagnoze}}</td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+        </div>
+            <div class="table-responsive"  >
+              <h6 class="card-title">Pregledi</h6>
+              <table class="table table-striped">
+                <thead class=" text-primary">
+                <th>
+                  ID
+                </th>
+                <th>
+                  Naziv
+                </th>
+                <th>
+                  Opis
+                </th>
+                </thead>
+                <tbody>
+                <ng-container *ngFor="let pregled of karton.pregledi; let i = index">
+                  <tr>
+                    <td>{{pregled.id}}</td>
+                    <td>{{pregled.nazivDijagnoze}}</td>
+                    <td>{{pregled.opisDijagnoze}}</td>
+                  </tr>
+                </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

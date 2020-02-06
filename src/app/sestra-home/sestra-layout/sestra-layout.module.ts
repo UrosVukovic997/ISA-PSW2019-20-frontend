@@ -12,13 +12,15 @@ import { SestraLayoutRoutes } from '../sestra-layout/sestra-layout.routing';
 import {KalendarComponent} from '../../kalendar/kalendar/kalendar.component';
 import {KalendarModule} from '../../kalendar/kalendar.module';
 import {PacijentListComponent} from '../pacijent-list/pacijent-list.component';
-import {KartonModule} from '../../karton/karton.module';
 import {ProfilSestraComponent} from '../profil-sestra/profil-sestra.component';
+import {AdminKcLayoutModule} from '../../administrator-kc/admin-kc-layout/admin-kc-layout.module';
+import {KartonSestraComponent} from '../karton-sestra/karton-sestra.component';
+import {OdmorOdsustvoSestraComponent} from '../odmor-odsustvo-sestra/odmor-odsustvo-sestra.component';
 
 
 
 @NgModule({
-  declarations: [PacijentListComponent, ProfilSestraComponent],
+  declarations: [PacijentListComponent, ProfilSestraComponent, KartonSestraComponent, OdmorOdsustvoSestraComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(SestraLayoutRoutes),
@@ -30,7 +32,7 @@ import {ProfilSestraComponent} from '../profil-sestra/profil-sestra.component';
     ReactiveFormsModule,
     DropdownListModule,
     KalendarModule,
-    KartonModule,
+    AdminKcLayoutModule
   ]
 })
 export class SestraLayoutModule { }

@@ -29,4 +29,12 @@ export class SestraServiceService {
   editProfil(sestra): Observable<any> {
     return this.http.post(this.configService.edit_profil_data_sestra_url, sestra);
   }
+
+  updatePassword( password ): Observable<any> {
+    return this.http.post(this.configService.edit_change_password_sestra_url, password);
+  }
+
+  getKarton(jbo): Observable<Sestra> {
+    return this.http.get<Sestra>(this.configService.get_karton_sestra_url + '/' + jbo);
+  }
 }

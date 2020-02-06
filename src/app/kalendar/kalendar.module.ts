@@ -6,7 +6,7 @@ import {KalendarComponent} from './kalendar/kalendar.component';
 import {FullCalendarModule} from '@fullcalendar/angular';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import {FormsModule} from '@angular/forms';
-import { FlatpickrModule } from 'angularx-flatpickr';
+// import { FlatpickrModule } from 'angularx-flatpickr';
 import {adapterFactory} from 'angular-calendar/date-adapters/date-fns';
 
 
@@ -17,7 +17,7 @@ import {adapterFactory} from 'angular-calendar/date-adapters/date-fns';
     CommonModule,
     FormsModule,
     NgbModalModule,
-    FlatpickrModule.forRoot(),
+//     FlatpickrModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory

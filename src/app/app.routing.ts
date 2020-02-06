@@ -16,7 +16,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'admin-kc',
+    redirectTo: 'sestra',
     pathMatch: 'full',
   }, {
     path: 'admin-kc',

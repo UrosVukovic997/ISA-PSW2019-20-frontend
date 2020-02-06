@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {SestraServiceService} from '../../service/sestraService/sestra-service.service';
 import {Sestra} from '../../shared/utilities/sestra';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
+import {Router} from '@angular/router';
+import {NgbModal, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
+import {Password} from '../../shared/utilities/password';
 
 @Component({
   selector: 'app-profil-sestra',
@@ -12,12 +15,18 @@ import {first} from 'rxjs/operators';
 export class ProfilSestraComponent implements OnInit {
 
   profilForm: FormGroup;
+  passwordForm: FormGroup;
   loading = false;
+  loading2 = false;
   submitted = false;
+  submitted2 = false;
+  modalOptions: NgbModalOptions;
+  closeResult: string;
 
-  constructor(private sestraService: SestraServiceService,  private formBuilder: FormBuilder) { }
+  constructor(private sestraService: SestraServiceService,  private formBuilder: FormBuilder, private router: Router,
+              private modalService: NgbModal) { }
 
-  podaci: {};
+  podaci: any = [];
 
   ngOnInit() {
     this.profilForm = this.formBuilder.group({
@@ -26,6 +35,10 @@ export class ProfilSestraComponent implements OnInit {
       email: [''],
       username: [''],
       adresa: [''],
+    });
+    this.passwordForm = this.formBuilder.group({
+      stara: ['', Validators.required],
+      nova: ['', Validators.required],
     });
     this.ucitajPodatke();
   }
@@ -37,11 +50,9 @@ export class ProfilSestraComponent implements OnInit {
     );
   }
 
-  sacuvaj() {
 
-  }
 
-  get f() { return this.profilForm.controls; }
+  get f() { return this.passwordForm.controls; }
 
   onSubmit() {
     this.submitted = true;
@@ -57,6 +68,7 @@ export class ProfilSestraComponent implements OnInit {
     this.sestraService.editProfil(sestra).pipe(first()).subscribe(
       data => {
         this.loading = false;
+        localStorage.setItem('currentUserUsername', username);
 
       },
       error => {
@@ -64,4 +76,39 @@ export class ProfilSestraComponent implements OnInit {
         this.loading = false;
       });
   }
+
+  passwordModal(content) {
+    this.modalService.open(content, this.modalOptions).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed`;
+    });
+  }
+
+  promeniPassword() {
+    this.submitted2 = true;
+
+    if (this.passwordForm.invalid) {
+      console.log('ret');
+      return;
+    }
+
+    this.loading2 = true;
+    const password = new Password(localStorage.getItem('currentUserUsername'), this.f.stara.value, this.f.nova.value);
+    console.log(this.passwordForm.value);
+    console.log(password);
+    this.sestraService.updatePassword( password ).pipe(first()).subscribe(
+      data => {
+        this.loading2 = false;
+        this.modalService.dismissAll();
+      },
+      error => {
+        //        this.alertService.error(error);
+        this.loading2 = false;
+        console.log(error);
+      });
+
+  }
+
+
 }
