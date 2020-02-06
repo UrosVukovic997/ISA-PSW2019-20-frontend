@@ -22,7 +22,7 @@ export class AuthenticationService {
   }
 
   login(user) {
-    console.log(user.username + user.password);
+    console.log(user.email + user.password);
     return this.http.post(`${this.configService.loguj_pacijenta_url}`, user)
       .pipe(map(User => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -30,5 +30,11 @@ export class AuthenticationService {
         this.currentUserSubject.next(User);
         return User;
       }));
+  }
+
+  logout() {
+    // remove user from local storage and set current user to null
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
   }
 }

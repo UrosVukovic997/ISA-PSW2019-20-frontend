@@ -1,0 +1,129 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Izmeni Profil</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-5 pr-1">
+                <div class="form-group">
+                  <label>JBO</label>
+                  <input type="text" class="form-control" disabled="" placeholder="" id="jbo" value={{pacijent.jbo}}>
+                </div>
+              </div>
+              <div class="col-md-3 px-1">
+                <div class="form-group">
+                  <label>Korisnicko ime</label>
+                  <input type="text" class="form-control" placeholder="Username" id="username" value={{pacijent.username}}>
+                </div>
+              </div>
+              <div class="col-md-4 pl-1">
+                <div class="form-group">
+                  <label for="email">Email adresa</label>
+                  <input name="email" id="email" type="email" class="form-control" id="email" disabled="" placeholder="Email" value={{pacijent.email}}>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Ime</label>
+                  <input type="text" class="form-control" placeholder="Company" id="imePacijenta" value={{pacijent.imePacijenta}}>
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Prezime</label>
+                  <input type="text" class="form-control" placeholder="Last Name" id="prezimePacijenta" value={{pacijent.prezimePacijenta}}>
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Drzava</label>
+                  <input type="text" class="form-control" placeholder="State" id="drzava" value={{pacijent.drzava}}>
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Adresa</label>
+                  <input type="text" class="form-control" placeholder="Adress" id="adresa" value={{pacijent.adresa}}>
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Grad</label>
+                  <input type="text" class="form-control" placeholder="City" id="grad" value={{pacijent.grad}}>
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Broj telefona</label>
+                  <input type="text" class="form-control" placeholder="Phone number" id="brojTelefona" value={{pacijent.brojTelefona}}>
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Datum rodjenja</label>
+                  <input type="text" class="form-control" placeholder="Birth date" id="rodjen" value={{pacijent.rodjen}}>
+                </div>
+              </div>
+              <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Izmena
+                </button>
+
+
+              </div>
+
+            </div>
+            <!--            <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label>Address</label>
+                              <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 pr-1">
+                            <div class="form-group">
+                              <label>City</label>
+                              <input type="text" class="form-control" placeholder="City" value="Mike">
+                            </div>
+                          </div>
+                          <div class="col-md-4 px-1">
+                            <div class="form-group">
+                              <label>Country</label>
+                              <input type="text" class="form-control" placeholder="Country" value="Andrew">
+                            </div>
+                          </div>
+                          <div class="col-md-4 pl-1">
+                            <div class="form-group">
+                              <label>Postal Code</label>
+                              <input type="number" class="form-control" placeholder="ZIP Code">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label>About Me</label>
+                              <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                            </div>
+                          </div>
+                        </div>
+                                      -->
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

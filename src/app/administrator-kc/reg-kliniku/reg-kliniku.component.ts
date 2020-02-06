@@ -51,7 +51,7 @@ export class RegKlinikuComponent implements OnInit {
 
   obrisi(id) {
     this.service.obrisiKliniku(id).subscribe();
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
       this.router.navigate(['/admin-kc/registrujkliniku']);
     });
   }

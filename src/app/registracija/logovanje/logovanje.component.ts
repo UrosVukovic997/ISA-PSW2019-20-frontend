@@ -25,17 +25,17 @@ export class LogovanjeComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private loginService: LogovanjeServiceService
   ) {
-    /*// redirect to home if already logged in
+    // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }*/
+      this.router.navigate(['/registracija']);
+    }
   }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
-      gender: ['']
+      gender: ['pacijent']
     });
  /*   // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -51,7 +51,7 @@ export class LogovanjeComponent implements OnInit {
   }
 
   get MyUser() {
-    return this.loginForm.get('username');
+    return this.loginForm.get('email');
   }
 
 
@@ -72,18 +72,41 @@ export class LogovanjeComponent implements OnInit {
     }
 
     this.loading = true;
-    this.loginService.login(this.loginForm.value)
+    this.loginService.login(this.loginForm.value, this.myForm.value)
       .pipe(first())
       .subscribe(
         data => {
+          console.log(data);
           if (this.myForm.value === 'pacijent') {
-          this.router.navigate(['/registracija']);
+            localStorage.setItem('currentUserRole', 'pacijent');
+            this.router.navigate(['/profilPacijenta']);
           } else {
-            this.router.navigate(['/']);
+            if (this.myForm.value === 'administratorKlinickog') {
+              this.router.navigate(['/admin-kc']);
+              localStorage.setItem('currentUserRole', 'admin-kc');
+            } else {
+              if (this.myForm.value === 'lekar') {
+                this.router.navigate(['/lekar-kc']);
+                localStorage.setItem('currentUserRole', 'lekar');
+              } else {
+                if (this.myForm.value === 'medicinskaSestra') {
+                  this.router.navigate(['/sestra']);
+                  localStorage.setItem('currentUserRole', 'medicinskaSestra');
+                } else {
+                  if (this.myForm.value === 'administratorKlinike') {
+                    this.router.navigate(['/admin']);
+                    localStorage.setItem('currentUserRole', 'administratorKlinike');
+                  } else {
+                    this.router.navigate(['/logovanje']);
+                  }
+                }
+              }
+            }
           }
         },
         error => {
           this.error = error;
+          console.log(error);
           this.loading = false;
         });
   }

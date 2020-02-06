@@ -3,11 +3,13 @@ export class Pacijent {
   imePacijenta: string;
   prezimePacijenta: string;
   email: string;
-  lozinka: string;
   adresa: string;
   grad: string;
+  brojTelefona: string;
+  jbo: string;
   drzava: string;
-  brojTefefona: number;
-  jbo: number;
-  korIme: string;
+  username: string;
+  lozinka: string;
+  rodjen: string;
+
 }

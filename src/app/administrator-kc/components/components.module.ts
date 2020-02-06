@@ -4,13 +4,15 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {RouterModule} from '@angular/router';
 import { Ng2BootstrapModule } from 'ng-bootstrap';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 @NgModule({
-  declarations: [SidebarComponent],
+  declarations: [SidebarComponent, NavbarComponent],
   exports: [
-    SidebarComponent
+    SidebarComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,

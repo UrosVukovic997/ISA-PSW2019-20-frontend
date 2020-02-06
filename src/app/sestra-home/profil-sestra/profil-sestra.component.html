@@ -1,0 +1,102 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Izmeni profil</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-5 pr-1">
+                <div class="form-group">
+                  <label>Klinika</label>
+                  <input type="text" class="form-control"  disabled="" placeholder="Company" value={{podaci.klinika}}>
+                </div>
+              </div>
+              <div class="col-md-3 px-1">
+                <div class="form-group">
+                  <label>Username</label>
+                  <input type="text" id="username" formControlName="username" class="form-control" placeholder="Username" value={{podaci.username}}>
+                </div>
+              </div>
+              <div class="col-md-4 pl-1">
+                <div class="form-group">
+                  <label for="email">Email adresa</label>
+                  <input name="email" id="email" disabled="" formControlName="email" type="email" class="form-control" placeholder="Email" value={{podaci.email}}>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Ime</label>
+                  <input type="text" id="ime" formControlName="ime" class="form-control" placeholder="Company" value={{podaci.ime}}>
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Prezime</label>
+                  <input type="text" id="prezime" formControlName="prezime" class="form-control" placeholder="Last Name" value={{podaci.prezime}}>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Adresa</label>
+                  <input type="text" id="adresa" formControlName="adresa" class="form-control" placeholder="Home Address" value={{podaci.adresa}}>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <button class="btn btn-danger" (click)="passwordModal(mymodal)">Promeni lozinku</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <button [disabled]="loading" class="btn btn-success">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Sačuvaj
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Promeni lozinku</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="passwordForm" (ngSubmit)="promeniPassword()">
+      <div class="form-group">
+        <label  >Stara lozinka</label>
+        <input type="text" value='' formControlName="stara" class="form-control" [ngClass]="{ 'is-invalid': submitted2 && f.stara.errors }" />
+        <div *ngIf="submitted2 && f.stara.errors" class="invalid-feedback">
+          <div *ngIf="f.stara.errors.required">Polje ne moze biti prazano</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label >Nova Lozinka</label>
+        <input type="text" value='' formControlName="nova" class="form-control" [ngClass]="{ 'is-invalid': submitted2 && f.nova.errors }" />
+        <div *ngIf="submitted2 && f.nova.errors" class="invalid-feedback">
+          <div *ngIf="f.nova.errors.required">Polje ne moze biti prazano</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading2" class="btn btn-primary">
+          <span *ngIf="loading2" class="spinner-border spinner-border-sm mr-1"></span>
+          Promeni
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
