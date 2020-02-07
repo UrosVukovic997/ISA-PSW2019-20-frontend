@@ -35,4 +35,14 @@ export class AdminService {
   obrisiAdmina(id): Observable<any> {
     return this.http.delete(this.configService.obrisi_admin_url + id);
   }
+
+  obrisiAdminaKC(id): Observable<any> {
+    return this.http.delete(this.configService.obrisi_adminKC_url + id);
+  }
+
+
+
+  getAllAdminKC(): Observable<any> {
+    return this.http.get<any>(this.configService.admin_kc_get_All_url );
+  }
 }

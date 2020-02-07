@@ -110,8 +110,23 @@ export class ConfigService {
     return this._api_url + '/admin/obrisi';
   }
 
-  get admin_kc_url(): string {
-    return this._api_url + '/admin';
+  get admin_kc_get_All_url(): string {
+    return this._api_url + '/adminKC/getAll';
+  }
+  get admin_kc_profil_url(): string {
+    return this._api_url + '/adminKC/getprofil/';
+  }
+
+  get admin_kc_changepassword_url(): string {
+    return this._api_url + '/adminKC/changepassword';
+  }
+
+  get admin_kc_azuriraj_url(): string {
+    return this._api_url + '/adminKC/azuriraj';
+  }
+
+  get obrisi_adminKC_url(): string {
+    return this._api_url + '/adminKC/obrisi/';
   }
 
   get sestra_naziv_klinike_url(): string {
