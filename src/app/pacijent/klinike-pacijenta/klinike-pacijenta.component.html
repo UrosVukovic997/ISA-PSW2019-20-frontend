@@ -1,0 +1,183 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Klinike pacijenta</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class=" text-primary">
+              <th>
+                Naziv
+              </th>
+              <th>
+                Adresa
+              </th>
+              <th>
+                Ocena
+              </th>
+              <th>
+                Lekar
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let klinika of klinike; let i = index">
+                <tr>
+                  <td>{{klinika.nazivKlinike}}</td>
+                  <td>{{klinika.grad}}</td>
+                  <td>{{klinika.ocena}}</td>
+
+                  <div ngbDropdown class="col-md-4">
+                    <button class="btn btn-primary btn-block" id="dropdownBasic1" ngbDropdownToggle>Izaberi</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <button ngbDropdownItem (click)="open(profil,klinika.tpkDTOs)">Lista lekara</button>
+                    </div>
+                  </div>
+
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #profil let-modal windowClass="modal-dialog">
+  <div class="modal-header">
+    <h4 class="modal-title" class="text-right" id="modal-basic-title1">Vrste pregleda</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-14 pr-1">
+      <div class="form-group" >
+        <ngx-dropdown-list (selectionChange)="onChange($event)"
+                           [items]="optionItems"
+                           [multiSelection]="false"
+                           [placeHolder]="'Izaberi vrstu pregleda'"
+                           [(selectedValue)]="selected"
+                           [suffixText]="''"
+                           [filterBox]="false"
+                           [formatNumber]="true"
+                           [disabled]="false">
+        </ngx-dropdown-list>
+      </div>
+
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead class=" text-primary">
+            <th>
+              Ime
+            </th>
+            <th>
+              Prezime
+            </th>
+            <th>
+              Specijalnost
+            </th>
+            <th>
+              Opis
+            </th>
+            <th>
+              Biranje satnice
+            </th>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let lekar of lekari; let i = index">
+              <tr>
+                <td>{{lekar.ime}}</td>
+                <td>{{lekar.prezime}}</td>
+                <td>{{lekar.specijalnost}}</td>
+                <td>{{lekar.opis}}</td>
+
+                <a class="nav-link" (click)="open1(profil1,lekar.email)" >
+                  <i class="now-ui-icons ui-2_time-alarm"></i>
+
+                </a>
+
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>
+
+
+
+<ng-template #profil1 let-modal windowClass="modal-dialog">
+  <div class="modal-header">
+    <h4 class="modal-title" class="text-right" id="modal-basic-title2">Biranje termina pregleda</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="col-md-3 pr-1">
+      <div class="form-group">
+        <label>Pocetak pregleda:</label>
+        <input type="date" [(ngModel)]="odsodmor.pocetak"
+
+               (ngModelChange)="onChange1(odsodmor.pocetak)"
+               (click)="fills1()"
+               class="form-control"
+               id="myDate1"
+               name="myDate1"
+               value="yyyy-mm-dd"
+               required #name="ngModel">
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class=" text-primary">
+        <th>
+          Satnica
+        </th>
+        <th>
+          Zakazi
+        </th>
+
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let sat of vreme; let i = index">
+          <tr>
+            <td>{{sat.parsirano1}}</td>
+
+
+            <a class="nav-link" (click)="open3(sat.parsirano1)" >
+              <i class="now-ui-icons ui-2_time-alarm"></i>
+
+            </a>
+
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>

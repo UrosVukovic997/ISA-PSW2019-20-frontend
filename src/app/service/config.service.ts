@@ -133,7 +133,7 @@ export class ConfigService {
 
   get get_karton_sestra_url(): string {
     return this._api_url + '/sestra/getKarton';
-
+  }
   get pacijent_url(): string {
     return this._api_url + '/pacijent';
   }
@@ -166,8 +166,24 @@ export class ConfigService {
   }
   get get_dijagPacijentaById_url(): string {
     return this._api_url + '/lekar/getDijagPacijent';
-
+  }
   get daj_pacijenta_url(): string {
     return this._api_url + '/pacijenti/{id}';
+  }
+
+  get get_TipPregledaKlinike_url(): string {
+    return this._api_url + '/pacijenti/getKlinPac';
+  }
+
+  get get_lekar_by_tip_url(): string {
+    return this._api_url + '/pacijenti/getLekarOdTipa';
+  }
+
+  get get_vreme_by_lekarFTdatum_url(): string {
+    return this._api_url + '/pacijenti/vremeLekaraFTDatum';
+  }
+
+  get get_ZakaziPregledPac_url(): string {
+    return this._api_url + '/pacijenti/zakaziPregledPac';
   }
 }
