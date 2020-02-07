@@ -6,6 +6,7 @@ import { LicniProfilLekaraComponent } from '../licni-profil/licni-profil.compone
 import { RadniKalendarComponent } from '../radni-kalendar/radni-kalendar.component';
 import { ZakazivanjePregledaComponent } from '../zakazivanje-pregleda/zakazivanje-pregleda.component';
 import { ZapocniPregledComponent } from '../zapocni-pregled/zapocni-pregled.component';
+import {KartonLekarComponent} from '../karton-lekar/karton-lekar.component';
 
 export const LekarKcLayoutRoutes: Routes = [
   { path: 'listapacijenata',     component: ListaPacijenataComponent },
@@ -13,6 +14,10 @@ export const LekarKcLayoutRoutes: Routes = [
   { path: 'licniprofil',     component: LicniProfilLekaraComponent },
   { path: 'radnikalendar',     component: RadniKalendarComponent },
   { path: 'zakazivanjePregleda',     component: ZakazivanjePregledaComponent },
-  { path: 'zapocniPregled',     component: ZapocniPregledComponent }
+  { path: 'zapocniPregled',     component: ZapocniPregledComponent },
+  { path: 'kartoni/:jbo',     component: KartonLekarComponent },
+  { path: 'kartoni',     component: KartonLekarComponent }
+
+
 ];
 

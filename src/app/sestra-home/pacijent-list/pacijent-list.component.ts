@@ -33,4 +33,7 @@ export class PacijentListComponent implements OnInit {
       }
     );
   }
+  karton(jbo) {
+    this.router.navigate(['sestra/kartoni/' + jbo ]);
+  }
 }

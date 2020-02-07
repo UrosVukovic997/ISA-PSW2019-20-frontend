@@ -29,6 +29,9 @@
               <th>
                 Email
               </th>
+              <th>
+                Karton
+              </th>
               </thead>
               <tbody>
               <ng-container *ngFor="let pacijent of pacijenti; let i = index">
@@ -37,6 +40,9 @@
                   <td>{{pacijent.prezimePacijenta}}</td>
                   <td>{{pacijent.jbo}}</td>
                   <td>{{pacijent.email}}</td>
+                  <td>
+                  <button class="btn btn-primary" (click)="karton(pacijent.jbo)">Zdravstveni karton</button>
+                  </td>
                 </tr>
               </ng-container>
               </tbody>

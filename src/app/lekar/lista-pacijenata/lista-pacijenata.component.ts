@@ -104,6 +104,9 @@ export class ListaPacijenataComponent implements OnInit {
       }
     );
   }
+  karton(jbo) {
+    this.router.navigate(['lekar-kc/kartoni/' + jbo ]);
+  }
   fill() {
     for (const item of this.items) {
       this.optionItems.push({id: item.nazivDijagnoze, value: item.nazivDijagnoze, text: item.nazivDijagnoze});

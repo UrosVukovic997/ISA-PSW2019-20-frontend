@@ -16,11 +16,14 @@ import {ProfilSestraComponent} from '../profil-sestra/profil-sestra.component';
 import {AdminKcLayoutModule} from '../../administrator-kc/admin-kc-layout/admin-kc-layout.module';
 import {KartonSestraComponent} from '../karton-sestra/karton-sestra.component';
 import {OdmorOdsustvoSestraComponent} from '../odmor-odsustvo-sestra/odmor-odsustvo-sestra.component';
+import {OveraReceptaComponent} from '../overa-recepta/overa-recepta.component';
 
 
 
 @NgModule({
-  declarations: [PacijentListComponent, ProfilSestraComponent, KartonSestraComponent, OdmorOdsustvoSestraComponent],
+  declarations: [PacijentListComponent, ProfilSestraComponent,
+    KartonSestraComponent, OdmorOdsustvoSestraComponent, OveraReceptaComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(SestraLayoutRoutes),

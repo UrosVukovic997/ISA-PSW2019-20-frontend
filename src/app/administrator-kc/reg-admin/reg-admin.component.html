@@ -42,12 +42,57 @@
                   <td>{{admin.prezime}}</td>
                   <td>{{admin.username}}</td>
                   <td>{{admin.email}}</td>
+                  <td>
+                      <button class="btn btn-danger" (click)="obrisiAdmin(admin.id)" >Obrisi</button>
+                      <!--  <button ngbDropdownItem (click)="obrisiAdmin(admin.id)")>Obrisi</button> -->
+                  </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+          <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal,1)">Dodaj</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Registruj administratora kliničkog centra</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class=" text-primary">
+              <th>
+                Ime
+              </th>
+              <th>
+                Prezime
+              </th>
+              <th>
+                Korisnicko ime
+              </th>
+              <th>
+                Email
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let adminkc of adminikc; let i = index">
+                <tr>
+                  <td>{{adminkc.ime}}</td>
+                  <td>{{adminkc.prezime}}</td>
+                  <td>{{adminkc.username}}</td>
+                  <td>{{adminkc.email}}</td>
 
                   <td>
                     <div ngbDropdown class="d-inline-block">
-                      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Akcija</button>
-                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <button ngbDropdownItem>Obriši</button>
+                      <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>Akcija</button>
+                      <div ngbDropdownMenu disabled="adminkc.id === 1" aria-labelledby="dropdownBasic2">
+                        <button ngbDropdownItem [disabled]="adminkc.id === 1" (click)="obrisiAdminKC(adminkc.id)">Obriši</button>
                       </div>
                     </div>
                   </td>
@@ -56,7 +101,7 @@
               </tbody>
             </table>
           </div>
-          <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Dodaj</button>
+          <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal,0)">Dodaj</button>
         </div>
       </div>
     </div>

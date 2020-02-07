@@ -43,7 +43,7 @@
                     <button class="btn btn-primary btn-block" id="dropdownBasic1" ngbDropdownToggle>Pacijent</button>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                       <button ngbDropdownItem (click)="profilPacijenta(profil,pacijent.id)">Profil</button>
-                      <button ngbDropdownItem (click)="dijagnozePacijenta(zdrKarton,pacijent.id)">Zdravstveni karton</button>
+                      <button ngbDropdownItem (click)="karton(pacijent.jbo)">Zdravstveni karton</button>
                     </div>
                   </div>
                 </td>
