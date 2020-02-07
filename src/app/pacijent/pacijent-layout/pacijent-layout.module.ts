@@ -12,13 +12,15 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ComponentsModule} from '../../administrator-kc/components/components.module';
 import {DropdownListModule} from 'ngx-dropdown-list';
 import {PacijentLayoutRutes} from './pacijent-layout.routing';
+import {KlinikePacijentaComponent} from '../klinike-pacijenta/klinike-pacijenta.component';
 
 
 
 @NgModule({
   declarations: [
     PacijentLayoutComponent,
-    ProfilComponent
+    ProfilComponent,
+    KlinikePacijentaComponent
   ],
   imports: [
     CommonModule,

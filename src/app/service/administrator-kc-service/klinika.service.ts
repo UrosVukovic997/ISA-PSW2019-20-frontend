@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
 import {Klinika} from '../../shared/utilities/klinika';
 import {Administrator} from '../../shared/utilities/administrator';
+import {KlinikaPac} from '../../shared/utilities/KlinikaPac';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,10 @@ export class KlinikaService {
   }
   obrisiKliniku(id): Observable<any> {
     return this.http.delete(this.configService.obrisi_kliniku_url + id);
+  }
+
+  getKlinPac(): Observable<KlinikaPac> {
+    return this.http.get<KlinikaPac>(this.configService.get_TipPregledaKlinike_url);
   }
 
 }

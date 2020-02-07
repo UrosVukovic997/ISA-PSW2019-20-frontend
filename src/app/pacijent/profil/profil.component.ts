@@ -19,7 +19,7 @@ export class ProfilComponent implements OnInit {
 
 
   id: number;
-  pacijent;
+  pacijent: any = [];
   constructor(private pps: ProfilPacijentaService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit( ) {
