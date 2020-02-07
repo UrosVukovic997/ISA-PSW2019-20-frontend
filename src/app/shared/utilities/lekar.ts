@@ -11,4 +11,5 @@ export class Lekar {
   klinika: Klinika;
   adresa: string;
   opis: string;
+  pacijenti: [];
 }

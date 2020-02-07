@@ -162,6 +162,7 @@ export class ConfigService {
     return this._api_url + '/sestra/editKarton';
   }
 
+
   get pacijent_url(): string {
     return this._api_url + '/pacijent';
   }
@@ -197,5 +198,21 @@ export class ConfigService {
   }
   get daj_pacijenta_url(): string {
     return this._api_url + '/pacijenti/{id}';
+  }
+
+  get get_TipPregledaKlinike_url(): string {
+    return this._api_url + '/pacijenti/getKlinPac';
+  }
+
+  get get_lekar_by_tip_url(): string {
+    return this._api_url + '/pacijenti/getLekarOdTipa';
+  }
+
+  get get_vreme_by_lekarFTdatum_url(): string {
+    return this._api_url + '/pacijenti/vremeLekaraFTDatum';
+  }
+
+  get get_ZakaziPregledPac_url(): string {
+    return this._api_url + '/pacijenti/zakaziPregledPac';
   }
 }
