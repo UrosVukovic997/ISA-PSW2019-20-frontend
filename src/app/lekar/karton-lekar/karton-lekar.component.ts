@@ -46,6 +46,17 @@ export class KartonLekarComponent implements OnInit {
 
   }
 
+  izmeni() {
+    const broj = this.karton.broj;
+    const krvnaGrupa = ((document.getElementById('krvnaGrupa') as HTMLInputElement).value);
+    const dioptrija = ((document.getElementById('dioptrija') as HTMLInputElement).value);
+
+    this.karton.krvnaGrupa = krvnaGrupa;
+    this.karton.dioptrija = dioptrija;
+    console.log(this.karton);
+    this.sestraService.izmeniKarton(this.karton).pipe(first()).subscribe();
+  }
+
   getData(jbo) {
     this.sestraService.getKarton(jbo).pipe(first()).subscribe(
       data => {

@@ -142,6 +142,11 @@ export class ConfigService {
   get overi_recept_sestra_url(): string {
     return this._api_url + '/sestra/overi';
   }
+
+  get izmeni_karton_sestra_url(): string {
+    return this._api_url + '/sestra/editKarton';
+  }
+
   get pacijent_url(): string {
     return this._api_url + '/pacijent';
   }

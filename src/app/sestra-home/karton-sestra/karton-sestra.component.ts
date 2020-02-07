@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {SestraServiceService} from '../../service/sestraService/sestra-service.service';
 import {ActivatedRoute} from '@angular/router';
+import {Karton} from '../../shared/utilities/karton';
 
 @Component({
   selector: 'app-karton-sestra',
@@ -23,7 +24,7 @@ export class KartonSestraComponent implements OnInit {
     (document.getElementById('tablaDijagnoze') as HTMLInputElement).hidden = true;
     const jbo = this.route.snapshot.params.jbo;
     console.log('Jbo: ' + jbo);
-    if (jbo !== null || jbo !== '') {
+    if (jbo !== undefined) {
       this.getData(jbo);
     }
   }
@@ -43,6 +44,19 @@ export class KartonSestraComponent implements OnInit {
     console.log('search');
     this.getData(jbo);
 
+  }
+
+  izmeni() {
+    const broj = this.karton.broj;
+    const krvnaGrupa = ((document.getElementById('krvnaGrupa') as HTMLInputElement).value);
+    const dioptrija = ((document.getElementById('dioptrija') as HTMLInputElement).value);
+
+   // const karton = new Karton(0, broj , krvnaGrupa, dioptrija, [], [], 0, '', '');
+
+    this.karton.krvnaGrupa = krvnaGrupa;
+    this.karton.dioptrija = dioptrija;
+    console.log(this.karton);
+    this.sestraService.izmeniKarton(this.karton).pipe(first()).subscribe();
   }
 
   getData(jbo) {

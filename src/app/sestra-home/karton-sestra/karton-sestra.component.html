@@ -26,7 +26,7 @@
               <div class="col-md-2 pr-1">
                 <div class="form-group">
                   <label>Broj kartona</label>
-                  <input type="text" class="form-control"  disabled="" placeholder="brok" value="{{karton.broj}}">
+                  <input type="text" id="broj" class="form-control"  disabled="" placeholder="brok" value="{{karton.broj}}">
                 </div>
               </div>
               <div class="col-md-2 px-1">
@@ -48,6 +48,25 @@
               </div>
             </div>
           </div>
+            <div class="row">
+              <div class="col-md-2 pr-1">
+                <div class="form-group">
+                  <label>Krvna grupa</label>
+                  <input type="text" id="krvnaGrupa" class="form-control"  placeholder="Nije uneseto" value="{{karton.krvnaGrupa}}">
+                </div>
+              </div>
+              <div class="col-md-2 px-1">
+                <div class="form-group">
+                  <label>Dioptrija</label>
+                  <input type="text" id="dioptrija" class="form-control" placeholder="Nije uneseto" value="{{karton.dioptrija}}">
+                </div>
+              </div>
+              <div class="col-md-2 pr-1">
+                <button class="btn btn-default" (click)="izmeni()">Sacuvaj izmene</button>
+              </div>
+            </div>
+
+
           <div class="table-responsive"  >
             <h6 class="card-title">Dijagnoze</h6>
             <table class="table table-striped">

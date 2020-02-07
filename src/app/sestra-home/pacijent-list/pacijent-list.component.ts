@@ -34,6 +34,6 @@ export class PacijentListComponent implements OnInit {
     );
   }
   karton(jbo) {
-    this.router.navigate(['lekar-kc/kartoni/' + jbo ]);
+    this.router.navigate(['sestra/kartoni/' + jbo ]);
   }
 }
