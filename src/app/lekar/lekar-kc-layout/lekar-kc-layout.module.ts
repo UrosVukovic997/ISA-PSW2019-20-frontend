@@ -17,6 +17,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ComponentsLekarModule } from '../components/components.module';
 import {LekarKcLayoutComponent} from './lekar-kc-layout.component';
 import {DropdownListModule} from "ngx-dropdown-list";
+import {MatListModule} from '@angular/material';
 
 
 
@@ -30,7 +31,8 @@ import {DropdownListModule} from "ngx-dropdown-list";
         NgbModule,
         ComponentsLekarModule,
         ReactiveFormsModule,
-        DropdownListModule
+        DropdownListModule,
+        MatListModule
     ],
   declarations: [
     ListaPacijenataComponent,
