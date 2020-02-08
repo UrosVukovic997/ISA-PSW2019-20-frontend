@@ -1,36 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {first} from 'rxjs/operators';
 import {SestraServiceService} from '../../service/sestraService/sestra-service.service';
-import {ActivatedRoute} from '@angular/router';
-import {Karton} from '../../shared/utilities/karton';
+import {first} from 'rxjs/operators';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'app-karton-sestra',
-  templateUrl: './karton-sestra.component.html',
-  styleUrls: ['./karton-sestra.component.css']
+  selector: 'app-karton-lekar',
+  templateUrl: './karton-lekar.component.html',
+  styleUrls: ['./karton-lekar.component.css']
 })
-export class KartonSestraComponent implements OnInit {
+export class KartonLekarComponent implements OnInit {
+
 
   searchForm: FormGroup;
   submittedSearch = false;
   searchControl;
   karton: any = [];
 
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private sestraService: SestraServiceService) { }
+  constructor(private router: Router, private route: ActivatedRoute,
+              private formBuilder: FormBuilder, private sestraService: SestraServiceService) { }
 
   ngOnInit() {
     this.searchControl = new FormControl(['', [Validators.required, Validators.pattern('^[0-9]*$')]]);
     (document.getElementById('tablaDijagnoze') as HTMLInputElement).hidden = true;
     const jbo = this.route.snapshot.params.jbo;
     console.log('Jbo: ' + jbo);
-    if (jbo !== undefined) {
+    if (jbo !== null || jbo !== '') {
       this.getData(jbo);
     }
   }
 
   get f() { return this.searchForm.controls; }
-
 
 
   search() {
@@ -50,8 +50,6 @@ export class KartonSestraComponent implements OnInit {
     const broj = this.karton.broj;
     const krvnaGrupa = ((document.getElementById('krvnaGrupa') as HTMLInputElement).value);
     const dioptrija = ((document.getElementById('dioptrija') as HTMLInputElement).value);
-
-   // const karton = new Karton(0, broj , krvnaGrupa, dioptrija, [], [], 0, '', '');
 
     this.karton.krvnaGrupa = krvnaGrupa;
     this.karton.dioptrija = dioptrija;

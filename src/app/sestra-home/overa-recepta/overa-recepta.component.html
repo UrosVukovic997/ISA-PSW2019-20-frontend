@@ -1,0 +1,84 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Recepti za overu</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class=" text-primary">
+              <th>
+                JBO
+              </th>
+              <th>
+                Pacijent
+              </th>
+              <th>
+                Lekar
+              </th>
+              <th>
+                Lekovi
+              </th>
+
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let recept of recepti; let i = index">
+                <tr>
+                  <td>{{recept.jboPacijenta}}</td>
+                  <td>{{recept.imePacijenta}}</td>
+                  <td>{{recept.imeLekara}}</td>
+                  <td>
+                    <button class="btn btn-neutral" (click)="lekModal(mymodal, recept.lekovi)">Lekovi</button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger" (click)="overi(recept.id)">Overi</button>
+                  </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Prepisani lekovi</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class=" text-primary">
+        <th>
+          Šifra
+        </th>
+        <th>
+          Naziv
+        </th>
+        <th>
+          Opis
+        </th>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let lek of lekovi; let i = index">
+          <tr>
+            <td>{{lek.id}}</td>
+            <td>{{lek.nazivLeka}}</td>
+            <td>{{lek.opisLeka}}</td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-template>

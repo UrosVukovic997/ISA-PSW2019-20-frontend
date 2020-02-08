@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {Administrator} from '../../shared/utilities/administrator';
 import {PacijentSestra} from '../../shared/utilities/pacijent-sestra';
 import {Sestra} from '../../shared/utilities/sestra';
+import {Recept} from '../../shared/utilities/recept';
 
 @Injectable({
   providedIn: 'root'
@@ -38,8 +39,10 @@ export class SestraServiceService {
     return this.http.get<Sestra>(this.configService.get_karton_sestra_url + '/' + jbo);
   }
 
+
   getRecepte(username): Observable<any> {
     return this.http.get<any>(this.configService.get_recepte_sestra_url + '/' + username);
+
   }
 
   overi(id): Observable<any> {

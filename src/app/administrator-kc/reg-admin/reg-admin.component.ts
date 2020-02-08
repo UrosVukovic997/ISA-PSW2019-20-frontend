@@ -42,9 +42,12 @@ export class RegAdminComponent implements OnInit {
   }
 
   admini: any = [];
+  adminikc: any = [];
   items: any = [];
   optionItems: any = [];
   selected = '';
+
+  uloga;
 
   ngOnInit() {
     this.adminForm = this.formBuilder.group({
@@ -55,6 +58,7 @@ export class RegAdminComponent implements OnInit {
       lozinka: ['', Validators.required],
     });
     this.ucitajNaziveKlinika();
+    this.ucitajAdminKc();
 
   }
 
@@ -62,6 +66,13 @@ export class RegAdminComponent implements OnInit {
     this.klinikaService.getAllNames().subscribe((data: {}) => {
         this.items = data;
         this.fill();
+      }
+    );
+  }
+
+  ucitajAdminKc() {
+    this.adminService.getAllAdminKC().subscribe((data: {}) => {
+        this.adminikc = data;
       }
     );
   }
@@ -81,11 +92,18 @@ export class RegAdminComponent implements OnInit {
   onChange($event) {
     this.klinikaService.getAllByKlinika(this.selected).subscribe((data: {}) => {
       this.admini = data;
+      console.log(this.admini);
+      this.ngOnInit();
     });
   }
 
-  open(content) {
-    this.myModalTitle = 'Registruj administratora';
+  open(content, uloga) {
+    this.uloga = uloga;
+    if (uloga) {
+      this.myModalTitle = 'Registruj administratora';
+    } else {
+      this.myModalTitle = 'Registruj administratora kliničkog centra';
+    }
     this.modalService.open(content, this.modalOptions).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -112,24 +130,57 @@ export class RegAdminComponent implements OnInit {
       console.log('ret');
       return;
     }
-    if (this.selected === '') {
+    if (this.selected === '' && this.uloga) {
       console.log('Izaberite kliniku!');
       return;
     }
-    this.loading = true;
-    this.klinikaService.dodajAdmina(this.f.ime.value, this.f.prezime.value, this.f.email.value, this.f.username.value,
-      this.f.lozinka.value, this.selected).pipe(first()).subscribe(
-      data => {
-        this.modalService.dismissAll();
-        this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-          this.router.navigate(['/admin-kc/registrujadministratora']);
+    if (this.uloga) {
+      this.loading = true;
+      this.klinikaService.dodajAdmina(this.f.ime.value, this.f.prezime.value, this.f.email.value, this.f.username.value,
+        this.f.lozinka.value, this.selected).pipe(first()).subscribe(
+        data => {
+          this.modalService.dismissAll();
+          this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+            this.router.navigate(['/admin-kc/registrujadministratora']);
+          });
+        },
+        error => {
+          //        this.alertService.error(error);
+          this.loading = false;
         });
-      },
-      error => {
-        //        this.alertService.error(error);
-        this.loading = false;
-      });
+    }
+    if (!this.uloga) {
+      this.loading = true;
+      this.klinikaService.dodajAdmina(this.f.ime.value, this.f.prezime.value, this.f.email.value, this.f.username.value,
+        this.f.lozinka.value, this.selected).pipe(first()).subscribe(
+        data => {
+          this.modalService.dismissAll();
+          this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+            this.router.navigate(['/admin-kc/registrujadministratora']);
+          });
+        },
+        error => {
+          //        this.alertService.error(error);
+          this.loading = false;
+        });
+    }
 
   }
+
+  obrisiAdmin(id) {
+    this.adminService.obrisiAdmina(id).subscribe(data => {
+      this.ngOnInit();
+    });
+  }
+
+  obrisiAdminKC(id) {
+    if (id === 1) {
+      return;
+    }
+    this.adminService.obrisiAdminaKC(id).subscribe(data => {
+      this.ngOnInit();
+    });
+  }
+
 
 }

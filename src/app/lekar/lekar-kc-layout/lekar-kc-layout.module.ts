@@ -21,6 +21,7 @@ import {MatListModule} from '@angular/material';
 
 
 
+
 @NgModule({
     imports: [
         CommonModule,
@@ -33,6 +34,7 @@ import {MatListModule} from '@angular/material';
         ReactiveFormsModule,
         DropdownListModule,
         MatListModule
+
     ],
   declarations: [
     ListaPacijenataComponent,
@@ -40,7 +42,8 @@ import {MatListModule} from '@angular/material';
     LicniProfilLekaraComponent,
     RadniKalendarComponent,
     ZakazivanjePregledaComponent,
-    ZapocniPregledComponent
+    ZapocniPregledComponent,
+    KartonLekarComponent,
   ]
 })
 

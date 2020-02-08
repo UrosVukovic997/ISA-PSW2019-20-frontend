@@ -26,7 +26,7 @@
               <div class="col-md-2 pr-1">
                 <div class="form-group">
                   <label>Broj kartona</label>
-                  <input type="text" id="broj" class="form-control"  disabled="" placeholder="brok" value="{{karton.broj}}">
+                  <input type="text" class="form-control"  disabled="" placeholder="brok" value="{{karton.broj}}">
                 </div>
               </div>
               <div class="col-md-2 px-1">
@@ -41,13 +41,13 @@
                   <input name="ime" id="ime" disabled=""  type="email" class="form-control" placeholder="Email" value="{{karton.ime}}">
                 </div>
               </div>
-            <div class="col-md-2 pl-1">
-              <div class="form-group">
-                <label for="prezime">Prezime</label>
-                <input name="prezime" id="prezime" disabled=""  type="email" class="form-control" placeholder="Email" value="{{karton.prezime}}">
+              <div class="col-md-2 pl-1">
+                <div class="form-group">
+                  <label for="prezime">Prezime</label>
+                  <input name="prezime" id="prezime" disabled=""  type="email" class="form-control" placeholder="Email" value="{{karton.prezime}}">
+                </div>
               </div>
             </div>
-          </div>
             <div class="row">
               <div class="col-md-2 pr-1">
                 <div class="form-group">
@@ -65,44 +65,42 @@
                 <button class="btn btn-default" (click)="izmeni()">Sacuvaj izmene</button>
               </div>
             </div>
-
-
-          <div class="table-responsive"  >
-            <h6 class="card-title">Istorija bolesti</h6>
-            <table class="table table-striped">
-              <thead class=" text-primary">
-              <th>
-                Datum
-              </th>
-              <th>
-                Ime lekara
-              </th>
-              <th>
-                Izvestaj
-              </th>
-              <th>
-                Diagnoze
-              </th>
-              <th>
-                Lekovi
-              </th>
-              </thead>
-              <tbody>
-              <ng-container *ngFor="let dijagnoza of karton.izvestaji; let i = index">
-                <tr>
-                  <td>{{dijagnoza.datum}}</td>
-                  <td>{{dijagnoza.imeLekara}}</td>
-                  <td>{{dijagnoza.text}}</td>
-                  <td>{{dijagnoza.dijagnoze}}</td>
-                  <td>{{dijagnoza.lekovi}}</td>
-                </tr>
-              </ng-container>
-              </tbody>
-            </table>
+            <div class="table-responsive"  >
+              <h6 class="card-title">Istorija bolesti</h6>
+              <table class="table table-striped">
+                <thead class=" text-primary">
+                <th>
+                  Datum
+                </th>
+                <th>
+                  Ime lekara
+                </th>
+                <th>
+                  Izvestaj
+                </th>
+                <th>
+                  Diagnoze
+                </th>
+                <th>
+                  Lekovi
+                </th>
+                </thead>
+                <tbody>
+                <ng-container *ngFor="let dijagnoza of karton.izvestaji; let i = index">
+                  <tr>
+                    <td>{{dijagnoza.datum}}</td>
+                    <td>{{dijagnoza.imeLekara}}</td>
+                    <td>{{dijagnoza.text}}</td>
+                    <td>{{dijagnoza.dijagnoze}}</td>
+                    <td>{{dijagnoza.lekovi}}</td>
+                  </tr>
+                </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 </div>
