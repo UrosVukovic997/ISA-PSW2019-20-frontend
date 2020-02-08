@@ -23,6 +23,7 @@ export class ZapocniPregledComponent implements OnInit {
 
   dijagnoze: any = [];
   lekovi: any = [];
+  data: any = [];
 
 
   selectedDijagnoze = [];
@@ -34,8 +35,9 @@ export class ZapocniPregledComponent implements OnInit {
   compareFunction = (o1: any, o2: any) => o1.id === o2.id;
 
   ngOnInit() {
-    this.ucitajDijagnoze();
-    this.ucitajLekove();
+    (document.getElementById('hide2') as HTMLInputElement).hidden = true;
+    this.ucitajIzvestaj();
+
   }
 
   ucitajDijagnoze() {
@@ -54,6 +56,20 @@ export class ZapocniPregledComponent implements OnInit {
     );
   }
 
+  ucitajIzvestaj() {
+    this.zapocniPregledService.getAllData(localStorage.getItem('currentUserUsername').toString()).subscribe((data: {}) => {
+      if (data === null) {
+        (document.getElementById('hide2') as HTMLInputElement).hidden = false;
+        (document.getElementById('hide1') as HTMLInputElement).hidden = true;
+        return;
+      }
+      this.data = data;
+      console.log(data);
+      this.fillIzabran();
+      }
+    );
+  }
+
   fill() {
     for (const dijagnoza of this.dijagnoze) {
       this.typesOfDijagnoza.push({name: dijagnoza.nazivDijagnoze, id: dijagnoza.id});
@@ -64,6 +80,22 @@ export class ZapocniPregledComponent implements OnInit {
     for (const lek of this.lekovi) {
       this.typesOfLek.push({name: lek.nazivLeka, id: lek.id});
     }
+  }
+
+  fillIzabran() {
+    for (const dijagnoza of this.data.dijagnoze) {
+      this.selectedDijagnoze.push({name: dijagnoza.nazivDijagnoze, id: dijagnoza.id});
+    }
+    this.ucitajDijagnoze();
+    for (const lek of this.data.lekovi) {
+      this.selectedLek.push({name: lek.nazivLeka, id: lek.id});
+    }
+    this.ucitajLekove();
+
+  }
+
+  save() {
+    console.log(this.selectedLek);
   }
 
 

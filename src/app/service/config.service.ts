@@ -186,4 +186,8 @@ export class ConfigService {
   get get_ZakaziPregledPac_url(): string {
     return this._api_url + '/pacijenti/zakaziPregledPac';
   }
+
+  get get_termin_izvestaj_url(): string {
+    return this._api_url + '/lekar/getTermin/';
+  }
 }
