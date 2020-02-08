@@ -68,58 +68,41 @@
 
 
           <div class="table-responsive"  >
-            <h6 class="card-title">Dijagnoze</h6>
+            <h6 class="card-title">Istorija bolesti</h6>
             <table class="table table-striped">
               <thead class=" text-primary">
               <th>
-                ID
+                Datum
               </th>
               <th>
-                Naziv
+                Ime lekara
               </th>
               <th>
-                Opis
+                Izvestaj
+              </th>
+              <th>
+                Diagnoze
+              </th>
+              <th>
+                Lekovi
               </th>
               </thead>
               <tbody>
-              <ng-container *ngFor="let dijagnoza of karton.dijagnoze; let i = index">
+              <ng-container *ngFor="let dijagnoza of karton.izvestaji; let i = index">
                 <tr>
-                  <td>{{dijagnoza.id}}</td>
-                  <td>{{dijagnoza.nazivDijagnoze}}</td>
-                  <td>{{dijagnoza.opisDijagnoze}}</td>
+                  <td>{{dijagnoza.datum}}</td>
+                  <td>{{dijagnoza.imeLekara}}</td>
+                  <td>{{dijagnoza.text}}</td>
+                  <td>{{dijagnoza.dijagnoze}}</td>
+                  <td>{{dijagnoza.lekovi}}</td>
                 </tr>
               </ng-container>
               </tbody>
             </table>
         </div>
-            <div class="table-responsive"  >
-              <h6 class="card-title">Pregledi</h6>
-              <table class="table table-striped">
-                <thead class=" text-primary">
-                <th>
-                  ID
-                </th>
-                <th>
-                  Naziv
-                </th>
-                <th>
-                  Opis
-                </th>
-                </thead>
-                <tbody>
-                <ng-container *ngFor="let pregled of karton.pregledi; let i = index">
-                  <tr>
-                    <td>{{pregled.id}}</td>
-                    <td>{{pregled.nazivDijagnoze}}</td>
-                    <td>{{pregled.opisDijagnoze}}</td>
-                  </tr>
-                </ng-container>
-                </tbody>
-              </table>
-            </div>
-          </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>

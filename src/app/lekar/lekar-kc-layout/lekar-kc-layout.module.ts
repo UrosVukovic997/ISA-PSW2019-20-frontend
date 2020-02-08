@@ -18,6 +18,7 @@ import { ComponentsLekarModule } from '../components/components.module';
 import {LekarKcLayoutComponent} from './lekar-kc-layout.component';
 import {DropdownListModule} from 'ngx-dropdown-list';
 import {KartonLekarComponent} from '../karton-lekar/karton-lekar.component';
+import {KalendarModule} from '../../kalendar/kalendar.module';
 
 
 
@@ -31,7 +32,8 @@ import {KartonLekarComponent} from '../karton-lekar/karton-lekar.component';
         NgbModule,
         ComponentsLekarModule,
         ReactiveFormsModule,
-        DropdownListModule
+        DropdownListModule,
+        KalendarModule
     ],
   declarations: [
     ListaPacijenataComponent,

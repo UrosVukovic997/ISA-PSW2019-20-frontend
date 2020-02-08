@@ -14,4 +14,8 @@ export class KalendarService {
   getAll(): Observable<KalendarDogadjaj> {
     return this.http.get<KalendarDogadjaj>('http://localhost:8080/api/sestra/getDate');
   }
+  getLekar(username): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/api/lekar/getKalendar/' + username);
+  }
+
 }

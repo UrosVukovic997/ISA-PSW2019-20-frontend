@@ -14,7 +14,7 @@ import {
   endOfMonth,
   isSameDay,
   isSameMonth,
-  addHours
+  addHours, parseISO
 } from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -78,7 +78,7 @@ export class KalendarComponent  implements  OnInit {
   refresh: Subject<any> = new Subject();
 
   events: CalendarEvent[] = [
-    {
+   /* {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
       title: 'A 3 day event',
@@ -116,13 +116,20 @@ export class KalendarComponent  implements  OnInit {
       },
       draggable: true
     }
-  ];
+*/  ];
 
   activeDayIsOpen = true;
   dogadjaji: any = [];
+  color;
+  naslov;
   constructor(private modal: NgbModal, private kalendarService: KalendarService) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('currentUserRole') === 'lekar') {
+      this.getDataLekar();
+    }
+    if (localStorage.getItem('currentUserRole') === 'sestra') {
+    }
     // this.dsads();
 
 
@@ -142,6 +149,44 @@ export class KalendarComponent  implements  OnInit {
       }
     });
   }
+
+  getDataLekar() {
+    this.kalendarService.getLekar(localStorage.getItem('currentUserUsername')).subscribe(data => {
+      this.dogadjaji = data;
+      this.fillLekar();
+    });
+  }
+
+  fillLekar() {
+
+    for (const dogadjaj of this.dogadjaji) {
+
+      if (dogadjaj.naslov === 'Odsustvo-odmor') {
+        this.color = colors.blue;
+        this.naslov = dogadjaj.naslov;
+      } else if (dogadjaj.naslov === 'Pregled') {
+        this.color = colors.yellow;
+        this.naslov = dogadjaj.naslov + ' Pacijent JBO: ' + dogadjaj.jbo;
+      } else {
+        this.color = colors.red;
+        this.naslov = dogadjaj.naslov + ' Pacijent JBO: ' + dogadjaj.jbo;
+      }
+      this.events.push(    {
+        start: new Date(dogadjaj.start),
+        end: new Date(dogadjaj.end),
+        title: this.naslov,
+        color: this.color,
+        actions: this.actions,
+        allDay: true,
+        resizable: {
+          beforeStart: false,
+          afterEnd: false
+        },
+        draggable: false
+      });
+    }
+  }
+
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
