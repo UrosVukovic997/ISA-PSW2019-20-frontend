@@ -37,4 +37,16 @@ export class SestraServiceService {
   getKarton(jbo): Observable<Sestra> {
     return this.http.get<Sestra>(this.configService.get_karton_sestra_url + '/' + jbo);
   }
+
+  getRecepte(username): Observable<any> {
+    return this.http.get<any>(this.configService.get_recepte_sestra_url + '/' + username);
+  }
+
+  overi(id): Observable<any> {
+    return this.http.post(this.configService.overi_recept_sestra_url + '/' + id, {});
+  }
+
+  izmeniKarton(karton): Observable<any> {
+    return this.http.post(this.configService.izmeni_karton_sestra_url, karton);
+  }
 }

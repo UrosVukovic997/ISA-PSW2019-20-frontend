@@ -25,6 +25,10 @@ export class ZapocniPregledComponent implements OnInit {
   lekovi: any = [];
   data: any = [];
 
+  dijag: any = [];
+  lek: any = [];
+
+  date;
 
   selectedDijagnoze = [];
   selectedLek = [];
@@ -57,7 +61,8 @@ export class ZapocniPregledComponent implements OnInit {
   }
 
   ucitajIzvestaj() {
-    this.zapocniPregledService.getAllData(localStorage.getItem('currentUserUsername').toString()).subscribe((data: {}) => {
+    this.date = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
+    this.zapocniPregledService.getAllData(localStorage.getItem('currentUserUsername').toString(), this.date).subscribe((data: {}) => {
       if (data === null) {
         (document.getElementById('hide2') as HTMLInputElement).hidden = false;
         (document.getElementById('hide1') as HTMLInputElement).hidden = true;
@@ -96,7 +101,30 @@ export class ZapocniPregledComponent implements OnInit {
 
   save() {
     console.log(this.selectedLek);
+    for (const item1 of this.selectedDijagnoze) {
+      for (const d of this.dijagnoze) {
+        if (item1.id === d.id) {
+          this.dijag.push(d);
+        }
+      }
+    }
+    for (const item2 of this.selectedLek) {
+      for (const l of this.lekovi) {
+        if (item2.id === l.id) {
+          this.lek.push(l);
+        }
+      }
+    }
+    const text = ((document.getElementById('textArea') as HTMLInputElement).value);
+
+    this.data.dijagnoze = this.dijag;
+    this.data.lekovi = this.lek;
+    this.data.text = text;
+    console.log(this.data);
+    this.zapocniPregledService.setIzvestaj(this.data).subscribe();
   }
+
+
 
 
 }

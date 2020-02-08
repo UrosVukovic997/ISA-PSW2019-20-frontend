@@ -14,7 +14,12 @@ export class ZapocniPregledService {
 
   constructor( private http: HttpClient, private configService: ConfigService) { }
 
-  getAllData(username): Observable<Izvestaj> {
-    return this.http.get<Izvestaj>(this.configService.get_termin_izvestaj_url + username);
+  getAllData(username, date): Observable<Izvestaj> {
+    return this.http.post<Izvestaj>(this.configService.get_termin_izvestaj_url,{username, date});
+  }
+
+  setIzvestaj(izv): Observable<any> {
+    return this.http.post(this.configService.set_izvestaj_url, izv);
+
   }
 }
