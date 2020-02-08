@@ -1,8 +1,6 @@
 export class KalendarDogadjaj {
-  id: string;
-  datum: string;
+  datumPoce: string;
+  datumKraj: string;
   naslov: string;
-  opis: string;
-  osobljeUsername: string;
-  role: string;
+  jbo: string;
 }
