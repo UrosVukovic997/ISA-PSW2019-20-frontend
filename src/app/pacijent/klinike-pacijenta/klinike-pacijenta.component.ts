@@ -42,12 +42,15 @@ export class KlinikePacijentaComponent implements OnInit {
   tipoviPregleda: any = [];
   noveKlinike: any = [];
   noviLekari: any = [];
+  najnovijiLekari: any = [];
 
   nazivKlinike: string;
   adresaKlinike: string;
   imeLekara: string;
   prezimeLekara: string;
   specijalnostLekara: string;
+  nazivLekara: string;
+  prezLekara: string;
 
 
 
@@ -56,8 +59,11 @@ export class KlinikePacijentaComponent implements OnInit {
   selected = '';
   loading = false;
   loading1 = false;
+  loading2 = false;
+  loading3 = false;
   error: string;
   klinika: any = [];
+  lekarSearch: any = [];
 
   registerForm: FormGroup;
   submitted = false;
@@ -84,6 +90,7 @@ export class KlinikePacijentaComponent implements OnInit {
   }
 
   fills(tpk) {
+    this.optionItems = [];
     for (const item of tpk) {
       this.optionItems.push({id: item.naziv + ',' + item.cena, value: item.naziv  + ',' + item.cena, text: item.naziv  + ',' + item.cena});
       console.log(item);
@@ -235,7 +242,8 @@ export class KlinikePacijentaComponent implements OnInit {
   }
 
   fills3(tpk) {
-      for (const item of tpk) {
+    this.optionItems = [];
+    for (const item of tpk) {
         this.optionItems.push({id: item.naziv + ',' + item.cena, value: item.naziv + ',' + item.cena, text: item.naziv + ',' + item.cena});
         console.log(item);
         this.item = item.naziv + ',' + item.cena;
@@ -257,4 +265,86 @@ export class KlinikePacijentaComponent implements OnInit {
       this.closeResult = `Dismissed`;
     });
   }
+
+  Search33() {
+    if (this.nazivLekara !== '') {
+      this.noviLekari = this.noviLekari.filter( res => {
+        return res.ime.toLocaleLowerCase().match(this.nazivLekara.toLocaleLowerCase());
+      });
+    } else if (this.nazivLekara === '') {
+      this.klinikaService.getSearchLekarPac(this.spojeno3).subscribe((data: {}) => {
+          this.noviLekari = data;
+          console.log(data);
+        }
+      );
+    }
+  }
+
+  Search34() {
+    if (this.prezLekara !== '') {
+      this.noviLekari = this.noviLekari.filter( res => {
+        return res.prezime.toLocaleLowerCase().match(this.prezLekara.toLocaleLowerCase());
+      });
+    } else if (this.prezLekara === '') {
+      this.klinikaService.getSearchLekarPac(this.spojeno3).subscribe((data: {}) => {
+          this.noviLekari = data;
+          console.log(data);
+        }
+      );
+    }
+  }
+
+  open44(content) {
+    this.modalService.open(content, {size: 'xl'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed`;
+    });
+  }
+
+  open443() {
+    console.log('ulaz 443');
+    const ime = ((document.getElementById('imeLekara') as HTMLInputElement).value);
+    console.log(ime);
+    const prezime = ((document.getElementById('przLekara') as HTMLInputElement).value);
+    console.log(prezime);
+    const ocena = ((document.getElementById('poLekara') as HTMLInputElement).value);
+    console.log(ocena);
+    const o = Number(ocena);
+
+    this.najnovijiLekari = [];
+    for (const nl of this.noviLekari) {
+      if (nl.ime === ime && nl.prezime === prezime && nl.ocena === o ) {
+        this.najnovijiLekari.push(nl);
+      } else {
+        if (nl.ime === ime && nl.prezime === prezime) {
+          this.najnovijiLekari.push(nl);
+        } else {
+          if (nl.ime === ime && nl.ocena === o ) {
+            this.najnovijiLekari.push(nl);
+          } else {
+            if (nl.prezime === prezime && nl.ocena === o ) {
+              this.najnovijiLekari.push(nl);
+            } else {
+              if (nl.ime === ime) {
+                this.najnovijiLekari.push(nl);
+              } else {
+                if (nl.prezime === prezime) {
+                  this.najnovijiLekari.push(nl);
+                } else {
+                  if (nl.ocena === o ) {
+                    this.najnovijiLekari.push(nl);
+                  } else {
+                    this.najnovijiLekari.push();
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    console.log(this.najnovijiLekari);
+  }
+
 }
