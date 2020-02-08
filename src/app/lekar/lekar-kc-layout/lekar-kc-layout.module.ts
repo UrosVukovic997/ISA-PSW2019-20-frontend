@@ -16,9 +16,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { ComponentsLekarModule } from '../components/components.module';
 import {LekarKcLayoutComponent} from './lekar-kc-layout.component';
-import {DropdownListModule} from 'ngx-dropdown-list';
-import {KartonLekarComponent} from '../karton-lekar/karton-lekar.component';
-import {KalendarModule} from '../../kalendar/kalendar.module';
+import {DropdownListModule} from "ngx-dropdown-list";
+import {MatListModule} from '@angular/material';
+
 
 
 
@@ -33,7 +33,8 @@ import {KalendarModule} from '../../kalendar/kalendar.module';
         ComponentsLekarModule,
         ReactiveFormsModule,
         DropdownListModule,
-        KalendarModule
+        MatListModule
+
     ],
   declarations: [
     ListaPacijenataComponent,

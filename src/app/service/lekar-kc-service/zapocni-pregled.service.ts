@@ -4,6 +4,8 @@ import {map, catchError, retry} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
 import { ConfigService } from '../config.service';
 import {Pacijent} from '../../shared/utilities/pacijent';
+import {PacijentSestra} from '../../shared/utilities/pacijent-sestra';
+import {Izvestaj} from '../../shared/utilities/izvestaj';
 
 @Injectable({
   providedIn: 'root'
@@ -12,44 +14,12 @@ export class ZapocniPregledService {
 
   constructor( private http: HttpClient, private configService: ConfigService) { }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
-  /*
-  getAllRegRequest(): Observable<RegZahtev> {
-    return this.http.get<RegZahtev>(this.configService.reg_zahtevi_url)
-      .pipe(
-        retry(1),
-        catchError(this.errorHandl)
-      );
+  getAllData(username, date): Observable<Izvestaj> {
+    return this.http.post<Izvestaj>(this.configService.get_termin_izvestaj_url,{username, date});
   }
 
-  odobriPacijenta(id): Observable<Response> {
-   return this.http.post<Response>(this.configService.odobri_pacijenta_url + id, null)
-      .pipe(
-    catchError(this.errorHandl)
-      );
-  }
+  setIzvestaj(izv): Observable<any> {
+    return this.http.post(this.configService.set_izvestaj_url, izv);
 
-  obrisiPacijenta(id): Observable<any> {
-    return this.http.delete(this.configService.obrisi_pacijenta_url + id, this.httpOptions)
-      .pipe(
-        catchError(this.errorHandl)
-      );
-  }
-  */
-  errorHandl(error) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    console.log(errorMessage);
-    return throwError(errorMessage);
   }
 }

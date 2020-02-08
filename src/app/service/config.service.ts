@@ -216,11 +216,51 @@ export class ConfigService {
     return this._api_url + '/pacijenti/zakaziPregledPac';
   }
 
+  get get_termin_izvestaj_url(): string {
+    return this._api_url + '/lekar/getTermin';
+  }
+
+  get set_izvestaj_url(): string {
+    return this._api_url + '/lekar/setIzvestaj';
+  }
+
+  get get_recepte_sestra_url(): string {
+    return this._api_url + '/sestra/recepti';
+  }
+
+  get overi_recept_sestra_url(): string {
+    return this._api_url + '/sestra/overi';
+  }
+
+  get izmeni_karton_sestra_url(): string {
+    return this._api_url + '/sestra/editKarton';
+  }
+
+
+  get admin_kc_get_All_url(): string {
+    return this._api_url + '/adminKC/getAll';
+  }
+  get admin_kc_profil_url(): string {
+    return this._api_url + '/adminKC/getprofil/';
+  }
+
+  get admin_kc_changepassword_url(): string {
+    return this._api_url + '/adminKC/changepassword';
+  }
+
+  get admin_kc_azuriraj_url(): string {
+    return this._api_url + '/adminKC/azuriraj';
+  }
+
+  get obrisi_adminKC_url(): string {
+    return this._api_url + '/adminKC/obrisi/';
+
   get get_selectedKlinPac_url(): string {
     return this._api_url + '/pacijenti/getSelectedKlinPac';
   }
 
   get get_getSearchLekarPac_url(): string {
     return this._api_url + '/pacijenti/getSearchLekarPac';
+
   }
 }
