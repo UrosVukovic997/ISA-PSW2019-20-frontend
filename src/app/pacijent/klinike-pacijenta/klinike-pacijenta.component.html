@@ -8,6 +8,18 @@
           <h4 class="card-title">Klinike pacijenta</h4>
         </div>
         <div class="card-body">
+
+          <input placeholder="Naziv" [(ngModel)]="nazivKlinike" (input)="Search()">
+          <input placeholder="Adresa" [(ngModel)]="adresaKlinike" (input)="Search1()">
+
+          <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary" (click)="open22(profil2)">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Pretraga
+            </button>
+
+          </div>
+
           <div class="table-responsive">
             <table class="table table-striped">
               <thead class=" text-primary">
@@ -74,6 +86,11 @@
                            [disabled]="false">
         </ngx-dropdown-list>
       </div>
+
+      <input placeholder="Ime" [(ngModel)]="imeLekara" (input)="Search2()">
+      <input placeholder="Prezime" [(ngModel)]="prezimeLekara" (input)="Search3()">
+      <input placeholder="Specijalnost" [(ngModel)]="specijalnostLekara" (input)="Search4()">
+
 
       <div class="card-body">
         <div class="table-responsive">
@@ -176,6 +193,246 @@
     </div>
 
 
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>
+
+
+
+
+
+<ng-template #profil2 let-modal windowClass="modal-dialog">
+  <div class="modal-header">
+    <h4 class="modal-title" class="text-right" id="modal-basic-title3">Pretraga klinike</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-5 pr-1">
+          <div class="form-group">
+            <label>Lokacija</label>
+            <input type="text" class="form-control" placeholder="" id="lokacijaKlin" value={{klinika.grad}}>
+          </div>
+          <label>Tip i cena pregleda</label>
+          <div class="col-md-14 pr-1">
+            <div class="form-group" >
+              <ngx-dropdown-list (selectionChange)="onChange($event)"
+                                 [items]="optionItems"
+                                 [multiSelection]="false"
+                                 [placeHolder]="'Izaberi vrstu pregleda'"
+                                 [(selectedValue)]="selected"
+                                 [suffixText]="''"
+                                 [filterBox]="false"
+                                 [formatNumber]="true"
+                                 [disabled]="false">
+              </ngx-dropdown-list>
+            </div>
+          </div>
+
+
+              <label>Pocetak pregleda:</label>
+          <input type="date" class="form-control input-sm" id="effectiveEndDate" name="effectiveEndDate" placeholder="Required" formControlName="effectiveEndDate">
+
+
+          <div class="form-group">
+            <button [disabled]="loading1" class="btn btn-primary">
+              <span *ngIf="loading1" class="spinner-border spinner-border-sm mr-1"></span>
+              Pronadji
+            </button>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead class=" text-primary">
+                <th>
+                  Naziv klinike
+                </th>
+                <th>
+                  Ocena klinike
+                </th>
+                <th>
+                  Adresa klinike
+                </th>
+                <th>
+                  Cena pregleda
+                </th>
+                <th>
+                  Izaberi lekara
+                </th>
+                </thead>
+                <tbody>
+                <ng-container *ngFor="let nk of noveKlinike; let i = index">
+                  <tr>
+                    <td>{{nk.nazivKlinike}}</td>
+                    <td>{{nk.adresaKlinike}}</td>
+                    <td>{{nk.cenaPregleda}}</td>
+                    <td>{{nk.ocena}}</td>
+
+                    <a class="nav-link" (click)="open33(profil33,nk.nazivKlinike)" >
+                      <i class="now-ui-icons ui-2_time-alarm"></i>
+
+                    </a>
+
+                  </tr>
+                </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>
+
+
+
+<ng-template #profil33 let-modal windowClass="modal-dialog">
+  <div class="modal-header">
+    <h4 class="modal-title" class="text-right" id="modal-basic-title33">Izaberite lekara</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-14 pr-1">
+
+      <div class="form-group">
+        <button [disabled]="loading2" class="btn btn-primary" (click)="open44(profil44,noviLekari)">
+          <span *ngIf="loading2" class="spinner-border spinner-border-sm mr-1"></span>
+          Pretraga
+        </button>
+
+      </div>
+
+      <input placeholder="Ime lekara" [(ngModel)]="nazivLekara" (input)="Search33()">
+      <input placeholder="Prezime lekara" [(ngModel)]="prezLekara" (input)="Search34()">
+
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead class=" text-primary">
+            <th>
+              Ime lekara
+            </th>
+            <th>
+              Prezime lekara
+            </th>
+            <th>
+              Prosecna ocena
+            </th>
+            <th>
+              Vreme pregleda
+            </th>
+            <tbody>
+            <ng-container *ngFor="let lekar of noviLekari; let i = index">
+              <tr>
+                <td>{{lekar.ime}}</td>
+                <td>{{lekar.prezime}}</td>
+                <td>{{lekar.ocena}}</td>
+                <td>{{lekar.vreme}}</td>
+
+                <a class="nav-link" (click)="open3(lekar.vreme)" >
+                  <i class="now-ui-icons ui-2_time-alarm"></i>
+
+                </a>
+
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>
+
+
+
+<ng-template #profil44 let-modal windowClass="modal-dialog">
+  <div class="modal-header">
+    <h4 class="modal-title" class="text-right" id="modal-basic-title44">Pretraga lekara</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-14 pr-1">
+
+      <div class="form-group">
+        <label>Ime lekara</label>
+        <input type="text" class="form-control" placeholder="" id="imeLekara" value={{lekarSearch.ime}}>
+      </div>
+
+      <div class="form-group">
+        <label>Prezime lekara</label>
+        <input type="text" class="form-control" placeholder="" id="przLekara" value={{lekarSearch.prezime}}>
+      </div>
+
+      <div class="form-group">
+        <label>Prosecna ocena lekara</label>
+        <input type="text" class="form-control" placeholder="" id="poLekara" value={{lekarSearch.ocena}}>
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="loading3" class="btn btn-primary" (click)="open443()">
+          <span *ngIf="loading3" class="spinner-border spinner-border-sm mr-1"></span>
+          Pronadji
+        </button>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead class=" text-primary">
+          <th>
+            Ime lekara
+          </th>
+          <th>
+            Prezime lekara
+          </th>
+          <th>
+            Prosecna ocena
+          </th>
+          <th>
+            Vreme pregleda
+          </th>
+          <tbody>
+          <ng-container *ngFor="let lekar of najnovijiLekari; let i = index">
+            <tr>
+              <td>{{lekar.ime}}</td>
+              <td>{{lekar.prezime}}</td>
+              <td>{{lekar.ocena}}</td>
+              <td>{{lekar.vreme}}</td>
+
+              <a class="nav-link" (click)="open3(lekar.vreme)" >
+                <i class="now-ui-icons ui-2_time-alarm"></i>
+
+              </a>
+
+            </tr>
+          </ng-container>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
   </div>
   <div class="modal-footer">
 

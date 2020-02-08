@@ -54,4 +54,16 @@ export class KlinikaService {
     return this.http.get<KlinikaPac>(this.configService.get_TipPregledaKlinike_url);
   }
 
+  getSelectedKlinPac(klinika): Observable<KlinikaPac> {
+    return this.http.get<KlinikaPac>(this.configService.get_selectedKlinPac_url + '/' + klinika);
+  }
+
+  getSveTP(): Observable<KlinikaPac> {
+    return this.http.get<KlinikaPac>(this.configService.get_tip_pregleda_url);
+  }
+
+  getSearchLekarPac(spojeno): Observable<KlinikaPac> {
+    return this.http.get<KlinikaPac>(this.configService.get_getSearchLekarPac_url + '/' + spojeno);
+  }
+
 }

@@ -215,4 +215,12 @@ export class ConfigService {
   get get_ZakaziPregledPac_url(): string {
     return this._api_url + '/pacijenti/zakaziPregledPac';
   }
+
+  get get_selectedKlinPac_url(): string {
+    return this._api_url + '/pacijenti/getSelectedKlinPac';
+  }
+
+  get get_getSearchLekarPac_url(): string {
+    return this._api_url + '/pacijenti/getSearchLekarPac';
+  }
 }
