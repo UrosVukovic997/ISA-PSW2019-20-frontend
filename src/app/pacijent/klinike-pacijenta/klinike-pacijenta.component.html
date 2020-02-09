@@ -35,6 +35,9 @@
               <th>
                 Lekar
               </th>
+              <th>
+                Oceni kliniku
+              </th>
               </thead>
               <tbody>
               <ng-container *ngFor="let klinika of klinike; let i = index">
@@ -43,12 +46,24 @@
                   <td>{{klinika.grad}}</td>
                   <td>{{klinika.ocena}}</td>
 
-                  <div ngbDropdown class="col-md-4">
-                    <button class="btn btn-primary btn-block" id="dropdownBasic1" ngbDropdownToggle>Izaberi</button>
+                  <td><div ngbDropdown class="col-md-4">
+                    <button class="btn btn-primary btn-block" id="dropdownBasic1" ngbDropdownToggle>Lekari</button>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                       <button ngbDropdownItem (click)="open(profil,klinika.tpkDTOs)">Lista lekara</button>
                     </div>
                   </div>
+                  </td>
+
+                  <td>
+                    <div ngbDropdown class="col-md-4">
+                      <button class="btn btn-primary btn-block" id="dropdownBasic2" ngbDropdownToggle>Ocena</button>
+                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem (click)="open444(profil444,klinika.nazivKlinike)">Oceni kliniku</button>
+                      </div>
+                    </div>
+                  </td>
+
+
 
                 </tr>
               </ng-container>
@@ -109,7 +124,13 @@
               Opis
             </th>
             <th>
+              Ocena
+            </th>
+            <th>
               Biranje satnice
+            </th>
+            <th>
+              Ocena lekara
             </th>
             </thead>
             <tbody>
@@ -119,11 +140,21 @@
                 <td>{{lekar.prezime}}</td>
                 <td>{{lekar.specijalnost}}</td>
                 <td>{{lekar.opis}}</td>
+                <td>{{lekar.prosecna_ocena}}</td>
 
-                <a class="nav-link" (click)="open1(profil1,lekar.email)" >
+                <td>
+                  <a class="nav-link" (click)="open1(profil1,lekar.email)" >
                   <i class="now-ui-icons ui-2_time-alarm"></i>
 
                 </a>
+                </td>
+                <td>
+                  <a class="nav-link" (click)="open144(profil144,lekar.email)" >
+                    <i class="now-ui-icons ui-2_time-alarm"></i>
+
+                  </a>
+                </td>
+
 
               </tr>
             </ng-container>
@@ -309,7 +340,7 @@
     <div class="col-md-14 pr-1">
 
       <div class="form-group">
-        <button [disabled]="loading2" class="btn btn-primary" (click)="open44(profil44,noviLekari)">
+        <button [disabled]="loading2" class="btn btn-primary" (click)="open44(profil44)">
           <span *ngIf="loading2" class="spinner-border spinner-border-sm mr-1"></span>
           Pretraga
         </button>
@@ -429,6 +460,70 @@
           </ng-container>
           </tbody>
         </table>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>
+
+
+<ng-template #profil444 let-modal windowClass="modal-dialog">
+  <div class="modal-header">
+    <h4 class="modal-title" class="text-right" id="modal-basic-title444">Oceni kliniku</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-14 pr-1">
+
+      <div class="form-group">
+        <label>Vasa ocena</label>
+        <input type="text" class="form-control" placeholder="" id="pacijentovaOcena">
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="loading6" class="btn btn-primary" (click)="open445()">
+          <span *ngIf="loading6" class="spinner-border spinner-border-sm mr-1"></span>
+          Prosledi ocenu
+        </button>
+
+      </div>
+
+
+    </div>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>
+
+
+<ng-template #profil144 let-modal windowClass="modal-dialog">
+  <div class="modal-header">
+    <h4 class="modal-title" class="text-right" id="modal-basic-title144">Oceni kliniku</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-14 pr-1">
+
+      <div class="form-group">
+        <label>Vasa ocena</label>
+        <input type="text" class="form-control" placeholder="" id="pacijentovaOcenaLekara">
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="loading6" class="btn btn-primary" (click)="open145()">
+          <span *ngIf="loading6" class="spinner-border spinner-border-sm mr-1"></span>
+          Prosledi ocenu
+        </button>
+
       </div>
 
 

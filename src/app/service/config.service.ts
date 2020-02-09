@@ -232,4 +232,12 @@ export class ConfigService {
     return this._api_url + '/pacijenti/getKartonPac';
   }
 
+  get get_getOcenaKlinike_url(): string {
+    return this._api_url + '/pacijenti/getOcenaKlinike';
+  }
+
+  get get_getOceneLekara_url(): string {
+    return this._api_url + '/pacijenti/getOceneLekara';
+  }
+
 }
