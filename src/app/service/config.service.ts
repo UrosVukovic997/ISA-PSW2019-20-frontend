@@ -149,7 +149,7 @@ export class ConfigService {
   get get_karton_sestra_url(): string {
     return this._api_url + '/sestra/getKarton';
   }
-
+/*
   get get_recepte_sestra_url(): string {
     return this._api_url + '/sestra/recepti';
   }
@@ -161,7 +161,7 @@ export class ConfigService {
   get izmeni_karton_sestra_url(): string {
     return this._api_url + '/sestra/editKarton';
   }
-
+*/
 
   get pacijent_url(): string {
     return this._api_url + '/pacijent';
@@ -236,7 +236,7 @@ export class ConfigService {
     return this._api_url + '/sestra/editKarton';
   }
 
-
+/*
   get admin_kc_get_All_url(): string {
     return this._api_url + '/adminKC/getAll';
   }
@@ -254,7 +254,8 @@ export class ConfigService {
 
   get obrisi_adminKC_url(): string {
     return this._api_url + '/adminKC/obrisi/';
-
+  }
+*/
   get get_selectedKlinPac_url(): string {
     return this._api_url + '/pacijenti/getSelectedKlinPac';
   }

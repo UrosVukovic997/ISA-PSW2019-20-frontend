@@ -30,7 +30,7 @@ export class OveraReceptaComponent implements OnInit {
   }
 
   overi(id) {
-    this.sestraService.overi(id).subscribe((data: {}) => {
+    this.sestraService.overi(id, localStorage.getItem('currentUserUsername')).subscribe((data: {}) => {
         this.ngOnInit();
       }
     );

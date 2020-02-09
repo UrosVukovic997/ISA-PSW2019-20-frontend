@@ -45,8 +45,9 @@ export class SestraServiceService {
 
   }
 
-  overi(id): Observable<any> {
-    return this.http.post(this.configService.overi_recept_sestra_url + '/' + id, {});
+  overi(id, string1): Observable<any> {
+    console.log(string1);
+    return this.http.post(this.configService.overi_recept_sestra_url, {id, string1});
   }
 
   izmeniKarton(karton): Observable<any> {

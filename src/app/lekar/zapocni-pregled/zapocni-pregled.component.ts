@@ -3,8 +3,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {ZapocniPregledService} from '../../service/lekar-kc-service/zapocni-pregled.service';
 import { Pacijent } from '../../shared/utilities/pacijent';
-import {NgbModal, ModalDismissReasons, NgbModalOptions, NgbDropdownToggle, NgbDropdownMenu,
-  NgbDropdown, NgbDropdownItem} from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbModal, ModalDismissReasons, NgbModalOptions, NgbDropdownToggle, NgbDropdownMenu,
+  NgbDropdown, NgbDropdownItem, NgbModalRef
+} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {DatePipe, formatDate} from '@angular/common';
@@ -29,12 +31,17 @@ export class ZapocniPregledComponent implements OnInit {
   lek: any = [];
 
   date;
+  pocetak;
+  vreme: any = [];
+  odsodmor: any = [];
 
   selectedDijagnoze = [];
   selectedLek = [];
 
   typesOfDijagnoza: {name: string, id: number }[] = [];
   typesOfLek: {name: string, id: number }[] = [];
+  private modalRef: NgbModalRef;
+
 
   compareFunction = (o1: any, o2: any) => o1.id === o2.id;
 
@@ -76,12 +83,14 @@ export class ZapocniPregledComponent implements OnInit {
   }
 
   fill() {
+    this.typesOfDijagnoza = [];
     for (const dijagnoza of this.dijagnoze) {
       this.typesOfDijagnoza.push({name: dijagnoza.nazivDijagnoze, id: dijagnoza.id});
     }
   }
 
   fillLek() {
+    this.typesOfLek = [];
     for (const lek of this.lekovi) {
       this.typesOfLek.push({name: lek.nazivLeka, id: lek.id});
     }
@@ -124,7 +133,31 @@ export class ZapocniPregledComponent implements OnInit {
     this.zapocniPregledService.setIzvestaj(this.data).subscribe();
   }
 
+  open(content) {
+    this.modalRef = this.modalService.open(content);
+  }
 
+  onChange1() {
+    const string2 = ((document.getElementById('myDate1') as HTMLInputElement).value);
+    this.date = string2;
+    const string1 = localStorage.getItem(('currentUserEmail').toString());
+    this.zapocniPregledService.getSlobodneTermine({string1, string2})
+      .subscribe((data: {}) => {
+      this.vreme = data;
+      console.log(data);
+      // console.log(this.vreme);
+    });
+  }
 
-
+  open3(sat) {
+    const string2 = this.date;
+    const string1 = localStorage.getItem(('currentUserEmail').toString());
+    const string3 = sat;
+    const integer = this.data.jbo;
+    this.zapocniPregledService.zauzmiTermine({string1, string2, string3, integer}).subscribe((data: {}) => {
+      this.modalRef.close();
+      this.ngOnInit();
+      // console.log(this.vreme);
+    });
+  }
 }

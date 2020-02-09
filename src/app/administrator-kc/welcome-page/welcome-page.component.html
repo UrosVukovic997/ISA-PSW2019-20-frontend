@@ -11,3 +11,27 @@
     </div>
   </div>
 </div>
+
+<ng-template #childmodal id="modal" let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Prilikom prvog prijavljivanja morate promeniti lozinku</h4>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="passwordForm" (ngSubmit)="promeniPassword()">
+      <div class="form-group">
+        <label  >Stara lozinka</label>
+        <input type="text" value='' formControlName="stara" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label >Nova Lozinka</label>
+        <input type="text" value='' formControlName="nova" class="form-control"  />
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Promeni
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

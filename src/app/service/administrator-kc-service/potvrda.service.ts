@@ -21,6 +21,10 @@ export class PotvrdaService {
       );
   }
 
+  prviPut(id): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/api/adminKC/prvoPrij/' + id);
+  }
+
   errorHandl(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

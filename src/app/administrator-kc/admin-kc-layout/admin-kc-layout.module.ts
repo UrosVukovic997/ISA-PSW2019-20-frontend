@@ -18,6 +18,8 @@ import {AdminKcLayoutComponent} from './admin-kc-layout.component';
 import {WelcomePageComponent} from '../welcome-page/welcome-page.component';
 import {ProfileComponent} from '../profile/profile.component';
 import {ForbiddenComponent} from '../forbidden/forbidden.component';
+import {KreirajKartonComponent} from '../kreiraj-karton/kreiraj-karton.component';
+import {ModalModule} from 'ng-bootstrap';
 
 
 
@@ -31,7 +33,8 @@ import {ForbiddenComponent} from '../forbidden/forbidden.component';
     NgbModule,
     ComponentsModule,
     ReactiveFormsModule,
-    DropdownListModule
+    DropdownListModule,
+    ModalModule,
   ],
   declarations: [
     RegKlinikuComponent,
@@ -41,6 +44,7 @@ import {ForbiddenComponent} from '../forbidden/forbidden.component';
     SigDijagnozaComponent,
     WelcomePageComponent,
     ProfileComponent,
+    KreirajKartonComponent,
 
   ],
   bootstrap: [ SigDijagnozaComponent

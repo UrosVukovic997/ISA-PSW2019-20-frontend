@@ -45,4 +45,12 @@ export class AdminService {
   getAllAdminKC(): Observable<any> {
     return this.http.get<any>(this.configService.admin_kc_get_All_url );
   }
+
+  getAllBezKartona(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/api/adminKC/getBezKartona');
+  }
+
+  kreiraj( id ): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/api/adminKC/kreirajKarton/' + id, {});
+  }
 }

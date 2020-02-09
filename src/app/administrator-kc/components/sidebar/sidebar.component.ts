@@ -11,7 +11,9 @@ export const ROUTES: RouteInfo[] = [
   { path: '/admin-kc/registrujadministratora', title: 'Registruj administratora',  icon: 'ui-1_simple-add', class: '' },
   { path: '/admin-kc/zahtevizaregistraciju', title: 'Zahtevi za registraciju',  icon: 'files_single-copy-04', class: '' },
   { path: '/admin-kc/sifarniklekova', title: 'Šifarnik lekova',  icon: 'ui-2_favourite-28', class: '' },
-  { path: '/admin-kc/sifarnikdijagnoza', title: 'Šifarnik dijagnoza',  icon: 'media-2_sound-wave', class: '' }
+  { path: '/admin-kc/sifarnikdijagnoza', title: 'Šifarnik dijagnoza',  icon: 'media-2_sound-wave', class: '' },
+  { path: '/admin-kc/kreirajKarton', title: 'Kreiraj karton',  icon: 'media-2_sound-wave', class: '' }
+
 ];
 
 @Component({

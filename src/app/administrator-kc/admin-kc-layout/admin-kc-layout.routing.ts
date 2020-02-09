@@ -8,6 +8,7 @@ import { SigDijagnozaComponent } from '../sig-dijagnoza/sig-dijagnoza.component'
 import { ProfileComponent } from '../profile/profile.component';
 import { WelcomePageComponent } from '../welcome-page/welcome-page.component';
 import {ForbiddenComponent} from '../forbidden/forbidden.component';
+import {KreirajKartonComponent} from '../kreiraj-karton/kreiraj-karton.component';
 
 export const AdminKcLayoutRoutes: Routes = [
   { path: 'registrujkliniku',      component: RegKlinikuComponent },
@@ -17,6 +18,7 @@ export const AdminKcLayoutRoutes: Routes = [
   { path: 'sifarnikdijagnoza',          component: SigDijagnozaComponent },
   { path: '',          component: WelcomePageComponent },
   { path: 'profil',          component: ProfileComponent },
+  { path: 'kreirajKarton',          component: KreirajKartonComponent },
 
 
 ];

@@ -67,6 +67,7 @@
                 </div>
               </div>
               <button class="btn btn-success" (click)="save()">Sacuvaj</button>
+              <button class="btn btn-neutral" (click) = "open(zakazi)">Zakazi dodatni termin</button>
             </div>
           </div>
         </div>
@@ -85,3 +86,62 @@
     </div>
   </div>
 </div>
+
+
+<ng-template #zakazi let-modal windowClass="modal-dialog">
+  <div class="modal-header">
+    <h4 class="modal-title" class="text-right" id="modal-basic-title2">Biranje termina pregleda</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="col-md-5 pr-1">
+      <div class="form-group">
+        <label>Datum pregleda:</label>
+        <input type="date" [(ngModel)]="odsodmor.pocetak"
+
+               (ngModelChange)="onChange1()"
+               class="form-control"
+               id="myDate1"
+               name="myDate1"
+               value="yyyy-mm-dd"
+               required #name="ngModel">
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class=" text-primary">
+        <th>
+          Satnica
+        </th>
+        <th>
+          Zakazi
+        </th>
+
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let sat of vreme; let i = index">
+          <tr>
+            <td>{{sat.parsirano1}}</td>
+
+
+            <a class="nav-link" (click)="open3(sat.parsirano1)" >
+              <i class="now-ui-icons ui-2_time-alarm"></i>
+
+            </a>
+
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>

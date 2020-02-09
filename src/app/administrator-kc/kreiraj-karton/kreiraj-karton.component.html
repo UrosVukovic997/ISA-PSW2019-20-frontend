@@ -1,0 +1,48 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Kreiraj karton</h4>
+        </div>
+        <div class="card-body">
+          <h6>Pacijenti bez kartona</h6>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class=" text-primary">
+              <th>
+                Ime
+              </th>
+              <th>
+                Prezime
+              </th>
+              <th>
+                Email
+              </th>
+              <th>
+                JBO
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let pacijent of pacijenti; let i = index">
+                <tr>
+                  <td>{{pacijent.imePacijenta}}</td>
+                  <td>{{pacijent.prezimePacijenta}}</td>
+                  <td>{{pacijent.email}}</td>
+                  <td>{{pacijent.jbo}}</td>
+                  <td>
+                    <button class="btn btn-danger" (click)="kreiraj(pacijent.jbo)" >Napravi</button>
+                    <!--  <button ngbDropdownItem (click)="obrisiAdmin(admin.id)")>Obrisi</button> -->
+                  </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
