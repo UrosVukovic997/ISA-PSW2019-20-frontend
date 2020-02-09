@@ -81,6 +81,24 @@
 
               </div>
 
+              <div class="form-group">
+                <button [disabled]="loading1" class="btn btn-primary" (click)="open111()">
+                  <span *ngIf="loading1" class="spinner-border spinner-border-sm mr-1"></span>
+                  Pregledi
+                </button>
+
+
+              </div>
+
+              <div class="form-group">
+                <button [disabled]="loading2" class="btn btn-primary" (click)="open112()">
+                  <span *ngIf="loading2" class="spinner-border spinner-border-sm mr-1"></span>
+                  Karton
+                </button>
+
+
+              </div>
+
             </div>
             <!--            <div class="row">
                           <div class="col-md-12">

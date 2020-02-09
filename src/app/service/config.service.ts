@@ -223,4 +223,13 @@ export class ConfigService {
   get get_getSearchLekarPac_url(): string {
     return this._api_url + '/pacijenti/getSearchLekarPac';
   }
+
+  get get_getPregledPac_url(): string {
+    return this._api_url + '/pacijenti/getPregledPac';
+  }
+
+  get getKartonPac_url(): string {
+    return this._api_url + '/pacijenti/getKartonPac';
+  }
+
 }

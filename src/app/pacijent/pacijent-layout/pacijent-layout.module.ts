@@ -13,6 +13,8 @@ import {ComponentsModule} from '../../administrator-kc/components/components.mod
 import {DropdownListModule} from 'ngx-dropdown-list';
 import {PacijentLayoutRutes} from './pacijent-layout.routing';
 import {KlinikePacijentaComponent} from '../klinike-pacijenta/klinike-pacijenta.component';
+import {PreglediComponent} from '../pregledi/pregledi.component';
+import {KartonPacijentaComponent} from '../karton-pacijenta/karton-pacijenta.component';
 
 
 
@@ -20,7 +22,9 @@ import {KlinikePacijentaComponent} from '../klinike-pacijenta/klinike-pacijenta.
   declarations: [
     PacijentLayoutComponent,
     ProfilComponent,
-    KlinikePacijentaComponent
+    KlinikePacijentaComponent,
+    PreglediComponent,
+    KartonPacijentaComponent
   ],
   imports: [
     CommonModule,

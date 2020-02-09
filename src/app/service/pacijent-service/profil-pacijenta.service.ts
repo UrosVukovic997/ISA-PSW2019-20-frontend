@@ -19,4 +19,8 @@ export class ProfilPacijentaService {
   izmeni(user) {
     return this.http.post(`${this.configService.izmeni_pacijenta_url}`, user);
   }
+
+  getKartonPac( jbo ): Observable<PacijentEdit> {
+    return this.http.get<PacijentEdit>(this.configService.getKartonPac_url + '/' + jbo);
+  }
 }

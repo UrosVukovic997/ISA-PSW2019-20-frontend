@@ -14,6 +14,8 @@ import {PacijentEdit} from '../../shared/utilities/pacijent_edit';
 export class ProfilComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
+  loading1 = false;
+  loading2 = false;
   submitted = false;
   error: string;
 
@@ -87,6 +89,16 @@ export class ProfilComponent implements OnInit {
           this.error = error;
           this.loading = false;
         });
+  }
+
+  open111() {
+    const jbo = ((document.getElementById('jbo') as HTMLInputElement).value);
+    this.router.navigate(['profilPacijenta/pregledi/' + jbo ]);
+  }
+
+  open112() {
+    const jbo = ((document.getElementById('jbo') as HTMLInputElement).value);
+    this.router.navigate(['profilPacijenta/karton/' + jbo ]);
   }
 
 }
