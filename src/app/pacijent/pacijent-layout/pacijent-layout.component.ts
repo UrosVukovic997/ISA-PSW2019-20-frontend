@@ -12,6 +12,9 @@ export class PacijentLayoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (localStorage.getItem('currentUserRole') !== 'pacijent') {
+      this.router.navigate(['/forbidden']);
+    }
   }
 
 

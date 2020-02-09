@@ -280,5 +280,4 @@ export class ConfigService {
   get get_getOceneLekara_url(): string {
     return this._api_url + '/pacijenti/getOceneLekara';
   }
-
 }
