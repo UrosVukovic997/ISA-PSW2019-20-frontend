@@ -17,7 +17,6 @@ import { NavbarAdminKlinikeComponent } from './navbar/navbar.component';
     CommonModule,
     RouterModule,
     NgbModule
-
   ]
 })
 export class ComponentsAdminKlinikeModule { }
