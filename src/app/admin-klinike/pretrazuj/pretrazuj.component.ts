@@ -15,6 +15,9 @@ import {AdminService} from '../../service/administrator-kc-service/admin.service
 import {KlinikaService} from '../../service/administrator-kc-service/klinika.service';
 import {first} from 'rxjs/operators';
 import {PretrazujService} from '../../service/admin-klinike-service/pretrazuj.service';
+import {Pacijent} from '../../shared/utilities/pacijent';
+import {Dijagnoza} from '../../shared/utilities/dijagnoza';
+import {TipPregleda} from '../../shared/utilities/tipPregleda';
 
 @Component({
   selector: 'app-pretrazuj',
@@ -31,9 +34,11 @@ export class PretrazujComponent implements OnInit {
   adminForm: FormGroup;
   @Input() myModalTitle;
   @Input() myModalContent;
+  pretraziForm: FormGroup;
   loading = false;
   submitted = false;
-
+  lekari: any = [];
+  tipoviPregleda: any = [];
   constructor(private pretrazujService: PretrazujService , private router: Router, private modalService: NgbModal,
               private formBuilder: FormBuilder) {
     this.modalOptions = {
@@ -42,5 +47,27 @@ export class PretrazujComponent implements OnInit {
     };
   }
   ngOnInit() {
+    this.ucitajLekare();
+    this.ucitajTipovePregleda();
+    this.pretraziForm = this.formBuilder.group({
+      imeP: ['', Validators.required],
+      opis: ['', Validators.required]
+    });
+  }
+  ucitajLekare() {
+    this.pretrazujService.getAllLekari()
+      .subscribe((data: {}) => {
+          this.lekari = data;
+          console.log(data);
+        }
+      );
+  }
+  ucitajTipovePregleda() {
+    this.pretrazujService.getAllTipPregleda()
+      .subscribe((data: {}) => {
+          this.tipoviPregleda = data;
+          console.log(data);
+        }
+      );
   }
 }

@@ -94,7 +94,7 @@ export class LogovanjeComponent implements OnInit {
                   localStorage.setItem('currentUserRole', 'medicinskaSestra');
                 } else {
                   if (this.myForm.value === 'administratorKlinike') {
-                    this.router.navigate(['/admin']);
+                    this.router.navigate(['/admin-klinike']);
                     localStorage.setItem('currentUserRole', 'administratorKlinike');
                   } else {
                     this.router.navigate(['/logovanje']);

@@ -283,6 +283,9 @@ export class ConfigService {
   get get_all_lekar_url(): string {
     return this._api_url + '/admin/allLekari';
   }
+  get get_all_tip_pregleda_url(): string {
+    return this._api_url + '/admin/allTipovi';
+  }
   get get_all_Sale(): string {
     return this._api_url + '/admin/getAllSale';
   }

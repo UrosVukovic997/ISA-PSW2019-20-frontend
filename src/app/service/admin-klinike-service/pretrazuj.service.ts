@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ConfigService} from '../config.service';
-import {Observable} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {Klinika} from '../../shared/utilities/klinika';
 import {Administrator} from '../../shared/utilities/administrator';
+import {TipPregleda} from '../../shared/utilities/tipPregleda';
+import {Lekar} from '../../shared/utilities/lekar';
+import {catchError} from 'rxjs/operators';
+import {Pacijent} from '../../shared/utilities/pacijent';
 
 @Injectable({
   providedIn: 'root'
@@ -11,29 +15,34 @@ import {Administrator} from '../../shared/utilities/administrator';
 export class PretrazujService {
 
   constructor(private http: HttpClient, private configService: ConfigService) { }
-  /*
-  getAll(): Observable<Administrator> {
-    return this.http.get<Administrator>(this.configService.get_all_admin_url);
-  }
 
-  getAllByKlinika(klinika): Observable<Administrator> {
-    return this.http.get<Administrator>(this.configService.get_all_admin_url + '/' + klinika);
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+  getAllLekari(): Observable<Lekar> {
+    return this.http.get<Lekar>(this.configService.get_all_lekar_url, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandl)
+      );
   }
-
-  dodajAdmina(ime, prezime, email, username, lozinka, klinika): Observable<any> {
-    const a = new Administrator();
-    a.id = 0;
-    a.ime = ime;
-    a.prezime = prezime;
-    a.email = email;
-    a.username = username;
-    a.lozinka = lozinka;
-    a.klinika = klinika;
-    return this.http.post<any>(this.configService.dodaj_admin_url, a);
+  getAllTipPregleda(): Observable<Lekar> {
+    return this.http.get<Lekar>(this.configService.get_all_tip_pregleda_url, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandl)
+      );
   }
-
-  obrisiAdmina(id): Observable<any> {
-    return this.http.delete(this.configService.obrisi_admin_url + id);
+  errorHandl(error) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
   }
-  */
 }

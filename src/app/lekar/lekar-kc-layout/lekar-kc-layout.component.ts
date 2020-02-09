@@ -22,6 +22,9 @@ export class LekarKcLayoutComponent implements OnInit {
   ngOnInit() {
     const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
+    if (localStorage.getItem('currentUserRole') !== 'lekar') {
+      this.router.navigate(['/forbidden']);
+    }
     if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
       // if we are on windows OS we activate the perfectScrollbar function
 

@@ -27,6 +27,9 @@ export class AdminKlinikeLayoutComponent implements OnInit {
     */
     const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
+    if (localStorage.getItem('currentUserRole') !== 'administratorKlinike') {
+      this.router.navigate(['/forbidden']);
+    }
     if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
       // if we are on windows OS we activate the perfectScrollbar function
 

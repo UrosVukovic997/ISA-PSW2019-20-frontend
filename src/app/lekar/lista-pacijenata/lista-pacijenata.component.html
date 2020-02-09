@@ -6,6 +6,14 @@
       <div class="card">
         <div class="card-header">
           <h4 class="card-title"> Lista pacijenata</h4>
+
+          <div class="modal-body">
+            <div class="card-body">
+              <input placeholder="Naziv pacijenta" [(ngModel)]="ime" (input)="Search()">
+              <input placeholder="Prezime pacijenta" [(ngModel)]="prezime" (input)="Search2()">
+            </div>
+          </div>
+
         </div>
         <div class="card-body">
           <div class="table-responsive">
