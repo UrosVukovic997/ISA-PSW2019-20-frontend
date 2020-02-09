@@ -280,6 +280,7 @@ export class ConfigService {
   get get_getOceneLekara_url(): string {
     return this._api_url + '/pacijenti/getOceneLekara';
   }
+
   get get_all_lekar_url(): string {
     return this._api_url + '/admin/allLekari';
   }
@@ -305,4 +306,5 @@ export class ConfigService {
   get get_medOsoblje_url(): string {
     return this._api_url + '/admin/getMedOsoblje';
   }
+
 }

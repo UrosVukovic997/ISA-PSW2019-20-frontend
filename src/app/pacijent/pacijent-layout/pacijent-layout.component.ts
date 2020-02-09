@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LogovanjeServiceService} from '../../service/logovanjeService/logovanje-service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-pacijent-layout',
@@ -9,9 +10,12 @@ import {LogovanjeServiceService} from '../../service/logovanjeService/logovanje-
 export class PacijentLayoutComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    if (localStorage.getItem('currentUserRole') !== 'pacijent') {
+      this.router.navigate(['/forbidden']);
+    }
   }
 
 
