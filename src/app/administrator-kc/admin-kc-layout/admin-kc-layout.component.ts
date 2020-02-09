@@ -21,7 +21,7 @@ export class AdminKcLayoutComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('currentUserRole') !== 'admin-kc') {
-     // this.router.navigate(['/forbidden']);
+      this.router.navigate(['/forbidden']);
     }
 
     const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
