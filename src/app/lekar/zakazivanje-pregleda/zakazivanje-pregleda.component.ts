@@ -17,7 +17,6 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 
 import {TipPregleda} from '../../shared/utilities/tipPregleda';
-import {Odsodmor} from "../../shared/utilities/odsodmor";
 
 @Component({
   selector: 'app-zakazivanje-pregleda',

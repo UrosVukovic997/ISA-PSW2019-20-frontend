@@ -1,0 +1,45 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Pregledi</h4>
+        </div>
+        <div class="card-body">
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class=" text-primary">
+              <th>
+                Pocetak
+              </th>
+              <th>
+                Kraj
+              </th>
+              <th>
+                Ime lekara
+              </th>
+              <th>
+                Prezime lekara
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let pregled of pregledi; let i = index">
+                <tr>
+                  <td>{{pregled.pocetak}}</td>
+                  <td>{{pregled.kraj}}</td>
+                  <td>{{pregled.ime}}</td>
+                  <td>{{pregled.prezime}}</td>
+
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
