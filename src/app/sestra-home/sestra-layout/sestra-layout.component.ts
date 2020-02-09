@@ -20,7 +20,7 @@ export class SestraLayoutComponent implements OnInit {
 
   ngOnInit() {
 
-    if (localStorage.getItem('currentUserRole') !== 'sestra') {
+    if (localStorage.getItem('currentUserRole') !== 'medicinskaSestra') {
       this.router.navigate(['/forbidden']);
     }
 
