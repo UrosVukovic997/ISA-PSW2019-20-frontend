@@ -1,0 +1,263 @@
+
+<div class="panel-header panel-header-sm">
+
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Pretraga sala</h4>
+
+          <div class="modal-body">
+            <div class="card-body">
+              <input placeholder="Naziv sale" [(ngModel)]="naziv" (input)="Search()">
+              <input placeholder="Broj sale" [(ngModel)]="broj" (input)="Search2()">
+            </div>
+          </div>
+
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+              <th>
+                Id
+              </th>
+              <th>
+                Naziv
+              </th>
+              <th>
+                Broj
+              </th>
+              <th class="text-right">
+
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let sala of sale">
+                <tr>
+                  <td>{{sala.id}}</td>
+                  <td>{{sala.naziv}}</td>
+                  <td>{{sala.broj}}</td>
+                  <td>
+                  <div class="col-md-7">
+                    <button  class="btn btn-primary btn-block" id="terminBtn1" (click)="terminiSale(listaTerminaSale,sala.id)" >Definisi pregled</button>
+                  </div>
+                  </td>
+                  <td>
+                    <div class="col-md-7">
+                      <button  class="btn btn-primary btn-block" id="terminBtn3" >Definisi operacije</button>
+                   </div>
+                  </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<ng-template #listaTerminaSale let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Podaci o sali {{salaId.naziv}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+
+      <div class="row">
+
+        <div class="col-pr-4 pr-4">
+          <div class="form-group">
+            <label>ID:</label>
+            <input type="text" [(ngModel)]="salaId.id"
+                   disabled = "true"
+                   class="form-control"
+                   id="id"
+                   name="id"
+                   placeholder="{{salaId.id}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+        <div class="col-pr-4 pr-1">
+          <div class="form-group">
+            <label>Naziv sale:</label>
+            <input type="text" [(ngModel)]="salaId.naziv"
+                   disabled = "true"
+                   class="form-control"
+                   id="naziv"
+                   name="naziv"
+                   placeholder="{{salaId.naziv}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+        <div class="col-pr-4 pr-1">
+          <div class="form-group">
+            <label>Broj sale:</label>
+            <input type="text" [(ngModel)]="salaId.broj"
+                   disabled = "true"
+                   class="form-control"
+                   id="opis"
+                   name="opis"
+                   placeholder="{{salaId.broj}}"
+                   required #name="ngModel">
+          </div>
+        </div>
+
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <p>Zakazani termini za salu: {{salaId.naziv}}</p>
+          <table class="table">
+            <thead class=" text-primary">
+            <th>
+              Id
+            </th>
+            <th>
+              Pocetak pregleda
+            </th>
+            <th>
+              Kraj pregleda
+            </th>
+            <th class="text-right">
+
+            </th>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let sala of items">
+              <tr>
+                <td>{{sala.id}}</td>
+                <td>{{sala.pocetak}}</td>
+                <td>{{sala.kraj}}</td>
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+  <button  class="btn btn-primary btn-block" id="terminBtn2" (click)="zakazi(zakaziP,salaId.id)" >Zakazi</button>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Izadji</button>
+  </div>
+</ng-template>
+
+<ng-template #zakaziP let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title3">Definisi pregled</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+        <div class="col-md-4 pr-1">
+          <div class="form-group">
+            <label>Pocetak</label>
+            <div class="input-group">
+              <input type="datetime-local" [(ngModel)]="terminZ.pocetak"
+                     class="form-control"
+                     id="myDate1"
+                     name="myDate1"
+                     value="yyyy-mm-dd"
+                     required #name="ngModel">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 pr-1">
+          <div class="form-group">
+            <label>Kraj</label>
+            <div class="input-group">
+              <input type="datetime-local" [(ngModel)]="terminZ.kraj"
+                     class="form-control"
+                     id="myDate2"
+                     name="myDate2"
+                     value="yyyy-mm-dd"
+                     required #name="ngModel">
+            </div>
+          </div>
+        </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button  class="btn btn-primary btn-block" id="terminBtn4">Ok</button>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Izadji</button>
+  </div>
+</ng-template>
+
+
+<footer class="footer" >
+  <div class="card-footer">
+    <nav>
+      <ul>
+        <li>
+          <a href="https://www.creative-tim.com">
+            Creative Tim
+          </a>
+        </li>
+        <li>
+          <a href="http://presentation.creative-tim.com">
+            About Us
+          </a>
+        </li>
+        <li>
+          <a href="http://blog.creative-tim.com">
+            Blog
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="copyright" id="copyright">
+      &copy; <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+    </div>
+  </div>
+</footer>
+
+<!--
+           <div class="row">
+               <div class="col-md-4 pr-1">
+                 <div class="form-group">
+                   <label>Pocetak</label>
+                   <div class="input-group">
+                     <input type="datetime-local" [(ngModel)]="termin.pocetak"
+                            class="form-control"/>
+                            id="myDate1"
+                            name="myDate1"
+                            value="yyyy-mm-dd"
+                            required #name="ngModel">
+                   </div>
+                 </div>
+               </div>
+
+               <div class="col-md-4 pr-1">
+                 <div class="form-group">
+                   <label>Kraj</label>
+                   <div class="input-group">
+                     <input type="datetime-local" [(ngModel)]="termin.kraj"
+                            class="form-control"
+                            id="myDate2"
+                            name="myDate2"
+                            value="yyyy-mm-dd"
+                            required #name="ngModel">
+                   </div>
+                 </div>
+               </div>
+           </div>
+         --->

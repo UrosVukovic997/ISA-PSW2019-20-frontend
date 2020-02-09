@@ -280,5 +280,26 @@ export class ConfigService {
   get get_getOceneLekara_url(): string {
     return this._api_url + '/pacijenti/getOceneLekara';
   }
+  get get_all_lekar_url(): string {
+    return this._api_url + '/admin/allLekari';
+  }
+  get get_all_Sale(): string {
+    return this._api_url + '/admin/getAllSale';
+  }
 
+  get get_salaById(): string {
+    return this._api_url + '/admin/getSalaById';
+  }
+  get get_all_Termini(): string {
+    return this._api_url + '/admin/getAllTermini';
+  }
+  get get_all_odsOdmor_url(): string {
+    return this._api_url + '/admin/getAllOdOd';
+  }
+  get get_all_TerminiOdOd_url(): string {
+    return this._api_url + '/admin/getAllTerminiOdOd';
+  }
+  get get_medOsoblje_url(): string {
+    return this._api_url + '/admin/getMedOsoblje';
+  }
 }

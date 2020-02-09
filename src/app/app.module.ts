@@ -38,6 +38,8 @@ import { KlinikePacijentaComponent } from './pacijent/klinike-pacijenta/klinike-
 import { KreirajKartonComponent } from './administrator-kc/kreiraj-karton/kreiraj-karton.component';
 import { PreglediComponent } from './pacijent/pregledi/pregledi.component';
 import { KartonPacijentaComponent } from './pacijent/karton-pacijenta/karton-pacijenta.component';
+import {AdminKlinikeLayoutComponent} from './admin-klinike/admin-klinike-layout/admin-klinike-layout.component';
+import {ComponentsAdminKlinikeModule} from './admin-klinike/components/components.module';
 
 
 // import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
@@ -53,7 +55,7 @@ import { KartonPacijentaComponent } from './pacijent/karton-pacijenta/karton-pac
     AppRoutingModule,
     ComponentsModule,
     ComponentsLekarModule,
-
+    ComponentsAdminKlinikeModule,
     NgbModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
@@ -70,8 +72,8 @@ import { KartonPacijentaComponent } from './pacijent/karton-pacijenta/karton-pac
     PotvrdaComponent,
     ForbiddenComponent,
     SestraLayoutComponent,
-    LekarKcLayoutComponent
-
+    LekarKcLayoutComponent,
+    AdminKlinikeLayoutComponent,
 
 
     // SidebarLekarComponent,

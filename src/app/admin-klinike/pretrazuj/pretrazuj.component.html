@@ -1,0 +1,110 @@
+<div class="panel-header panel-header-sm">
+</div>
+
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Registruj administratora</h4>
+        </div>
+
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class=" text-primary">
+              <th>
+                Ime
+              </th>
+              <th>
+                Prezime
+              </th>
+              <th>
+                Korisnicko ime
+              </th>
+              <th>
+                Email
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let admin of admini; let i = index">
+                <tr>
+                  <td>{{admin.ime}}</td>
+                  <td>{{admin.prezime}}</td>
+                  <td>{{admin.username}}</td>
+                  <td>{{admin.email}}</td>
+
+                  <td>
+                    <div ngbDropdown class="d-inline-block">
+                      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Akcija</button>
+                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem>Obriši</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+          <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Dodaj</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{myModalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label  >Ime</label>
+        <input type="text" value='' formControlName="ime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ime.errors }" />
+        <div *ngIf="submitted && f.ime.errors" class="invalid-feedback">
+          <div *ngIf="f.ime.errors.required">Ime ne moze biti prazano</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label >Prezime</label>
+        <input type="text" value='' formControlName="prezime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.prezime.errors }" />
+        <div *ngIf="submitted && f.prezime.errors" class="invalid-feedback">
+          <div *ngIf="f.prezime.errors.required">Prezime ne moze biti prazan</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label >Email</label>
+        <input type="text" value='' formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email ne moze biti prazan</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label >Korisnicko ime</label>
+        <input type="text" value='' formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Korisnicko ime ne moze biti prazano</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label >Lozinka</label>
+        <input type="text" value='' formControlName="lozinka" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lozinka.errors }" />
+        <div *ngIf="submitted && f.lozinka.errors" class="invalid-feedback">
+          <div *ngIf="f.lozinka.errors.required">Lozinka ne moze biti prazano</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Dodaj
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
