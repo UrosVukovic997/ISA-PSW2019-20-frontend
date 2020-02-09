@@ -66,4 +66,11 @@ export class KlinikaService {
     return this.http.get<KlinikaPac>(this.configService.get_getSearchLekarPac_url + '/' + spojeno);
   }
 
+  getOcenaKlinike(spojeno): Observable<KlinikaPac> {
+    return this.http.get<KlinikaPac>(this.configService.get_getOcenaKlinike_url + '/' + spojeno);
+  }
+
+  getOceneLekara(spojeno): Observable<KlinikaPac> {
+    return this.http.get<KlinikaPac>(this.configService.get_getOceneLekara_url + '/' + spojeno);
+  }
 }

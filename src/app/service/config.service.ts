@@ -263,4 +263,21 @@ export class ConfigService {
     return this._api_url + '/pacijenti/getSearchLekarPac';
 
   }
+
+  get get_getPregledPac_url(): string {
+    return this._api_url + '/pacijenti/getPregledPac';
+  }
+
+  get getKartonPac_url(): string {
+    return this._api_url + '/pacijenti/getKartonPac';
+  }
+
+  get get_getOcenaKlinike_url(): string {
+    return this._api_url + '/pacijenti/getOcenaKlinike';
+  }
+
+  get get_getOceneLekara_url(): string {
+    return this._api_url + '/pacijenti/getOceneLekara';
+  }
+
 }

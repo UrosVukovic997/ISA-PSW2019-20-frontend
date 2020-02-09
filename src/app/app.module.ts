@@ -35,6 +35,8 @@ import {PacijentLayoutModule} from './pacijent/pacijent-layout/pacijent-layout.m
 import { KartonLekarComponent } from './lekar/karton-lekar/karton-lekar.component';
 import { OveraReceptaComponent } from './sestra-home/overa-recepta/overa-recepta.component';
 import { KlinikePacijentaComponent } from './pacijent/klinike-pacijenta/klinike-pacijenta.component';
+import { PreglediComponent } from './pacijent/pregledi/pregledi.component';
+import { KartonPacijentaComponent } from './pacijent/karton-pacijenta/karton-pacijenta.component';
 
 
 // import { SidebarLekarComponent } from './lekar/components/sidebar/sidebar.component';
