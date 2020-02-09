@@ -13,6 +13,7 @@ import {ForbiddenComponent} from './administrator-kc/forbidden/forbidden.compone
 import {SestraLayoutComponent} from './sestra-home/sestra-layout/sestra-layout.component';
 import {PacijentLayoutModule} from './pacijent/pacijent-layout/pacijent-layout.module';
 import {PacijentLayoutComponent} from './pacijent/pacijent-layout/pacijent-layout.component';
+import {AdminKlinikeLayoutComponent} from './admin-klinike/admin-klinike-layout/admin-klinike-layout.component';
 
 const routes: Routes = [
 
@@ -49,6 +50,14 @@ const routes: Routes = [
         loadChildren: './sestra-home/sestra-layout/sestra-layout.module#SestraLayoutModule'
       }]
     },
+  {
+    path: 'admin-klinike',
+    component: AdminKlinikeLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: './admin-klinike/admin-klinike-layout/admin-klinike-layout.module#AdminKlinikeLayoutModule'
+      }]},
     {
     path: 'lekar-kc',
     component: LekarKcLayoutComponent,

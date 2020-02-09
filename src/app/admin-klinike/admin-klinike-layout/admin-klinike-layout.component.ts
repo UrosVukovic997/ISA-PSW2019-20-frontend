@@ -7,11 +7,11 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-lekar-kc-layout',
-  templateUrl: './lekar-kc-layout.component.html',
-  styleUrls: ['./lekar-kc-layout.component.css']
+  selector: 'app-admin-kc-layout',
+  templateUrl: './admin-klinike-layout.component.html',
+  styleUrls: ['./admin-klinike-layout.component.css']
 })
-export class LekarKcLayoutComponent implements OnInit {
+export class AdminKlinikeLayoutComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   private _router: Subscription;
   private lastPoppedUrl: string;
@@ -20,9 +20,14 @@ export class LekarKcLayoutComponent implements OnInit {
   constructor(public location: Location, private router: Router) { }
 
   ngOnInit() {
+    /*     Zabrana pristupa preko URL putanje
+    if (localStorage.getItem('currentUserRole') !== 'admin-kc') {
+      this.router.navigate(['/forbidden']);
+    }
+    */
     const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
-    if (localStorage.getItem('currentUserRole') !== 'lekar') {
+    if (localStorage.getItem('currentUserRole') !== 'administratorKlinike') {
       this.router.navigate(['/forbidden']);
     }
     if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
@@ -54,7 +59,7 @@ export class LekarKcLayoutComponent implements OnInit {
       }
     });
   }
-  /*
+
   runOnRouteChange(): void {
     if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
       const elemMainPanel = (document.querySelector('.main-panel') as HTMLElement);
@@ -69,5 +74,5 @@ export class LekarKcLayoutComponent implements OnInit {
     }
     return bool;
   }
-  */
+
 }

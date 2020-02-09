@@ -1,0 +1,106 @@
+<div class="panel-header panel-header-sm">
+</div>
+
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Lista lekara</h4>
+        </div>
+
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class=" text-primary">
+              <th>
+                Ime
+              </th>
+              <th>
+                Prezime
+              </th>
+              <th>
+                Specijalnost
+              </th>
+              <th>
+                Email
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let lekar of lekari">
+                <tr>
+                  <td>{{lekar.ime}}</td>
+                  <td>{{lekar.prezime}}</td>
+                  <td>{{lekar.specijalnost}}</td>
+                  <td>{{lekar.email}}</td>
+
+                  <td>
+                    <div ngbDropdown class="d-inline-block">
+                      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Akcija</button>
+                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem>Obriši</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+          <button class="btn btn-lg btn-outline-primary" >Dodaj</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Tipovi pregleda</h4>
+        </div>
+
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class=" text-primary">
+              <th>
+                id
+              </th>
+              <th>
+                Tip pregleda
+              </th>
+              <th>
+                Cena
+              </th>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let tip of tipoviPregleda;">
+                <tr>
+                  <td>{{tip.id}}</td>
+                  <td>{{tip.naziv}}</td>
+                  <td>{{tip.cena}}</td>
+                  <td>
+                    <div ngbDropdown class="d-inline-block">
+                      <button class="btn btn-outline-primary" id="dropdownBasic3" ngbDropdownToggle>Akcija</button>
+                      <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+                        <button ngbDropdownItem>Obriši</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+          <button class="btn btn-lg btn-outline-primary" >Dodaj</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

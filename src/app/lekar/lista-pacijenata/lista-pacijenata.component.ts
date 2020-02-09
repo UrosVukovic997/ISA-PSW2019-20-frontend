@@ -36,7 +36,8 @@ export class ListaPacijenataComponent implements OnInit {
   @Input() myModalContent;
   loading = false;
   submitted = false;
-  imeP;
+  ime: string;
+  prezime: string;
   prezimeP;
   emailP;
   adresaP;
@@ -51,7 +52,7 @@ export class ListaPacijenataComponent implements OnInit {
   pacijentDijag;
   selected = '';
   items: any;
-
+  pacijenti1: any = [];
   pacijenti: any = [];
   optionItems: any [];
   ngOnInit() {
@@ -69,14 +70,28 @@ export class ListaPacijenataComponent implements OnInit {
         }
       );
   }
-  /*
-  profil(id) {
-    this.service.profilPacijenta(id).subscribe();
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-      this.router.navigate(['/lekar-kc/listapacijenata']);
-    });
+  Search() {
+    /*
+    if (this.ime !== '') {
+      this.pacijenti = this.pacijenti.filter( res => {
+        return res.ime.toLocaleLowerCase().match(this.ime.toLocaleLowerCase());
+      });
+    } else if (this.ime === '') {
+      this.ngOnInit();
+    }
+     */
   }
-  */
+  Search2() {
+    /*
+    if (this.prezime !== '') {
+      this.pacijenti = this.pacijenti.filter( res => {
+        return res.prezime.toLocaleLowerCase().match(this.prezime.toLocaleLowerCase());
+      });
+    } else if (this.prezime === '') {
+      this.ngOnInit();
+    }
+    */
+  }
   obrisi(id) {
     this.service.obrisiPacijenta(id).subscribe();
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
