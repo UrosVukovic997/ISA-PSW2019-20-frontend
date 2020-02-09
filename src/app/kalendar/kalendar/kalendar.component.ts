@@ -20,6 +20,7 @@ import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {KalendarService} from '../../service/kalendar/kalendar.service';
 import {KalendarDogadjaj} from '../../shared/utilities/kalendar-dogadjaj';
+import {Router} from '@angular/router';
 
 const colors: any = {
   red: {
@@ -122,7 +123,7 @@ export class KalendarComponent  implements  OnInit {
   dogadjaji: any = [];
   color;
   naslov;
-  constructor(private modal: NgbModal, private kalendarService: KalendarService) { }
+  constructor(private modal: NgbModal, private kalendarService: KalendarService, private router: Router) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('currentUserRole') === 'lekar') {
@@ -221,8 +222,9 @@ export class KalendarComponent  implements  OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: 'lg' });
+    if (localStorage.getItem('currentUserRole').toString() === 'lekar') {
+      this.router.navigate(['lekar-kc/zapocniPregled']);
+    }
   }
 
   addEvent(): void {

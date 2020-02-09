@@ -38,9 +38,7 @@ export class ListaRegZahtevaComponent implements OnInit {
   odobri(id) {
     this.regZahteviService.odobriPacijenta(id).subscribe(
     );
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/admin-kc/zahtevizaregistraciju']);
-    });
+    this.ngOnInit();
   }
 
   obrisi(id) {
