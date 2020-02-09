@@ -182,7 +182,7 @@
 
     <div class="col-md-3 pr-1">
       <div class="form-group">
-        <label>Pocetak pregleda:</label>
+        <label>Datum pregleda</label>
         <input type="date" [(ngModel)]="odsodmor.pocetak"
 
                (ngModelChange)="onChange1(odsodmor.pocetak)"
@@ -212,7 +212,7 @@
             <td>{{sat.parsirano1}}</td>
 
 
-            <a class="nav-link" (click)="open3(sat.parsirano1)" >
+            <a class="nav-link" (click)="open3(sat.parsirano1)" (click)="open3(sat.parsirano1)" >
               <i class="now-ui-icons ui-2_time-alarm"></i>
 
             </a>

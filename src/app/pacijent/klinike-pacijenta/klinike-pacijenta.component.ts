@@ -10,6 +10,7 @@ import {first} from 'rxjs/operators';
 import {Klinika} from '../../shared/utilities/klinika';
 import {KlinikaPac} from '../../shared/utilities/KlinikaPac';
 import {KlinikaSearch} from '../../shared/utilities/KlinikaSearch';
+import {ProfilPacijentaService} from '../../service/pacijent-service/profil-pacijenta.service';
 
 @Component({
   selector: 'app-klinike-pacijenta',
@@ -22,7 +23,8 @@ export class KlinikePacijentaComponent implements OnInit {
 
   constructor(private router: Router, private modalService: NgbModal,
               private formBuilder: FormBuilder, private klinikaService: KlinikaService,
-              private klinikaLekariService: KlinikaLekariServiceService) {
+              private klinikaLekariService: KlinikaLekariServiceService,
+              private pps: ProfilPacijentaService) {
 
   }
 
@@ -48,6 +50,7 @@ export class KlinikePacijentaComponent implements OnInit {
   zaOpen1: any = [];
   zaOpen2: any = [];
   mojEvent: any = [];
+  pacijent: any = [];
 
   nazivKlinike: string;
   adresaKlinike: string;
@@ -78,12 +81,22 @@ export class KlinikePacijentaComponent implements OnInit {
 
   ngOnInit() {
     this.ucitajKlinike();
+    this.ucitajZahteve(); // pacijenti
   }
 
   ucitajKlinike() {
     this.klinikaService.getKlinPac()
       .subscribe((data: {}) => {
           this.klinike = data;
+        }
+      );
+  }
+
+  ucitajZahteve() {
+    this.pps.getByUsername(localStorage.getItem('currentUserUsername').toString())
+      .subscribe((data: {}) => {
+          this.pacijent = data;
+          // console.log(this.pacijent);
         }
       );
   }
@@ -146,10 +159,15 @@ export class KlinikePacijentaComponent implements OnInit {
   }
 
   open3(sat) {
-    this.spojeno1 = sat + ',' + this.pocetak + ',' + this.emailLekara;
+    this.spojeno1 = sat + ',' + this.pocetak + ',' + this.emailLekara + ',' + this.pacijent.username;
     console.log(this.spojeno1);
     this.klinikaLekariService.getzakaziPregled(this.spojeno1).subscribe((data: {}) => {
       this.zakazan = data;
+      // console.log(this.vreme);
+    });
+
+    this.klinikaLekariService.getVreme(this.spojeno).subscribe((data: {}) => {
+      this.vreme = data;
       // console.log(this.vreme);
     });
   }
@@ -370,7 +388,7 @@ export class KlinikePacijentaComponent implements OnInit {
 
   open445() {
     const ocena = ((document.getElementById('pacijentovaOcena') as HTMLInputElement).value);
-    this.spojeno4 = ocena + ',' + this.noviNazivKlinike;
+    this.spojeno4 = ocena + ',' + this.noviNazivKlinike + ',' + this.pacijent.username;
     console.log(this.spojeno4);
     this.klinikaService.getOcenaKlinike(this.spojeno4).subscribe((data: {}) => {
         // this.noviLekari = data;
