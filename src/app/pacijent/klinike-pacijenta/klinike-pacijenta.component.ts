@@ -144,6 +144,7 @@ export class KlinikePacijentaComponent implements OnInit {
     this.pocetak = pocetak;
     // console.log('radi');
     this.spojeno = pocetak + ',' + this.emailLekara;
+    console.log(this.spojeno);
     this.klinikaLekariService.getVreme(this.spojeno).subscribe((data: {}) => {
       this.vreme = data;
       // console.log(this.vreme);
@@ -388,7 +389,7 @@ export class KlinikePacijentaComponent implements OnInit {
 
   open445() {
     const ocena = ((document.getElementById('pacijentovaOcena') as HTMLInputElement).value);
-    this.spojeno4 = ocena + ',' + this.noviNazivKlinike + ',' + this.pacijent.username;
+    this.spojeno4 = ocena + ',' + this.noviNazivKlinike   + ',' + this.pacijent.username;
     console.log(this.spojeno4);
     this.klinikaService.getOcenaKlinike(this.spojeno4).subscribe((data: {}) => {
         // this.noviLekari = data;
